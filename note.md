@@ -67,23 +67,28 @@ EIGEN_STRONG_INLINE Packet8f Bf16ToF32(const Packet8bf& a) {
 
 > Integer
 
-| type eigen | type avx | ~type C/MIPP       |
-|:-----------|:---------|:-------------------|
-| Packet16b  | __m128i  | low + char         |
-| Packet4i   | __m128i  | low + int          |
-| Packet8i   | __m256i  | int                |
-| Packet4l   | __m256i  | long               |
-| Packet8h   | __m128i  | low + short (half) |
+| type eigen | type avx | MIPP                        | MIPP 512                    |
+|:-----------|:---------|:----------------------------|:----------------------------|
+| Packet16b  | __m128i  | low + &lt;char&gt;          |                             |
+| Packet4i   | __m128i  | low + &lt;int&gt;           |                             |
+| Packet8i   | __m256i  | &lt;int&gt;                 | low + &lt;int&gt;           |
+| Packet16i  | __m512i  |                             | &lt;int&gt;                 |
+| Packet4l   | __m256i  | &lt;long&gt;                | low + &lt;long&gt;          |
+| Packet8h   | __m128i  | low + &lt;ushort&gt; (half) |                             |
+| Packet16h  | __m256i  |                             | low + &lt;ushort&gt; (half) |
 
 > float
 
-| type eigen | type avx | ~type C/MIPP          |
-|:-----------|:---------|:----------------------|
-| Packet4f   | __m128   | low + float           |
-| Packet8f   | __m256   | float                 |
-| Packet2d   | __m128d  | low + double          |
-| Packet4d   | __m256d  | double                |
-| Packet8bf  | __m128i  | low + short (float16) |
+| type eigen | type avx | MIPP                           | MIPP 512                       |
+|:-----------|:---------|:-------------------------------|--------------------------------|
+| Packet4f   | __m128   | low + &lt;float&gt;            | low + &lt;float&gt;            |
+| Packet8f   | __m256   | &lt;float&gt;                  |                                |
+| Packet16f  | __m512   |                                | &lt;float&gt;                  |
+| Packet2d   | __m128d  | low + &lt;double&gt;           |                                |
+| Packet4d   | __m256d  | &lt;double&gt;                 | low + &lt;double&gt;           |
+| Packet8d   | __m512d  |                                | &lt;double&gt;                 |
+| Packet8bf  | __m128i  | low + &lt;ushort&gt; (float16) |                                |
+| Packet16bf | __m256i  |                                | low + &lt;ushort&gt; (float16) |
 
 <!-- Complex -->
 Packet1cd
@@ -95,29 +100,22 @@ Packet4cf
 
 <!-- float, double -->
 Packet2f
-Packet16f
-Packet8d
 
 <!-- short?, int, long -->
 Packet8s
 Packet4s
 Packet2i
-Packet16i
 Packet2l
-Packet4l
 
 <!-- half -->
 Packet4h
-Packet8h
 Packet16h
 
 Packet4hf
 Packet8hf
 
 <!-- BFloat https://en.wikipedia.org/wiki/Bfloat16_floating-point_format -->
-Packet16bf
 Packet4bf
-Packet8bf
 
 <!-- ? -->
 Packet2bl
@@ -148,6 +146,7 @@ Packet16uc
 ## Links
 
 * <https://github.com/aff3ct/MIPP>
+* <https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html>
 
 ## Test failed
 
