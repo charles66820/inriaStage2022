@@ -313,11 +313,15 @@
 |:----------------|:--------:|:--------:|:--------:|
 | prefetch        | :repeat: | :repeat: | :repeat: |
 
+> AVX
+
 | to \ from |  Packet8h  |  Packet8f  | Packet8bf |
 |:---------:|:----------:|:----------:|:---------:|
 | Packet8h  |     --     | float2half |    :x:    |
 | Packet8f  | half2float |     --     | Bf16ToF32 |
 | Packet8bf |    :x:     | F32ToBf16  |    --     |
+
+> AVX512
 
 | to \ from  | Packet16h  | Packet16f  | Packet16bf |
 |:----------:|:----------:|:----------:|:----------:|
@@ -424,12 +428,12 @@
 | Packet8i  |    --    | :repeat: |
 | Packet8f  | :repeat: |    --    |
 
-| to \ from | Packet16i |     Packet16f      |      Packet8d      | Packet8f |
-|:---------:|:---------:|:------------------:|:------------------:|:--------:|
-| Packet16i |    --     |      :repeat:      |        :x:         |   :x:    |
-| Packet16f | :repeat:  | :white_check_mark: |      :repeat:      |   :x:    |
-| Packet8d  |    :x:    |      :repeat:      | :white_check_mark: |   :x:    |
-| Packet8f  |    :x:    |      :repeat:      |        :x:         |    --    |
+| to \ from | Packet16i |        Packet16f        |        Packet8d         | Packet8f |
+|:---------:|:---------:|:-----------------------:|:-----------------------:|:--------:|
+| Packet16i |    --     |        :repeat:         |           :x:           |   :x:    |
+| Packet16f | :repeat:  | :ballot_box_with_check: |        :repeat:         |   :x:    |
+| Packet8d  |    :x:    |        :repeat:         | :ballot_box_with_check: |   :x:    |
+| Packet8f  |    :x:    |        :repeat:         |           :x:           |    --    |
 
 ## MathFunctions.h
 

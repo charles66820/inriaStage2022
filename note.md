@@ -81,8 +81,8 @@ EIGEN_STRONG_INLINE Packet8f Bf16ToF32(const Packet8bf& a) {
 
 | type eigen | type avx | MIPP                           | MIPP 512                       |
 |:-----------|:---------|:-------------------------------|--------------------------------|
-| Packet4f   | __m128   | low + &lt;float&gt;            | low + &lt;float&gt;            |
-| Packet8f   | __m256   | &lt;float&gt;                  |                                |
+| Packet4f   | __m128   | low + &lt;float&gt;            |                                |
+| Packet8f   | __m256   | &lt;float&gt;                  | low + &lt;float&gt;            |
 | Packet16f  | __m512   |                                | &lt;float&gt;                  |
 | Packet2d   | __m128d  | low + &lt;double&gt;           |                                |
 | Packet4d   | __m256d  | &lt;double&gt;                 | low + &lt;double&gt;           |
