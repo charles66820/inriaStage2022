@@ -102,7 +102,7 @@
 | pzero                              |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |           :x:           |
 | peven_mask                         |        :repeat:         |        :repeat:         |        :repeat:         |           :x:           |
 | pload1                             |        :repeat:         |           :x:           |           :x:           |           :x:           |
-| padd                               |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
+| padd                               |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |
 | padd + umask                       |           :x:           |           :x:           |           :x:           |           :x:           |
 | plset                              |        :repeat:         |        :repeat:         |        :repeat:         |           :x:           |
 | psub                               |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
@@ -174,8 +174,8 @@
 | pzero                              |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |           :x:           |           :x:           |   :white_check_mark:    |
 | peven_mask                         |        :repeat:         |        :repeat:         |        :repeat:         |           :x:           |           :x:           |        :repeat:         |
 | pload1                             |        :repeat:         |        :repeat:         |           :x:           |           :x:           |           :x:           |        :repeat:         |
-| padd                               |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |        :repeat:         |
-| padd + umask                       |        :repeat:         |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |
+| padd                               |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    | :ballot_box_with_check: | :ballot_box_with_check: |   :white_check_mark:    |
+| padd + umask                       |   :white_check_mark:    |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |
 | plset                              |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |        :repeat:         |
 | psub                               |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |        :repeat:         |
 | paddsub                            |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |
