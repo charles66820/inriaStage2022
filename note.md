@@ -36,7 +36,7 @@ EIGEN_STRONG_INLINE Packet8f Bf16ToF32(const Packet8bf& a) {
   // return (__m256) mipp::lshift<float>(s, 16);
 ```
 
-* Select SSE, AVX, AVX2 `<Packet(2d|4(f|d|i)|8(f|i|h|bf))`
+* Select SSE, AVX, AVX2 `<Packet(2d|4(f|d|i|l)|8(f|i|h|bf)|16b)`
 
 ### Plafrim eigen tests
 
