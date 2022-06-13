@@ -135,8 +135,8 @@
 | print                              |        :repeat:         |        :repeat:         |           :x:           |           :x:           |
 | pceil                              |        :repeat:         |        :repeat:         |           :x:           |           :x:           |
 | pfloor                             |        :repeat:         |        :repeat:         |           :x:           |           :x:           |
-| pload                              |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
-| ploadu                             |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
+| pload                              |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |
+| ploadu                             |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |
 | ploadu + umask                     |           :x:           |           :x:           |           :x:           |           :x:           |
 | ploaddup                           |        :repeat:         | :ballot_box_with_check: |        :repeat:         |        :repeat:         |
 | ploadquad                          |           :x:           |           :x:           |           :x:           |        :repeat:         |
@@ -207,8 +207,8 @@
 | print                              |        :repeat:         |        :repeat:         |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |           :x:           |
 | pceil                              |        :repeat:         |        :repeat:         |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |           :x:           |
 | pfloor                             |        :repeat:         |        :repeat:         |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |           :x:           |
-| pload                              |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
-| ploadu                             |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
+| pload                              |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |
+| ploadu                             |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |
 | ploadu + umask                     |        :repeat:         |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |
 | ploaddup                           |        :repeat:         |        :repeat:         |        :repeat:         |           :x:           |           :x:           |        :repeat:         |
 | ploadquad                          |        :repeat:         |           :x:           |        :repeat:         |           :x:           |           :x:           |           :x:           |
