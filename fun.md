@@ -4,33 +4,35 @@
 
 ### Types
 
-| type eigen | type avx | form             |                 |
-|:-----------|:---------|:-----------------|-----------------|
-| Packet4f   | __m128   | float            |                 |
-| Packet2d   | __m128d  | double           |                 |
-| Packet4i   | __m128i  | int              |                 |
-| Packet16b  | __m128i  | bool (char)      |                 |
-| Packet8f   | __m256   | float            |                 |
-| Packet4d   | __m256d  | double           |                 |
-| Packet8i   | __m256i  | int              |                 |
-| Packet8h   | __m128i  | half (ushort)    |                 |
-| Packet8bf  | __m128i  | float16 (ushort) |                 |
-| Packet4l   | __m256i  | long             | <!-- AVX512 --> |
+| type eigen | type avx | form             |
+|:-----------|:---------|:-----------------|
+| Packet4f   | __m128   | float            |
+| Packet2d   | __m128d  | double           |
+| Packet4i   | __m128i  | int              |
+| Packet16b  | __m128i  | bool (char)      |
+| : oui :                                |||
+| Packet8f   | __m256   | float            |
+| Packet4d   | __m256d  | double           |
+| Packet8i   | __m256i  | int              |
+| Packet8h   | __m128i  | half (ushort)    |
+| Packet8bf  | __m128i  | float16 (ushort) |
+| ^^         |          |                  |
+| Packet4l   | __m256i  | long             |
 
 ### Types unpacket for eigen
 
-| type unpacket | type        | half      | integer_packet | mask_t  |                  |
-|:--------------|:------------|:----------|:---------------|:--------|------------------|
-| Packet4f      | float       | Packet4f  | Packet4i       |         |                  |
-| Packet2d      | double      | Packet2d  |                |         |                  |
-| Packet4i      | int         | Packet4i  |                |         |                  |
-| Packet16b     | bool        | Packet16b |                |         |                  |
-| Packet8f      | float       | Packet4f  | Packet8i       | uint8_t |                  |
-| Packet4d      | double      | Packet2d  |                |         |                  |
-| Packet8i      | int         | Packet4i  |                |         |                  |
-| Packet8h      | Eigen::half | Packet8h  |                |         |                  |
-| Packet8bf     | bfloat16    | Packet8bf |                |         |                  |
-| Packet4l      | int64_t     | Packet4l  |                |         | <!-- if AVX2 --> |
+| type unpacket | type        | half      | integer_packet | mask_t  |   |
+|:--------------|:------------|:----------|:---------------|:--------|---|
+| Packet4f      | float       | Packet4f  | Packet4i       |         |   |
+| Packet2d      | double      | Packet2d  |                |         |   |
+| Packet4i      | int         | Packet4i  |                |         |   |
+| Packet16b     | bool        | Packet16b |                |         |   |
+| Packet8f      | float       | Packet4f  | Packet8i       | uint8_t |   |
+| Packet4d      | double      | Packet2d  |                |         |   |
+| Packet8i      | int         | Packet4i  |                |         |   |
+| Packet8h      | Eigen::half | Packet8h  |                |         |   |
+| Packet8bf     | bfloat16    | Packet8bf |                |         |   |
+| Packet4l      | int64_t     | Packet4l  |                |         |   |
 
 ### Types unpacket for c
 
@@ -45,14 +47,14 @@
 
 > else if AVX
 
-| type unpacket | type      | half      |                  |
-|:--------------|:----------|:----------|------------------|
-| float         | Packet8f  | Packet4f  |                  |
-| double        | Packet4d  | Packet2d  |                  |
-| int           | Packet8i  | Packet4i  |                  |
-| Eigen::half   | Packet8h  | Packet8h  |                  |
-| bfloat16      | Packet8bf | Packet8bf |                  |
-| int64_t       | Packet4l  | Packet4l  | <!-- if AVX2 --> |
+| type unpacket | type      | half      |   |
+|:--------------|:----------|:----------|---|
+| float         | Packet8f  | Packet4f  |   |
+| double        | Packet4d  | Packet2d  |   |
+| int           | Packet8i  | Packet4i  |   |
+| Eigen::half   | Packet8h  | Packet8h  |   |
+| bfloat16      | Packet8bf | Packet8bf |   |
+| int64_t       | Packet4l  | Packet4l  |   |
 
 > else // SSE
 
@@ -238,30 +240,30 @@
 | Packet8i  |    --    | :repeat: |
 | Packet8f  | :repeat: |    --    |
 
-| to \ from | Packet16i | Packet16f | Packet8d | Packet8f |
-|:---------:|:---------:|:---------:|:--------:|:--------:|
-| Packet16i |    --     | :repeat:  |   :x:    |   :x:    |
-| Packet16f | :repeat:  | :repeat:  | :repeat: |   :x:    |
-| Packet8d  |    :x:    | :repeat:  | :repeat: |   :x:    |
-| Packet8f  |    :x:    | :repeat:  |   :x:    |    --    |
+| to \ from | Packet16i |     Packet16f      |      Packet8d      | Packet8f |
+|:---------:|:---------:|:------------------:|:------------------:|:--------:|
+| Packet16i |    --     |      :repeat:      |        :x:         |   :x:    |
+| Packet16f | :repeat:  | :white_check_mark: |      :repeat:      |   :x:    |
+| Packet8d  |    :x:    |      :repeat:      | :white_check_mark: |   :x:    |
+| Packet8f  |    :x:    |      :repeat:      |        :x:         |    --    |
 
 ## MathFunctions.h
 
-| function \ type | Packet4f | Packet2d | Packet16b | Packet8f | Packet4d | Packet8h | Packet8bf |        Packet16f        |        Packet8d         |        Packet16h        |       Packet16bf        |
-|:----------------|:--------:|:--------:|:---------:|:--------:|:--------:|:--------:|:---------:|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
-| plog            | :repeat: | :repeat: |    :x:    | :repeat: | :repeat: |   :x:    |    :x:    | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |
-| plog2           | :repeat: | :repeat: |    :x:    | :repeat: | :repeat: |   :x:    |    :x:    | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |
-| plog1p          | :repeat: |   :x:    |    :x:    | :repeat: |   :x:    |   :x:    |    :x:    | :ballot_box_with_check: |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
-| pexpm1          | :repeat: |   :x:    |    :x:    | :repeat: |   :x:    |   :x:    |    :x:    | :ballot_box_with_check: |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
-| pexp            | :repeat: | :repeat: |    :x:    | :repeat: | :repeat: |   :x:    |    :x:    |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |
-| psin            | :repeat: |   :x:    |    :x:    | :repeat: |   :x:    |   :x:    |    :x:    | :ballot_box_with_check: |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
-| pcos            | :repeat: |   :x:    |    :x:    | :repeat: |   :x:    |   :x:    |    :x:    | :ballot_box_with_check: |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
-| psqrt           | :repeat: | :repeat: | :repeat:  | :repeat: | :repeat: |   :x:    |    :x:    |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
-| prsqrt          | :repeat: |   :x:    |    :x:    | :repeat: |   :x:    |   :x:    |    :x:    |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
-| preciprocal     | :repeat: |   :x:    |    :x:    | :repeat: |   :x:    |   :x:    |    :x:    |        :repeat:         |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
-| ptanh           | :repeat: |   :x:    |    :x:    | :repeat: |   :x:    |   :x:    |    :x:    | :ballot_box_with_check: |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
-| pfrexp          |   :x:    |   :x:    |    :x:    |   :x:    |   :x:    | :repeat: | :repeat:  |           :x:           |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
-| pldexp          |   :x:    |   :x:    |    :x:    |   :x:    |   :x:    | :repeat: | :repeat:  |           :x:           |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
+| function \ type |        Packet4f         |       Packet2d        | Packet16b |        Packet8f         |        Packet4d         | Packet8h | Packet8bf |        Packet16f        |        Packet8d         |        Packet16h        |       Packet16bf        |
+|:----------------|:-----------------------:|:---------------------:|:---------:|:-----------------------:|:-----------------------:|:--------:|:---------:|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
+| plog            |  ballot_box_with_check  | ballot_box_with_check |    :x:    | :ballot_box_with_check: | :ballot_box_with_check: |   :x:    |    :x:    | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |
+| plog2           |  ballot_box_with_check  | ballot_box_with_check |    :x:    | :ballot_box_with_check: | :ballot_box_with_check: |   :x:    |    :x:    | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |
+| plog1p          |  ballot_box_with_check  |          :x:          |    :x:    | :ballot_box_with_check: |           :x:           |   :x:    |    :x:    | :ballot_box_with_check: |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
+| pexpm1          |  ballot_box_with_check  |          :x:          |    :x:    | :ballot_box_with_check: |           :x:           |   :x:    |    :x:    | :ballot_box_with_check: |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
+| pexp            |  ballot_box_with_check  | ballot_box_with_check |    :x:    | :ballot_box_with_check: | :ballot_box_with_check: |   :x:    |    :x:    |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |
+| psin            |  ballot_box_with_check  |          :x:          |    :x:    | :ballot_box_with_check: |           :x:           |   :x:    |    :x:    | :ballot_box_with_check: |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
+| pcos            |  ballot_box_with_check  |          :x:          |    :x:    | :ballot_box_with_check: |           :x:           |   :x:    |    :x:    | :ballot_box_with_check: |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
+| psqrt           |        :repeat:         |       :repeat:        | :repeat:  |        :repeat:         |        :repeat:         |   :x:    |    :x:    |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
+| prsqrt          |        :repeat:         |          :x:          |    :x:    |        :repeat:         |           :x:           |   :x:    |    :x:    |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
+| preciprocal     |        :repeat:         |          :x:          |    :x:    |        :repeat:         |           :x:           |   :x:    |    :x:    |        :repeat:         |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
+| ptanh           | :ballot_box_with_check: |          :x:          |    :x:    | :ballot_box_with_check: |           :x:           |   :x:    |    :x:    | :ballot_box_with_check: |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
+| pfrexp          |           :x:           |          :x:          |    :x:    |           :x:           |           :x:           | :repeat: | :repeat:  |           :x:           |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
+| pldexp          |           :x:           |          :x:          |    :x:    |           :x:           |           :x:           | :repeat: | :repeat:  |           :x:           |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
 
 > numext
 
