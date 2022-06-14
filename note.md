@@ -40,10 +40,10 @@ EIGEN_STRONG_INLINE Packet8f Bf16ToF32(const Packet8bf& a) {
 
 ### Plafrim eigen tests
 
-* `salloc -C skylake --time=03:00:00`
-* `ssh <nodeName>`
+* `salloc -C haswell --time=03:00:00`
+* `srun --pty bash -i`
 * `module load build/cmake/3.21.3 compiler/gcc/11.2.0`
-* `cd eigen && mkdir build ; cd build`
+* `cd eigen-fork && mkdir build ; cd build`
 * `cmake .. -DEIGEN_TEST_MIPP=ON`
 * `make buildtests -j -k; while [ $? -ne 0 ]; do make buildtests -j -k; done`
 
