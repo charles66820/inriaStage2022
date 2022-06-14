@@ -40,8 +40,7 @@ EIGEN_STRONG_INLINE Packet8f Bf16ToF32(const Packet8bf& a) {
 
 ### Plafrim eigen tests
 
-* `salloc -C haswell --time=03:00:00`
-* `srun --pty bash -i`
+* `srun -C haswell --time=03:00:00 --pty bash -i`
 * `module load build/cmake/3.21.3 compiler/gcc/11.2.0`
 * `cd eigen-fork && mkdir build ; cd build`
 * `cmake .. -DEIGEN_TEST_MIPP=ON`
