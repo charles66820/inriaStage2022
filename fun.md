@@ -87,10 +87,11 @@
 
 ### Functions
 
-* :white_check_mark: in MIPP
+* :white_check_mark: implement with MIPP
 * :ballot_box_with_check: nothing to do
 * :repeat: todo
-* :x: not implemented
+* :no_entry_sign: not implemented
+* :x: not implementable in MIPP
 * \* multiple kernel
 
 > SSE
@@ -98,216 +99,216 @@
 | function \ type                    |        Packet4f         |        Packet2d         |        Packet4i         |        Packet16b        |
 |:-----------------------------------|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
 | pset1                              |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |
-| pset1frombits                      |        :repeat:         |        :repeat:         |           :x:           |           :x:           |
-| pzero                              |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |           :x:           |
-| peven_mask                         |        :repeat:         |        :repeat:         |        :repeat:         |           :x:           |
-| pload1                             |        :repeat:         |           :x:           |           :x:           |           :x:           |
+| pset1frombits                      |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
+| pzero                              |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |     :no_entry_sign:     |
+| peven_mask                         |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |
+| pload1                             |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | padd                               |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |
-| padd + umask                       |           :x:           |           :x:           |           :x:           |           :x:           |
-| plset                              |        :repeat:         |        :repeat:         |        :repeat:         |           :x:           |
+| padd + umask                       |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| plset                              |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |
 | psub                               |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
-| paddsub                            |        :repeat:         |        :repeat:         |           :x:           |           :x:           |
+| paddsub                            |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
 | pnegate                            |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: |
-| pconj                              | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |           :x:           |
+| pconj                              | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |     :no_entry_sign:     |
 | pmul                               |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
-| pdiv                               |        :repeat:         |        :repeat:         |           :x:           |           :x:           |
-| pmadd                              |        :repeat:         |        :repeat:         | :ballot_box_with_check: |           :x:           |
-| pmsub                              |        :repeat:         |        :repeat:         |           :x:           |           :x:           |
-| pnmadd                             |        :repeat:         |        :repeat:         |           :x:           |           :x:           |
-| pnmsub                             |        :repeat:         |        :repeat:         |           :x:           |           :x:           |
+| pdiv                               |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
+| pmadd                              |        :repeat:         |        :repeat:         | :ballot_box_with_check: |     :no_entry_sign:     |
+| pmsub                              |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
+| pnmadd                             |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
+| pnmsub                             |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
 | pselect                            |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | ptrue                              |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | pand                               |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | por                                |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | pxor                               |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
-| pandnot                            |        :repeat:         |        :repeat:         |        :repeat:         |           :x:           |
-| pcmp_le                            |        :repeat:         |        :repeat:         | :ballot_box_with_check: |           :x:           |
-| pcmp_lt                            |        :repeat:         |        :repeat:         |        :repeat:         |           :x:           |
-| pcmp_lt_or_nan                     |        :repeat:         |        :repeat:         |           :x:           |           :x:           |
+| pandnot                            |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |
+| pcmp_le                            |        :repeat:         |        :repeat:         | :ballot_box_with_check: |     :no_entry_sign:     |
+| pcmp_lt                            |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |
+| pcmp_lt_or_nan                     |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
 | pcmp_eq                            |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
-| pmin                               |        :repeat:         |        :repeat:         |           :x:           |        :repeat:         |
-| pmax                               |        :repeat:         |        :repeat:         |           :x:           |        :repeat:         |
-| parithmetic_shift_right            |           :x:           |           :x:           |        :repeat:         |           :x:           |
-| plogical_shift_right               |           :x:           |           :x:           |        :repeat:         |           :x:           |
-| plogical_shift_left                |           :x:           |           :x:           |        :repeat:         |           :x:           |
-| pabs                               |        :repeat:         |        :repeat:         |        :repeat:         |           :x:           |
-| pround                             |        :repeat:         |        :repeat:         |           :x:           |           :x:           |
-| print                              |        :repeat:         |        :repeat:         |           :x:           |           :x:           |
-| pceil                              |        :repeat:         |        :repeat:         |           :x:           |           :x:           |
-| pfloor                             |        :repeat:         |        :repeat:         |           :x:           |           :x:           |
+| pmin                               |        :repeat:         |        :repeat:         |     :no_entry_sign:     |        :repeat:         |
+| pmax                               |        :repeat:         |        :repeat:         |     :no_entry_sign:     |        :repeat:         |
+| parithmetic_shift_right            |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |
+| plogical_shift_right               |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |
+| plogical_shift_left                |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |
+| pabs                               |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |
+| pround                             |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
+| print                              |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
+| pceil                              |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
+| pfloor                             |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
 | pload                              |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |
 | ploadu                             |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |
-| ploadu + umask                     |           :x:           |           :x:           |           :x:           |           :x:           |
+| ploadu + umask                     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | ploaddup                           |        :repeat:         | :ballot_box_with_check: |        :repeat:         |        :repeat:         |
-| ploadquad                          |           :x:           |           :x:           |           :x:           |        :repeat:         |
+| ploadquad                          |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |
 | pstore                             |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | pstoreu                            |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
-| pstoreu + umask                    |           :x:           |           :x:           |           :x:           |           :x:           |
+| pstoreu + umask                    |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | pgather                            |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | pscatter                           |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
-| pstore1                            |        :repeat:         |        :repeat:         |           :x:           |           :x:           |
+| pstore1                            |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
 | pfirst                             |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | preverse                           |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | predux                             |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
-| pfrexp_generic_get_biased_exponent |           :x:           |        :repeat:         |           :x:           |           :x:           |
-| pfrexp                             | :ballot_box_with_check: | :ballot_box_with_check: |           :x:           |           :x:           |
-| pldexp                             | :ballot_box_with_check: |        :repeat:         |           :x:           |           :x:           |
-| pbroadcast4                        |        :repeat:         |        :repeat:         |           :x:           |           :x:           |
-| punpackp                           |        :repeat:         |           :x:           |           :x:           |           :x:           |
-| predux_half_dowto4                 |           :x:           |           :x:           |           :x:           |           :x:           |
+| pfrexp_generic_get_biased_exponent |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
+| pfrexp                             | :ballot_box_with_check: | :ballot_box_with_check: |     :no_entry_sign:     |     :no_entry_sign:     |
+| pldexp                             | :ballot_box_with_check: |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
+| pbroadcast4                        |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
+| punpackp                           |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| predux_half_dowto4                 |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | predux_mul                         |        :repeat:         |        :repeat:         | :ballot_box_with_check: |        :repeat:         |
-| predux_min                         |        :repeat:         |        :repeat:         |        :repeat:         |           :x:           |
-| predux_max                         |        :repeat:         |        :repeat:         |        :repeat:         |           :x:           |
-| predux_any                         |        :repeat:         |           :x:           |           :x:           |           :x:           |
+| predux_min                         |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |
+| predux_max                         |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |
+| predux_any                         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | ptranspose                         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:*        |
-| pblend                             |        :repeat:         |        :repeat:         |        :repeat:         |           :x:           |
-| extract256                         |           :x:           |           :x:           |           :x:           |           :x:           |
-| extract128                         |           :x:           |        :repeat:         |           :x:           |           :x:           |
-| cat256                             |           :x:           |           :x:           |           :x:           |           :x:           |
+| pblend                             |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |
+| extract256                         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| extract128                         |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
+| cat256                             |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 
 > AVX / AVX2
 
 | function \ type                    |        Packet8f         |        Packet4d         |        Packet8i         |        Packet8h         |        Packet8bf        |        Packet4l         |
 |:-----------------------------------|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
 | pset1                              |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |
-| pset1frombits                      |        :repeat:         |        :repeat:         |           :x:           |           :x:           |           :x:           |           :x:           |
-| pzero                              |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |           :x:           |           :x:           |   :white_check_mark:    |
-| peven_mask                         |        :repeat:         |        :repeat:         |        :repeat:         |           :x:           |           :x:           |        :repeat:         |
-| pload1                             |        :repeat:         |        :repeat:         |           :x:           |           :x:           |           :x:           |        :repeat:         |
+| pset1frombits                      |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| pzero                              |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |     :no_entry_sign:     |     :no_entry_sign:     |   :white_check_mark:    |
+| peven_mask                         |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |
+| pload1                             |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |
 | padd                               |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    | :ballot_box_with_check: | :ballot_box_with_check: |   :white_check_mark:    |
-| padd + umask                       |   :white_check_mark:    |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |
+| padd + umask                       |   :white_check_mark:    |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | plset                              |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |        :repeat:         |
-| psub                               |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |        :repeat:         |
-| paddsub                            |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |
-| pnegate                            |        :repeat:         |        :repeat:         | :ballot_box_with_check: |        :repeat:         |        :repeat:         |        :repeat:         |
+| psub                               |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    | :ballot_box_with_check: | :ballot_box_with_check: |   :white_check_mark:    |
+| paddsub                            |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| pnegate                            |   :white_check_mark:    |   :white_check_mark:    | :ballot_box_with_check: |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |
 | pconj                              | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |
-| pmul                               |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |        :repeat:         |
-| pdiv                               |        :repeat:         |        :repeat:         |       :question:        | :ballot_box_with_check: | :ballot_box_with_check: |           :x:           |
-| pmadd                              |        :repeat:         |        :repeat:         |           :x:           |           :x:           |           :x:           |           :x:           |
-| pmsub                              |        :repeat:         |        :repeat:         |           :x:           |           :x:           |           :x:           |           :x:           |
-| pnmadd                             |        :repeat:         |        :repeat:         |           :x:           |           :x:           |           :x:           |           :x:           |
-| pnmsub                             |        :repeat:         |        :repeat:         |           :x:           |           :x:           |           :x:           |           :x:           |
-| pselect                            |        :repeat:         |        :repeat:         |           :x:           |        :repeat:         |        :repeat:         |           :x:           |
+| pmul                               |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    | :ballot_box_with_check: | :ballot_box_with_check: |           :x:           |
+| pdiv                               |        :repeat:         |        :repeat:         |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |     :no_entry_sign:     |
+| pmadd                              |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| pmsub                              |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| pnmadd                             |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| pnmsub                             |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| pselect                            |        :repeat:         |        :repeat:         |     :no_entry_sign:     |        :repeat:         |        :repeat:         |     :no_entry_sign:     |
 | ptrue                              |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
-| pand                               |        :repeat:         |        :repeat:         |        :repeat:         |           :x:           |        :repeat:         |        :repeat:         |
+| pand                               |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |        :repeat:         |        :repeat:         |
 | por                                |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | pxor                               |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | pandnot                            |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | pcmp_le                            |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |        :repeat:         |
 | pcmp_lt                            |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |        :repeat:         |
-| pcmp_lt_or_nan                     |        :repeat:         |        :repeat:         |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |           :x:           |
+| pcmp_lt_or_nan                     |        :repeat:         |        :repeat:         |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |     :no_entry_sign:     |
 | pcmp_eq                            |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |        :repeat:         |
 | pmin                               |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |        :repeat:         |
 | pmax                               |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |        :repeat:         |
-| parithmetic_shift_right            |           :x:           |           :x:           |        :repeat:         |           :x:           |           :x:           |        :repeat:         |
-| plogical_shift_right               |           :x:           |           :x:           |        :repeat:         |           :x:           |           :x:           |        :repeat:         |
-| plogical_shift_left                |           :x:           |           :x:           |        :repeat:         |           :x:           |           :x:           |        :repeat:         |
+| parithmetic_shift_right            |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |
+| plogical_shift_right               |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |
+| plogical_shift_left                |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |
 | pabs                               |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
-| pround                             |        :repeat:         |        :repeat:         |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |           :x:           |
-| print                              |        :repeat:         |        :repeat:         |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |           :x:           |
-| pceil                              |        :repeat:         |        :repeat:         |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |           :x:           |
-| pfloor                             |        :repeat:         |        :repeat:         |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |           :x:           |
+| pround                             |        :repeat:         |        :repeat:         |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |     :no_entry_sign:     |
+| print                              |        :repeat:         |        :repeat:         |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |     :no_entry_sign:     |
+| pceil                              |        :repeat:         |        :repeat:         |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |     :no_entry_sign:     |
+| pfloor                             |        :repeat:         |        :repeat:         |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |     :no_entry_sign:     |
 | pload                              |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |
 | ploadu                             |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |
-| ploadu + umask                     |        :repeat:         |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |
-| ploaddup                           |        :repeat:         |        :repeat:         |        :repeat:         |           :x:           |           :x:           |        :repeat:         |
-| ploadquad                          |        :repeat:         |           :x:           |        :repeat:         |           :x:           |           :x:           |           :x:           |
+| ploadu + umask                     |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| ploaddup                           |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |
+| ploadquad                          |        :repeat:         |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | pstore                             |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | pstoreu                            |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
-| pstoreu + umask                    |        :repeat:         |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |
+| pstoreu + umask                    |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | pgather                            |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | pscatter                           |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |        :repeat:         |
-| pstore1                            | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |           :x:           |           :x:           | :ballot_box_with_check: |
+| pstore1                            | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |     :no_entry_sign:     |     :no_entry_sign:     | :ballot_box_with_check: |
 | pfirst                             |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | preverse                           |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
-| predux                             |        :repeat:         |        :repeat:         |        :repeat:         |           :x:           |           :x:           |        :repeat:         |
-| pfrexp_generic_get_biased_exponent |           :x:           |        :repeat:         |           :x:           |           :x:           |           :x:           |           :x:           |
-| pfrexp                             |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |           :x:           |           :x:           |           :x:           |
-| pldexp                             | :ballot_box_with_check: |        :repeat:         |           :x:           |           :x:           |           :x:           |           :x:           |
-| pbroadcast4                        |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |
-| punpackp                           |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |
-| predux_half_dowto4                 |        :repeat:         |           :x:           |        :repeat:         |           :x:           |           :x:           |           :x:           |
-| predux_mul                         |        :repeat:         |        :repeat:         |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |           :x:           |
-| predux_min                         |        :repeat:         |        :repeat:         |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |           :x:           |
-| predux_max                         |        :repeat:         |        :repeat:         |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |           :x:           |
-| predux_any                         |        :repeat:         |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |
+| predux                             |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |
+| pfrexp_generic_get_biased_exponent |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| pfrexp                             |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| pldexp                             | :ballot_box_with_check: |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| pbroadcast4                        |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| punpackp                           |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| predux_half_dowto4                 |        :repeat:         |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| predux_mul                         |        :repeat:         |        :repeat:         |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |     :no_entry_sign:     |
+| predux_min                         |        :repeat:         |        :repeat:         |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |     :no_entry_sign:     |
+| predux_max                         |        :repeat:         |        :repeat:         |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |     :no_entry_sign:     |
+| predux_any                         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | ptranspose                         |        :repeat:*        |        :repeat:         |        :repeat:*        |        :repeat:         |        :repeat:*        |        :repeat:         |
-| pblend                             |        :repeat:         |        :repeat:         |           :x:           |           :x:           |           :x:           |           :x:           |
-| extract256                         |        :repeat:         |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |
-| extract128                         |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |
-| cat256                             |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |
+| pblend                             |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| extract256                         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| extract128                         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| cat256                             |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 
 > AVX512
 
 | function \ type                    |        Packet16f        |        Packet8d         |        Packet16i        |        Packet16h        |       Packet16bf        |
 |:-----------------------------------|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
 | pset1                              |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
-| pset1frombits                      |        :repeat:         |        :repeat:         |           :x:           |           :x:           |           :x:           |
-| pzero                              |        :repeat:         |        :repeat:         |        :repeat:         |           :x:           |           :x:           |
-| peven_mask                         |        :repeat:         |        :repeat:         |        :repeat:         |           :x:           |           :x:           |
-| pload1                             |        :repeat:         |        :repeat:         |           :x:           |           :x:           |           :x:           |
+| pset1frombits                      |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| pzero                              |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
+| peven_mask                         |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
+| pload1                             |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | padd                               |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
-| padd + umask                       |        :repeat:         |        :repeat:         |           :x:           |           :x:           |           :x:           |
+| padd + umask                       |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | plset                              |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
 | psub                               |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
-| paddsub                            |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |
+| paddsub                            |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | pnegate                            |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | pconj                              | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |
 | pmul                               |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
 | pdiv                               |        :repeat:         |        :repeat:         |                         | :ballot_box_with_check: | :ballot_box_with_check: |
-| pmadd                              |        :repeat:         |        :repeat:         |           :x:           |           :x:           |           :x:           |
-| pmsub                              |        :repeat:         |        :repeat:         |           :x:           |           :x:           |           :x:           |
-| pnmadd                             |        :repeat:         |        :repeat:         |           :x:           |           :x:           |           :x:           |
-| pnmsub                             |        :repeat:         |        :repeat:         |           :x:           |           :x:           |           :x:           |
-| pselect                            |        :repeat:         |        :repeat:         |           :x:           |        :repeat:         |        :repeat:         |
+| pmadd                              |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| pmsub                              |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| pnmadd                             |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| pnmsub                             |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| pselect                            |        :repeat:         |        :repeat:         |     :no_entry_sign:     |        :repeat:         |        :repeat:         |
 | ptrue                              |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
-| pand                               |        :repeat:         |        :repeat:         |        :repeat:         |           :x:           | :ballot_box_with_check: |
+| pand                               |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     | :ballot_box_with_check: |
 | por                                |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
 | pxor                               |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
 | pandnot                            |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
 | pcmp_le                            |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
 | pcmp_lt                            |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
-| pcmp_lt_or_nan                     |        :repeat:         |        :repeat:         |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
+| pcmp_lt_or_nan                     |        :repeat:         |        :repeat:         |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |
 | pcmp_eq                            |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
 | pmin                               |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
 | pmax                               |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
-| parithmetic_shift_right            |           :x:           |           :x:           |        :repeat:         |           :x:           |           :x:           |
-| plogical_shift_right               |           :x:           |           :x:           |        :repeat:         |           :x:           |           :x:           |
-| plogical_shift_left                |           :x:           |           :x:           |        :repeat:         |           :x:           |           :x:           |
+| parithmetic_shift_right            |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
+| plogical_shift_right               |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
+| plogical_shift_left                |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
 | pabs                               |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
-| pround                             |        :repeat:         |        :repeat:         |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
-| print                              |        :repeat:         |        :repeat:         |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
-| pceil                              |        :repeat:         |        :repeat:         |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
-| pfloor                             |        :repeat:         |        :repeat:         |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
+| pround                             |        :repeat:         |        :repeat:         |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |
+| print                              |        :repeat:         |        :repeat:         |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |
+| pceil                              |        :repeat:         |        :repeat:         |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |
+| pfloor                             |        :repeat:         |        :repeat:         |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |
 | pload                              |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | ploadu                             |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
-| ploadu + umask                     |        :repeat:         |        :repeat:         |           :x:           |           :x:           |           :x:           |
+| ploadu + umask                     |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | ploaddup                           |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | ploadquad                          |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | pstore                             |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | pstoreu                            |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
-| pstoreu + umask                    |        :repeat:         |        :repeat:         |           :x:           |           :x:           |           :x:           |
+| pstoreu + umask                    |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | pgather                            |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | pscatter                           |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
-| pstore1                            | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |           :x:           |           :x:           |
+| pstore1                            | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |     :no_entry_sign:     |     :no_entry_sign:     |
 | pfirst                             |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | preverse                           |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | predux                             |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
-| pfrexp_generic_get_biased_exponent |           :x:           |        :repeat:         |           :x:           |           :x:           |           :x:           |
-| pfrexp                             | :ballot_box_with_check: |        :repeat:         |           :x:           |           :x:           |           :x:           |
-| pldexp                             |        :repeat:         |        :repeat:         |           :x:           |           :x:           |           :x:           |
-| pbroadcast4                        |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |
-| punpackp                           |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |
+| pfrexp_generic_get_biased_exponent |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| pfrexp                             | :ballot_box_with_check: |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| pldexp                             |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| pbroadcast4                        |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| punpackp                           |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | predux_half_dowto4                 |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
-| predux_mul                         |        :repeat:         |        :repeat:         |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
-| predux_min                         |        :repeat:         |        :repeat:         |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
-| predux_max                         |        :repeat:         |        :repeat:         |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
-| predux_any                         |        :repeat:         |           :x:           |           :x:           |           :x:           |           :x:           |
+| predux_mul                         |        :repeat:         |        :repeat:         |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |
+| predux_min                         |        :repeat:         |        :repeat:         |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |
+| predux_max                         |        :repeat:         |        :repeat:         |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |
+| predux_any                         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | ptranspose                         |        :repeat:*        |        :repeat:*        |        :repeat:*        |        :repeat:*        |        :repeat:*        |
-| pblend                             |       :question:        |        :repeat:         |           :x:           |           :x:           |           :x:           |
-| extract256                         |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |
-| extract128                         |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |
-| cat256                             |        :repeat:         |           :x:           |           :x:           |           :x:           |           :x:           |
+| pblend                             |       :question:        |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| extract256                         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| extract128                         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| cat256                             |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 
 | function \ type |  float   |  double  |   int    |
 |:----------------|:--------:|:--------:|:--------:|
@@ -315,19 +316,19 @@
 
 > AVX
 
-| to \ from |  Packet8h  |  Packet8f  | Packet8bf |
-|:---------:|:----------:|:----------:|:---------:|
-| Packet8h  |     --     | float2half |    :x:    |
-| Packet8f  | half2float |     --     | Bf16ToF32 |
-| Packet8bf |    :x:     | F32ToBf16  |    --     |
+| to \ from |    Packet8h     |  Packet8f  |    Packet8bf    |
+|:---------:|:---------------:|:----------:|:---------------:|
+| Packet8h  |       --        | float2half | :no_entry_sign: |
+| Packet8f  |   half2float    |     --     |    Bf16ToF32    |
+| Packet8bf | :no_entry_sign: | F32ToBf16  |       --        |
 
 > AVX512
 
-| to \ from  | Packet16h  | Packet16f  | Packet16bf |
-|:----------:|:----------:|:----------:|:----------:|
-| Packet16h  |     --     | float2half |    :x:     |
-| Packet16f  | half2float |     --     | Bf16ToF32  |
-| Packet16bf |    :x:     | F32ToBf16  |     --     |
+| to \ from  |    Packet16h    | Packet16f  |   Packet16bf    |
+|:----------:|:---------------:|:----------:|:---------------:|
+| Packet16h  |       --        | float2half | :no_entry_sign: |
+| Packet16f  |   half2float    |     --     |    Bf16ToF32    |
+| Packet16bf | :no_entry_sign: | F32ToBf16  |       --        |
 
 > macros
 
@@ -395,63 +396,63 @@
 
 ### `pcast` functions
 
-| to \ from | Packet4i | Packet4f | Packet2d  |
-|:---------:|:--------:|:--------:|:---------:|
-| Packet4i  |    --    | :repeat: |    :x:    |
-| Packet4f  | :repeat: |    --    | :repeat:* |
-| Packet2d  |   :x:    | :repeat: |    --     |
+| to \ from |    Packet4i     | Packet4f |    Packet2d     |
+|:---------:|:---------------:|:--------:|:---------------:|
+| Packet4i  |       --        | :repeat: | :no_entry_sign: |
+| Packet4f  |    :repeat:     |    --    |    :repeat:*    |
+| Packet2d  | :no_entry_sign: | :repeat: |       --        |
 
-| to \ from | Packet8i | Packet8f | Packet8h | Packet8bf |
-|:---------:|:--------:|:--------:|:--------:|:---------:|
-| Packet8i  |    --    | :repeat: |   :x:    |    :x:    |
-| Packet8f  | :repeat: |    --    | :repeat: | :repeat:  |
-| Packet8h  |   :x:    | :repeat: |    --    |    :x:    |
-| Packet8bf |   :x:    | :repeat: |   :x:    |    --     |
+| to \ from |    Packet8i     | Packet8f |    Packet8h     |    Packet8bf    |
+|:---------:|:---------------:|:--------:|:---------------:|:---------------:|
+| Packet8i  |       --        | :repeat: | :no_entry_sign: | :no_entry_sign: |
+| Packet8f  |    :repeat:     |    --    |    :repeat:     |    :repeat:     |
+| Packet8h  | :no_entry_sign: | :repeat: |       --        | :no_entry_sign: |
+| Packet8bf | :no_entry_sign: | :repeat: | :no_entry_sign: |       --        |
 
-| to \ from  | Packet16i | Packet16f | Packet16h | Packet16bf |
-|:----------:|:---------:|:---------:|:---------:|:----------:|
-| Packet16i  |    --     | :repeat:  |    :x:    |    :x:     |
-| Packet16f  | :repeat:  |    --     | :repeat:  |  :repeat:  |
-| Packet16h  |    :x:    | :repeat:  |    --     |    :x:     |
-| Packet16bf |    :x:    | :repeat:  |    :x:    |     --     |
+| to \ from  |    Packet16i    | Packet16f |    Packet16h    |   Packet16bf    |
+|:----------:|:---------------:|:---------:|:---------------:|:---------------:|
+| Packet16i  |       --        | :repeat:  | :no_entry_sign: | :no_entry_sign: |
+| Packet16f  |    :repeat:     |    --     |    :repeat:     |    :repeat:     |
+| Packet16h  | :no_entry_sign: | :repeat:  |       --        | :no_entry_sign: |
+| Packet16bf | :no_entry_sign: | :repeat:  | :no_entry_sign: |       --        |
 
 ### `preinterpret` functions
 
-| to \ from | Packet4i | Packet4f | Packet2d |
-|:---------:|:--------:|:--------:|:--------:|
-| Packet4i  |    --    | :repeat: | :repeat: |
-| Packet4f  | :repeat: |    --    |   :x:    |
-| Packet2d  | :repeat: |   :x:    |    --    |
+| to \ from | Packet4i |    Packet4f     |    Packet2d     |
+|:---------:|:--------:|:---------------:|:---------------:|
+| Packet4i  |    --    |    :repeat:     |    :repeat:     |
+| Packet4f  | :repeat: |       --        | :no_entry_sign: |
+| Packet2d  | :repeat: | :no_entry_sign: |       --        |
 
 | to \ from | Packet8i | Packet8f |
 |:----------|:--------:|:--------:|
 | Packet8i  |    --    | :repeat: |
 | Packet8f  | :repeat: |    --    |
 
-| to \ from | Packet16i |        Packet16f        |        Packet8d         | Packet8f |
-|:---------:|:---------:|:-----------------------:|:-----------------------:|:--------:|
-| Packet16i |    --     |        :repeat:         |           :x:           |   :x:    |
-| Packet16f | :repeat:  | :ballot_box_with_check: |        :repeat:         |   :x:    |
-| Packet8d  |    :x:    |        :repeat:         | :ballot_box_with_check: |   :x:    |
-| Packet8f  |    :x:    |        :repeat:         |           :x:           |    --    |
+| to \ from |    Packet16i    |        Packet16f        |        Packet8d         |    Packet8f     |
+|:---------:|:---------------:|:-----------------------:|:-----------------------:|:---------------:|
+| Packet16i |       --        |        :repeat:         |     :no_entry_sign:     | :no_entry_sign: |
+| Packet16f |    :repeat:     | :ballot_box_with_check: |        :repeat:         | :no_entry_sign: |
+| Packet8d  | :no_entry_sign: |        :repeat:         | :ballot_box_with_check: | :no_entry_sign: |
+| Packet8f  | :no_entry_sign: |        :repeat:         |     :no_entry_sign:     |       --        |
 
 ## MathFunctions.h
 
-| function \ type |        Packet4f         |        Packet2d         | Packet16b |        Packet8f         |        Packet4d         | Packet8h | Packet8bf |        Packet16f        |        Packet8d         |        Packet16h        |       Packet16bf        |
-|:----------------|:-----------------------:|:-----------------------:|:---------:|:-----------------------:|:-----------------------:|:--------:|:---------:|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
-| plog            | :ballot_box_with_check: | :ballot_box_with_check: |    :x:    | :ballot_box_with_check: | :ballot_box_with_check: |   :x:    |    :x:    | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |
-| plog2           | :ballot_box_with_check: | :ballot_box_with_check: |    :x:    | :ballot_box_with_check: | :ballot_box_with_check: |   :x:    |    :x:    | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |
-| plog1p          | :ballot_box_with_check: |           :x:           |    :x:    | :ballot_box_with_check: |           :x:           |   :x:    |    :x:    | :ballot_box_with_check: |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
-| pexpm1          | :ballot_box_with_check: |           :x:           |    :x:    | :ballot_box_with_check: |           :x:           |   :x:    |    :x:    | :ballot_box_with_check: |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
-| pexp            | :ballot_box_with_check: | :ballot_box_with_check: |    :x:    | :ballot_box_with_check: | :ballot_box_with_check: |   :x:    |    :x:    |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |
-| psin            | :ballot_box_with_check: |           :x:           |    :x:    | :ballot_box_with_check: |           :x:           |   :x:    |    :x:    | :ballot_box_with_check: |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
-| pcos            | :ballot_box_with_check: |           :x:           |    :x:    | :ballot_box_with_check: |           :x:           |   :x:    |    :x:    | :ballot_box_with_check: |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
-| psqrt           |        :repeat:         |        :repeat:         | :repeat:  |        :repeat:         |        :repeat:         |   :x:    |    :x:    |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
-| prsqrt          |        :repeat:         |           :x:           |    :x:    |        :repeat:         |           :x:           |   :x:    |    :x:    |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
-| preciprocal     |        :repeat:         |           :x:           |    :x:    |        :repeat:         |           :x:           |   :x:    |    :x:    |        :repeat:         |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
-| ptanh           | :ballot_box_with_check: |           :x:           |    :x:    | :ballot_box_with_check: |           :x:           |   :x:    |    :x:    | :ballot_box_with_check: |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
-| pfrexp          |           :x:           |           :x:           |    :x:    |           :x:           |           :x:           | :repeat: | :repeat:  |           :x:           |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
-| pldexp          |           :x:           |           :x:           |    :x:    |           :x:           |           :x:           | :repeat: | :repeat:  |           :x:           |           :x:           | :ballot_box_with_check: | :ballot_box_with_check: |
+| function \ type |        Packet4f         |        Packet2d         |    Packet16b    |        Packet8f         |        Packet4d         |    Packet8h     |    Packet8bf    |        Packet16f        |        Packet8d         |        Packet16h        |       Packet16bf        |
+|:----------------|:-----------------------:|:-----------------------:|:---------------:|:-----------------------:|:-----------------------:|:---------------:|:---------------:|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
+| plog            | :ballot_box_with_check: | :ballot_box_with_check: | :no_entry_sign: | :ballot_box_with_check: | :ballot_box_with_check: | :no_entry_sign: | :no_entry_sign: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |
+| plog2           | :ballot_box_with_check: | :ballot_box_with_check: | :no_entry_sign: | :ballot_box_with_check: | :ballot_box_with_check: | :no_entry_sign: | :no_entry_sign: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |
+| plog1p          | :ballot_box_with_check: |     :no_entry_sign:     | :no_entry_sign: | :ballot_box_with_check: |     :no_entry_sign:     | :no_entry_sign: | :no_entry_sign: | :ballot_box_with_check: |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |
+| pexpm1          | :ballot_box_with_check: |     :no_entry_sign:     | :no_entry_sign: | :ballot_box_with_check: |     :no_entry_sign:     | :no_entry_sign: | :no_entry_sign: | :ballot_box_with_check: |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |
+| pexp            | :ballot_box_with_check: | :ballot_box_with_check: | :no_entry_sign: | :ballot_box_with_check: | :ballot_box_with_check: | :no_entry_sign: | :no_entry_sign: |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |
+| psin            | :ballot_box_with_check: |     :no_entry_sign:     | :no_entry_sign: | :ballot_box_with_check: |     :no_entry_sign:     | :no_entry_sign: | :no_entry_sign: | :ballot_box_with_check: |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |
+| pcos            | :ballot_box_with_check: |     :no_entry_sign:     | :no_entry_sign: | :ballot_box_with_check: |     :no_entry_sign:     | :no_entry_sign: | :no_entry_sign: | :ballot_box_with_check: |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |
+| psqrt           |        :repeat:         |        :repeat:         |    :repeat:     |        :repeat:         |        :repeat:         | :no_entry_sign: | :no_entry_sign: |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
+| prsqrt          |        :repeat:         |     :no_entry_sign:     | :no_entry_sign: |        :repeat:         |     :no_entry_sign:     | :no_entry_sign: | :no_entry_sign: |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |
+| preciprocal     |        :repeat:         |     :no_entry_sign:     | :no_entry_sign: |        :repeat:         |     :no_entry_sign:     | :no_entry_sign: | :no_entry_sign: |        :repeat:         |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |
+| ptanh           | :ballot_box_with_check: |     :no_entry_sign:     | :no_entry_sign: | :ballot_box_with_check: |     :no_entry_sign:     | :no_entry_sign: | :no_entry_sign: | :ballot_box_with_check: |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |
+| pfrexp          |     :no_entry_sign:     |     :no_entry_sign:     | :no_entry_sign: |     :no_entry_sign:     |     :no_entry_sign:     |    :repeat:     |    :repeat:     |     :no_entry_sign:     |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |
+| pldexp          |     :no_entry_sign:     |     :no_entry_sign:     | :no_entry_sign: |     :no_entry_sign:     |     :no_entry_sign:     |    :repeat:     |    :repeat:     |     :no_entry_sign:     |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |
 
 > numext
 
@@ -529,20 +530,20 @@
 | ploadu          | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |
 | pset1           |        :repeat:         |        :repeat:         | :ballot_box_with_check: |        :repeat:         |        :repeat:         |        :repeat:         |
 | ploaddup        | :ballot_box_with_check: |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |        :repeat:         |        :repeat:         |
-| ploadquad       |           :x:           |           :x:           |           :x:           |           :x:           |        :repeat:         |           :x:           |
+| ploadquad       |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |
 | pstore          | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |
 | pstoreu         | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |
-| pgather         |        :repeat:         |        :repeat:         |           :x:           |        :repeat:         |        :repeat:         |        :repeat:         |
-| pscatter        |        :repeat:         |        :repeat:         |           :x:           |        :repeat:         |        :repeat:         |        :repeat:         |
-| prefetch        |        :repeat:         |           :x:           |        :repeat:         |           :x:           |           :x:           |           :x:           |
+| pgather         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |        :repeat:         |        :repeat:         |        :repeat:         |
+| pscatter        |        :repeat:         |        :repeat:         |     :no_entry_sign:     |        :repeat:         |        :repeat:         |        :repeat:         |
+| prefetch        |        :repeat:         |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | pfirst          |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | preverse        |        :repeat:         |        :repeat:         | :ballot_box_with_check: |        :repeat:         |        :repeat:         |        :repeat:         |
 | predux          |        :repeat:         |        :repeat:         | :ballot_box_with_check: |        :repeat:         |        :repeat:         |        :repeat:         |
 | predux_mul      |        :repeat:         |        :repeat:         | :ballot_box_with_check: |        :repeat:         |        :repeat:         |        :repeat:         |
 | pcplxflip       |        :repeat:         |        :repeat:         | :ballot_box_with_check: |        :repeat:         |        :repeat:         |        :repeat:         |
 | pdiv            | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |
-| ptranspose      |        :repeat:         |        :repeat:         |           :x:           |        :repeat:         |        :repeat:*        |        :repeat:         |
-| pblend          |        :repeat:         |           :x:           |           :x:           |           :x:           |           :x:           |           :x:           |
+| ptranspose      |        :repeat:         |        :repeat:         |     :no_entry_sign:     |        :repeat:         |        :repeat:*        |        :repeat:         |
+| pblend          |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | psqrt           | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |
 
 * `Packet4cf predux_half_dowto4<Packet8cf>(const Packet8cf& a)`

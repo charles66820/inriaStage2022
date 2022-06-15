@@ -44,7 +44,7 @@ EIGEN_STRONG_INLINE Packet8f Bf16ToF32(const Packet8bf& a) {
 * `module load build/cmake/3.21.3 compiler/gcc/11.2.0`
 * `cd eigen-fork && mkdir build ; cd build`
 * `cmake .. -DEIGEN_TEST_MIPP=ON`
-* `make buildtests -j -k; while [ $? -ne 0 ]; do make buildtests -j -k; done`
+* `make buildtests -j12 -k; while [ $? -ne 0 ]; do make buildtests -j12 -k; done`
 
 ### types size
 
