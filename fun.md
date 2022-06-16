@@ -106,12 +106,12 @@
 | padd                               |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |
 | padd + umask                       |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | plset                              |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |
-| psub                               |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
+| psub                               |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |
 | paddsub                            |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
-| pnegate                            |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: |
+| pnegate                            |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    | :ballot_box_with_check: |
 | pconj                              | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |     :no_entry_sign:     |
-| pmul                               |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
-| pdiv                               |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
+| pmul                               |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |
+| pdiv                               |   :white_check_mark:    |   :white_check_mark:    |     :no_entry_sign:     |     :no_entry_sign:     |
 | pmadd                              |        :repeat:         |        :repeat:         | :ballot_box_with_check: |     :no_entry_sign:     |
 | pmsub                              |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
 | pnmadd                             |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
@@ -176,14 +176,14 @@
 | peven_mask                         |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |
 | pload1                             |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |
 | padd                               |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    | :ballot_box_with_check: | :ballot_box_with_check: |   :white_check_mark:    |
-| padd + umask                       |   :white_check_mark:    |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| padd + umask                       |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | plset                              |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: | :ballot_box_with_check: |        :repeat:         |
 | psub                               |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    | :ballot_box_with_check: | :ballot_box_with_check: |   :white_check_mark:    |
 | paddsub                            |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | pnegate                            |   :white_check_mark:    |   :white_check_mark:    | :ballot_box_with_check: |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |
 | pconj                              | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |
 | pmul                               |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    | :ballot_box_with_check: | :ballot_box_with_check: |           :x:           |
-| pdiv                               |        :repeat:         |        :repeat:         |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |     :no_entry_sign:     |
+| pdiv                               |   :white_check_mark:    |   :white_check_mark:    |     :no_entry_sign:     | :ballot_box_with_check: | :ballot_box_with_check: |     :no_entry_sign:     |
 | pmadd                              |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | pmsub                              |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | pnmadd                             |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
