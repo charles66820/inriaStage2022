@@ -155,11 +155,52 @@ Packet16uc
 
 > Plafrim
 
+> Test 1
+
 ```txt
 The following tests FAILED:
   902 - matrix_function_5 (Subprocess aborted)
   911 - matrix_power_7 (Subprocess aborted)
   975 - levenberg_marquardt (Subprocess aborted)
+```
+
+> Test 2 run 1
+
+```txt
+The following tests FAILED:
+  447 - schur_complex_1 (Subprocess aborted)
+  902 - matrix_function_5 (Subprocess aborted)
+  911 - matrix_power_7 (Subprocess aborted)
+```
+
+> Test 2 run 2
+
+```txt
+The following tests FAILED:
+  414 - qr_colpivoting_3 (Subprocess aborted)
+  447 - schur_complex_1 (Subprocess aborted)
+  902 - matrix_function_5 (Subprocess aborted)
+  911 - matrix_power_7 (Subprocess aborted)
+```
+
+> Test 2 run 3
+
+```txt
+The following tests FAILED:
+  447 - schur_complex_1 (Subprocess aborted)
+  898 - matrix_function_1 (Subprocess aborted)
+  902 - matrix_function_5 (Subprocess aborted)
+  911 - matrix_power_7 (Subprocess aborted)
+```
+
+> Test 2 run 4
+
+```txt
+The following tests FAILED:
+  412 - qr_colpivoting_1 (Subprocess aborted)
+  447 - schur_complex_1 (Subprocess aborted)
+  902 - matrix_function_5 (Subprocess aborted)
+  911 - matrix_power_7 (Subprocess aborted)
 ```
 
 > PC
