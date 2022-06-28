@@ -1,6 +1,7 @@
-#include <stdio.h>
 #include <float.h>
 #include <limits.h>
+#include <stdio.h>
+
 #include <iostream>
 
 void printBytes(u_char* bytes, size_t nbBytes) {
@@ -19,8 +20,7 @@ void printVar(const T& var) {
   printBytes((u_char*)&var, sizeof(T));
 }
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
   printf("int : %ld\n", sizeof(int));
   printf("float : %ld\n", sizeof(float));
   printf("long : %ld\n", sizeof(long));
@@ -105,7 +105,6 @@ int main(int argc, char const *argv[])
     *ficc = 27.02;
     printf("%-24s %-8.2f = ", "edit const cast value :", *ficc);
     printVar(cf);
-
   }
 
   {
@@ -122,7 +121,7 @@ int main(int argc, char const *argv[])
     printf("%-24s %-8hhu = ", "uint8 static cast :", scsc);
     printVar(scsc);
 
-    int8_t sccp = *(int8_t *)&s;
+    int8_t sccp = *(int8_t*)&s;
     printf("%-24s %-8hhu = ", "uint8 pointer cast :", sccp);
     printVar(sccp);
 
@@ -131,7 +130,7 @@ int main(int argc, char const *argv[])
     printVar(scrcp);
   }
 
-    {
+  {
     printf("\nCast uint8_t to uint16_t\n");
 
     int8_t c = 2;
@@ -145,7 +144,7 @@ int main(int argc, char const *argv[])
     printf("%-25s %-8hu = ", "uint16 static cast :", ccsc);
     printVar(ccsc);
 
-    short cccp = *(short *)&c;
+    short cccp = *(short*)&c;
     printf("%-25s %-8hu = ", "uint16 pointer cast :", cccp);
     printVar(cccp);
 
