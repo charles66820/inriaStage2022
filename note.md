@@ -27,7 +27,7 @@
 * disable the turbo boost `echo "1" | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo`
 * to get all eigen types `cat */* | egrep -o 'Packet[0-9]+[a-z]+? ' | sort | uniq`
 
-* `float* test = ...; ((intptr_t)test % 32);`
+* `float* test = ...; ((intptr_t)test % 32);` // test if is align
 
 ```c++
 EIGEN_STRONG_INLINE Packet8f Bf16ToF32(const Packet8bf& a) {

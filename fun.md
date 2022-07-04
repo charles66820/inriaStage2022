@@ -126,8 +126,8 @@
 | pcmp_lt                            |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |
 | pcmp_lt_or_nan                     |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
 | pcmp_eq                            |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
-| pmin                               |        :repeat:         |        :repeat:         |     :no_entry_sign:     |        :repeat:         |
-| pmax                               |        :repeat:         |        :repeat:         |     :no_entry_sign:     |        :repeat:         |
+| pmin                               |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |
+| pmax                               |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |
 | parithmetic_shift_right            |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |
 | plogical_shift_right               |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |
 | plogical_shift_left                |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |
@@ -140,7 +140,7 @@
 | ploadu                             |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |
 | ploadu + umask                     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | ploaddup                           |        :repeat:         | :ballot_box_with_check: |        :repeat:         |        :repeat:         |
-| ploadquad                          |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |
+| ploadquad                          | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |        :repeat:         |
 | pstore                             |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | pstoreu                            |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | pstoreu + umask                    |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
@@ -163,7 +163,7 @@
 | ptranspose                         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:*        |
 | pblend                             |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |
 | extract256                         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
-| extract128                         |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |
+| extract128                         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | cat256                             |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 
 > AVX / AVX2
@@ -190,7 +190,7 @@
 | pnmsub                             |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | pselect                            |        :repeat:         |        :repeat:         |     :no_entry_sign:     |        :repeat:         |        :repeat:         |     :no_entry_sign:     |
 | ptrue                              |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
-| pand                               |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |        :repeat:         |        :repeat:         |
+| pand                               |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | por                                |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | pxor                               |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | pandnot                            |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
@@ -211,8 +211,8 @@
 | pload                              |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |
 | ploadu                             |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |   :white_check_mark:    |
 | ploadu + umask                     |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
-| ploaddup                           |        :repeat:         |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |        :repeat:         |
-| ploadquad                          |        :repeat:         |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| ploaddup                           |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
+| ploadquad                          |        :repeat:         | :ballot_box_with_check: |        :repeat:         |        :repeat:         |        :repeat:         | :ballot_box_with_check: |
 | pstore                             |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | pstoreu                            |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |        :repeat:         |
 | pstoreu + umask                    |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
@@ -234,7 +234,7 @@
 | predux_any                         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | ptranspose                         |        :repeat:*        |        :repeat:         |        :repeat:*        |        :repeat:         |        :repeat:*        |        :repeat:         |
 | pblend                             |        :repeat:         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
-| extract256                         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| extract256                         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | extract128                         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | cat256                             |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 
@@ -306,8 +306,8 @@
 | predux_any                         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | ptranspose                         |        :repeat:*        |        :repeat:*        |        :repeat:*        |        :repeat:*        |        :repeat:*        |
 | pblend                             |       :question:        |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
-| extract256                         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
-| extract128                         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| extract256                         |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
+| extract128                         |     :no_entry_sign:     |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 | cat256                             |        :repeat:         |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |     :no_entry_sign:     |
 
 | function \ type |  float   |  double  |   int    |
@@ -547,3 +547,75 @@
 | psqrt           | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: | :ballot_box_with_check: |
 
 * `Packet4cf predux_half_dowto4<Packet8cf>(const Packet8cf& a)`
+
+### Non-Regresion tests
+
+| function \ type                    | exist |
+|:-----------------------------------|:-----:|
+| pset1                              | :ok:  |
+| pset1frombits                      | :ok:  |
+| pzero                              | :ok:  |
+| peven_mask                         | :ok:  |
+| pload1                             | :ok:  |
+| padd                               | :ok:  |
+| padd + umask                       | :ok:  |
+| plset                              | :ok:  |
+| psub                               | :ok:  |
+| paddsub                            | :ok:  |
+| pnegate                            | :ok:  |
+| pconj                              |  :o:  |
+| pmul                               | :ok:  |
+| pdiv                               | :ok:  |
+| pmadd                              | :ok:  |
+| pmsub                              | :ok:  |
+| pnmadd                             | :ok:  |
+| pnmsub                             | :ok:  |
+| pselect                            | :ok:  |
+| ptrue                              | :ok:  |
+| pand                               | :ok:  |
+| por                                | :ok:  |
+| pxor                               | :ok:  |
+| pandnot                            | :ok:  |
+| pcmp_le                            | :ok:  |
+| pcmp_lt                            | :ok:  |
+| pcmp_lt_or_nan                     | :ok:  |
+| pcmp_eq                            | :ok:  |
+| pmin                               | :ok:  |
+| pmax                               | :ok:  |
+| parithmetic_shift_right            | :ok:  |
+| plogical_shift_right               | :ok:  |
+| plogical_shift_left                | :ok:  |
+| pabs                               | :ok:  |
+| pround                             | :ok:  |
+| print                              | :ok:  |
+| pceil                              | :ok:  |
+| pfloor                             | :ok:  |
+| pload                              | :ok:  |
+| ploadu                             | :ok:  |
+| ploadu + umask                     | :ok:  |
+| ploaddup                           | :ok:  |
+| ploadquad                          | :ok:  |
+| pstore                             | :ok:  |
+| pstoreu                            | :ok:  |
+| pstoreu + umask                    | :ok:  |
+| pgather                            | :ok:  |
+| pscatter                           | :ok:  |
+| pstore1                            | :ok:  |
+| pfirst                             | :ok:  |
+| preverse                           | :ok:  |
+| predux                             | :ok:  |
+| pfrexp_generic_get_biased_exponent | :ok:  |
+| pfrexp                             |  :o:  |
+| pldexp                             | :ok:  |
+| pbroadcast4                        | :ok:  |
+| punpackp                           | :ok:  |
+| predux_half_dowto4                 | :ok:  |
+| predux_mul                         | :ok:  |
+| predux_min                         | :ok:  |
+| predux_max                         | :ok:  |
+| predux_any                         | :ok:  |
+| ptranspose                         |  :x:  |
+| pblend                             | :ok:  |
+| extract256                         |  :x:  |
+| extract128                         |  :x:  |
+| cat256                             |  :x:  |
