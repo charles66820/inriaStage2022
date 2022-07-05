@@ -614,7 +614,7 @@
 | predux_min                         | :ok:  |
 | predux_max                         | :ok:  |
 | predux_any                         | :ok:  |
-| ptranspose                         |  :x:  |
+| ptranspose                         | :ok:  |
 | pblend                             | :ok:  |
 | extract256                         |  :x:  |
 | extract128                         |  :x:  |
