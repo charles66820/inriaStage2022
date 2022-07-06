@@ -37,6 +37,7 @@ EIGEN_STRONG_INLINE Packet8f Bf16ToF32(const Packet8bf& a) {
 ```
 
 * Select SSE, AVX, AVX2 `<Packet(2d|4(f|d|i|l)|8(f|i|h|bf)|16b)`
+* Search pset1 function definition `Packet[1-9]+[a-x]+ pset1<`
 
 ### Plafrim eigen tests
 
