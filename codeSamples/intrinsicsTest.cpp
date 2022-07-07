@@ -1,36 +1,36 @@
+// c++ -mavx512f intrinsicsTest.cpp -o intrinsicsTest
 #include <immintrin.h>
 #include <stdio.h>
+#include <iostream>
 
-// c++ -march=skylake-avx512 intrinsicsTest.cpp -o intrinsicsTest
-
-void printVec256i(char* msg, __m256i vec) {
+void printVec256i(std::string msg, __m256i vec) {
   int *ptr = (int*)&vec;
-  printf("%-22s = %d %d %d %d %d %d %d %d\n", msg, ptr[0], ptr[1], ptr[2], ptr[3], ptr[4], ptr[5], ptr[6], ptr[7]);
+  printf("%-22s = %d %d %d %d %d %d %d %d\n", msg.c_str(), ptr[0], ptr[1], ptr[2], ptr[3], ptr[4], ptr[5], ptr[6], ptr[7]);
 }
 
-void printVec256(char* msg, __m256 vec) {
+void printVec256(std::string msg, __m256 vec) {
   float *ptr = (float*)&vec;
-  printf("%-22s = %.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f\n", msg, ptr[0], ptr[1], ptr[2], ptr[3], ptr[4], ptr[5], ptr[6], ptr[7]);
+  printf("%-22s = %.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f\n", msg.c_str(), ptr[0], ptr[1], ptr[2], ptr[3], ptr[4], ptr[5], ptr[6], ptr[7]);
 }
 
-void printVec256d(char* msg, __m256d vec) {
+void printVec256d(std::string msg, __m256d vec) {
   double *ptr = (double*)&vec;
-  printf("%-22s = %.1lf %.1lf %.1lf %.1lf\n", msg, ptr[0], ptr[1], ptr[2], ptr[3]);
+  printf("%-22s = %.1lf %.1lf %.1lf %.1lf\n", msg.c_str(), ptr[0], ptr[1], ptr[2], ptr[3]);
 }
 
-void printVec512i(char* msg, __m512i vec) {
+void printVec512i(std::string msg, __m512i vec) {
   int *ptr = (int*)&vec;
-  printf("%-22s = %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d\n", msg, ptr[0], ptr[1], ptr[2], ptr[3], ptr[4], ptr[5], ptr[6], ptr[7], ptr[8], ptr[9], ptr[10], ptr[11], ptr[12], ptr[13], ptr[14], ptr[15]);
+  printf("%-22s = %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d\n", msg.c_str(), ptr[0], ptr[1], ptr[2], ptr[3], ptr[4], ptr[5], ptr[6], ptr[7], ptr[8], ptr[9], ptr[10], ptr[11], ptr[12], ptr[13], ptr[14], ptr[15]);
 }
 
-void printVec512(char* msg, __m512 vec) {
+void printVec512(std::string msg, __m512 vec) {
   float *ptr = (float*)&vec;
-  printf("%-22s = %.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f\n", msg, ptr[0], ptr[1], ptr[2], ptr[3], ptr[4], ptr[5], ptr[6], ptr[7], ptr[8], ptr[9], ptr[10], ptr[11], ptr[12], ptr[13], ptr[14], ptr[15]);
+  printf("%-22s = %.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f\n", msg.c_str(), ptr[0], ptr[1], ptr[2], ptr[3], ptr[4], ptr[5], ptr[6], ptr[7], ptr[8], ptr[9], ptr[10], ptr[11], ptr[12], ptr[13], ptr[14], ptr[15]);
 }
 
-void printVec512d(char* msg, __m512d vec) {
+void printVec512d(std::string msg, __m512d vec) {
   double *ptr = (double*)&vec;
-  printf("%-22s = %.1lf %.1lf %.1lf %.1lf %.1lf %.1lf %.1lf %.1lf\n", msg, ptr[0], ptr[1], ptr[2], ptr[3], ptr[4], ptr[5], ptr[6], ptr[7]);
+  printf("%-22s = %.1lf %.1lf %.1lf %.1lf %.1lf %.1lf %.1lf %.1lf\n", msg.c_str(), ptr[0], ptr[1], ptr[2], ptr[3], ptr[4], ptr[5], ptr[6], ptr[7]);
 }
 
 int main(int argc, char const *argv[])

@@ -1,7 +1,8 @@
+// c++ -I../MIPP/src mippSupportedType.cpp -o mippSupportedType
 #include <iostream>
 #include <typeinfo>
 
-#include "MIPP/src/mipp.h"
+#include "mipp.h"
 
 template<typename T>
 void testMippRegType(std::string str, T val) {

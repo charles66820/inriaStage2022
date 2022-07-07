@@ -1,8 +1,9 @@
+// clang++ -I../MIPP/src prodVecMatMipp.cpp -o prodVecMatMipp
 #include <iostream>
 #include <random>
 #include <algorithm>
 
-#include "src/mipp.h"
+#include "mipp.h"
 
 void printTab(const char* msg, float* tab, int height, int width) {
   std::cout << msg;

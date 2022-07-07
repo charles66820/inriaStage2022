@@ -1,3 +1,4 @@
+// c++ -I../eigen prodVecMatEigen.cpp -o prodVecMatEigen
 #include <iostream>
 #include <random>
 #include <algorithm>
