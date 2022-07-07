@@ -26,8 +26,9 @@
 
 * disable the turbo boost `echo "1" | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo`
 * to get all eigen types `cat */* | egrep -o 'Packet[0-9]+[a-z]+? ' | sort | uniq`
-
-* `float* test = ...; ((intptr_t)test % 32);` // test if is align
+* to test if is align `float* test = ...; ((intptr_t)test % 32);`
+* Search SSE, AVX, AVX2 `<Packet(2d|4(f|d|i|l)|8(f|i|h|bf)|16b)`
+* Search pset1 function definition `Packet[1-9]+[a-x]+ pset1<`
 
 ```c++
 EIGEN_STRONG_INLINE Packet8f Bf16ToF32(const Packet8bf& a) {
@@ -35,9 +36,6 @@ EIGEN_STRONG_INLINE Packet8f Bf16ToF32(const Packet8bf& a) {
   // auto s = mipp::cvt<int16_t,int32_t>((__m128)a.m_val);
   // return (__m256) mipp::lshift<float>(s, 16);
 ```
-
-* Select SSE, AVX, AVX2 `<Packet(2d|4(f|d|i|l)|8(f|i|h|bf)|16b)`
-* Search pset1 function definition `Packet[1-9]+[a-x]+ pset1<`
 
 ### Plafrim eigen tests
 
@@ -67,30 +65,45 @@ EIGEN_STRONG_INLINE Packet8f Bf16ToF32(const Packet8bf& a) {
 
 ### types size (Eigen / MIPP)
 
-> Integer
+> from Packet to MIPP
 
-| type eigen | type avx | MIPP                        | MIPP 512                    |
-|:-----------|:---------|:----------------------------|:----------------------------|
-| Packet16b  | __m128i  | low + &lt;char&gt;          |                             |
-| Packet4i   | __m128i  | low + &lt;int&gt;           |                             |
-| Packet8i   | __m256i  | &lt;int&gt;                 | low + &lt;int&gt;           |
-| Packet16i  | __m512i  |                             | &lt;int&gt;                 |
-| Packet4l   | __m256i  | &lt;long&gt;                | low + &lt;long&gt;          |
-| Packet8h   | __m128i  | low + &lt;ushort&gt; (half) |                             |
-| Packet16h  | __m256i  |                             | low + &lt;ushort&gt; (half) |
+| type eigen | type MIPP | to MIPP SSE        | to MIPP AVX                                | to MIPP AVX512                             |
+|:-----------|:----------|:-------------------|:-------------------------------------------|:-------------------------------------------|
+| Packet16b  | int8_t    | (reg)(__m128i) vec | (reg)(__m256i) _mm256_castsi128_si256(vec) | (reg)(__m512i) _mm512_castsi128_si512(vec) |
+| Packet4i   | int32_t   | (reg)(__m128i) vec | (reg)(__m256i) _mm256_castsi128_si256(vec) | (reg)(__m512i) _mm512_castsi128_si512(vec) |
+| Packet8i   | int32_t   | /                  | (reg)(__m256i) vec                         | (reg)(__m512i) _mm512_castsi256_si512(vec) |
+| Packet16i  | int32_t   | /                  | /                                          | (reg)(__m512i) vec                         |
+| Packet4l   | int64_t   | /                  | (reg)(__m256i) vec                         | (reg)(__m512i) _mm512_castsi256_si512(vec) |
+| Packet8h   | int16_t   | (reg)(__m128i) vec | (reg)(__m256i) _mm256_castsi128_si256(vec) | (reg)(__m512i) _mm512_castsi128_si512(vec) |
+| Packet16h  | int16_t   | /                  | /                                          | (reg)(__m512i) vec                         |
+| Packet4f   | float     | (reg) vec          | (reg) _mm256_castps128_ps256(vec)          | (reg) _mm512_castps128_ps512(vec)          |
+| Packet8f   | float     | /                  | (reg) vec                                  | (reg) _mm512_castps256_ps512(vec)          |
+| Packet16f  | float     | /                  | /                                          | (reg) vec                                  |
+| Packet2d   | double    | (reg)(__m128d) vec | (reg)(__m128d) _mm256_castpd128_pd256(vec) | (reg)(__m512d) _mm512_castpd128_pd512(vec) |
+| Packet4d   | double    | /                  | (reg)(__m256d) vec                         | (reg)(__m512d) _mm512_castpd256_pd512(vec) |
+| Packet8d   | double    | /                  | /                                          | (reg)(__m512d) vec                         |
+| Packet8bf  | int16_t   | (reg)(__m256i) vec | (reg)(__m256i) _mm256_castsi128_si256(vec) | (reg)(__m512i) _mm512_castsi128_si512(vec) |
+| Packet16bf | int16_t   | /                  | /                                          |                                            |
 
-> float
+> from MIPP to Packet
 
-| type eigen | type avx | MIPP                           | MIPP 512                       |
-|:-----------|:---------|:-------------------------------|--------------------------------|
-| Packet4f   | __m128   | low + &lt;float&gt;            |                                |
-| Packet8f   | __m256   | &lt;float&gt;                  | low + &lt;float&gt;            |
-| Packet16f  | __m512   |                                | &lt;float&gt;                  |
-| Packet2d   | __m128d  | low + &lt;double&gt;           |                                |
-| Packet4d   | __m256d  | &lt;double&gt;                 | low + &lt;double&gt;           |
-| Packet8d   | __m512d  |                                | &lt;double&gt;                 |
-| Packet8bf  | __m128i  | low + &lt;ushort&gt; (float16) |                                |
-| Packet16bf | __m256i  |                                | low + &lt;ushort&gt; (float16) |
+| type eigen | type MIPP | form MIPP SSE | form MIPP AVX                                  | form MIPP AVX512                               |
+|:-----------|:----------|:--------------|:-----------------------------------------------|:-----------------------------------------------|
+| Packet16b  | int8_t    | (__m128i) vec | (__m128i) _mm256_castsi256_si128((__m256i)vec) | (__m128i) _mm512_castsi512_si128((__m512i)vec) |
+| Packet4i   | int32_t   | (__m128i) vec | (__m128i) _mm256_castsi256_si128((__m256i)vec) | (__m128i) _mm512_castsi512_si128((__m512i)vec) |
+| Packet8i   | int32_t   | /             | (reg)(__m256i) vec                             | (__m256i) _mm512_castsi512_si256((__m512i)vec) |
+| Packet16i  | int32_t   | /             | /                                              | (__m512i) vec                                  |
+| Packet4l   | int64_t   | /             | (reg)(__m256i) vec                             | (__m256i) _mm512_castsi512_si256((__m512i)vec) |
+| Packet8h   | int16_t   | (__m128i) vec | (__m128i) _mm256_castsi256_si128((__m256i)vec) | (__m128i) _mm512_castsi512_si128((__m512i)vec) |
+| Packet16h  | int16_t   | /             | /                                              | (__m512i) vec                                  |
+| Packet4f   | float     | (reg) vec     | (__m128) _mm256_castps256_ps128((__m256)vec)   | (__m128) _mm512_castps512_ps128((__m512)vec)   |
+| Packet8f   | float     | /             | (__m256) vec                                   | (__m256) _mm512_castps512_ps256((__m512)vec)   |
+| Packet16f  | float     | /             | /                                              | (__m512) vec                                   |
+| Packet2d   | double    | (__m128d) vec | (__m128d) _mm256_castpd256_pd128((__m256d)vec) | (__m128d) _mm512_castpd512_pd128((__m512d)vec) |
+| Packet4d   | double    | /             | (__m256d) vec                                  | (__m256d) _mm512_castpd512_pd256((__m512d)vec) |
+| Packet8d   | double    | /             | /                                              | (__m512d) vec                                  |
+| Packet8bf  | int16_t   | (__m128i) vec | (__m128i) _mm256_castsi256_si128((__m256i)vec) | (__m128i) _mm512_castsi512_si128((__m512i)vec) |
+| Packet16bf | int16_t   | /             | /                                              | (__m512i) vec                                  |
 
 <!-- Complex -->
 Packet1cd
@@ -149,67 +162,3 @@ Packet16uc
 
 * <https://github.com/aff3ct/MIPP>
 * <https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html>
-
-## Test failed
-
-### On plafrim
-
-> Plafrim
-
-> Test 1
-
-```txt
-The following tests FAILED:
-  902 - matrix_function_5 (Subprocess aborted)
-  911 - matrix_power_7 (Subprocess aborted)
-  975 - levenberg_marquardt (Subprocess aborted)
-```
-
-> Test 2 run 1
-
-```txt
-The following tests FAILED:
-  447 - schur_complex_1 (Subprocess aborted)
-  902 - matrix_function_5 (Subprocess aborted)
-  911 - matrix_power_7 (Subprocess aborted)
-```
-
-> Test 2 run 2
-
-```txt
-The following tests FAILED:
-  414 - qr_colpivoting_3 (Subprocess aborted)
-  447 - schur_complex_1 (Subprocess aborted)
-  902 - matrix_function_5 (Subprocess aborted)
-  911 - matrix_power_7 (Subprocess aborted)
-```
-
-> Test 2 run 3
-
-```txt
-The following tests FAILED:
-  447 - schur_complex_1 (Subprocess aborted)
-  898 - matrix_function_1 (Subprocess aborted)
-  902 - matrix_function_5 (Subprocess aborted)
-  911 - matrix_power_7 (Subprocess aborted)
-```
-
-> Test 2 run 4
-
-```txt
-The following tests FAILED:
-  412 - qr_colpivoting_1 (Subprocess aborted)
-  447 - schur_complex_1 (Subprocess aborted)
-  902 - matrix_function_5 (Subprocess aborted)
-  911 - matrix_power_7 (Subprocess aborted)
-```
-
-> PC
-
-```txt
-The following tests FAILED:
-  412 - qr_colpivoting_1 (Child aborted)
-  453 - eigensolver_selfadjoint_12 (Child aborted)
-```
-
-Tous passe au second run des tests

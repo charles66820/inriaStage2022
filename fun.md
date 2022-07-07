@@ -61,15 +61,15 @@
 
 > else if AVX
 
-| type unpacket | type      | half      |
-|:--------------|:----------|:----------|
-| float         | Packet8f  | Packet4f  |
-| double        | Packet4d  | Packet2d  |
-| int           | Packet8i  | Packet4i  |
-| Eigen::half   | Packet8h  | Packet8h  |
-| bfloat16      | Packet8bf | Packet8bf |
-| AVX2          |           |           |
-| int64_t       | Packet4l  | Packet4l  |
+| type unpacket  | type      | half      |
+|:---------------|:----------|:----------|
+| float          | Packet8f  | Packet4f  |
+| double         | Packet4d  | Packet2d  |
+| int            | Packet8i  | Packet4i  |
+| Eigen::half    | Packet8h  | Packet8h  |
+| bfloat16       | Packet8bf | Packet8bf |
+| AVX2           |           |           |
+| int64_t (long) | Packet4l  | Packet4l  |
 
 > else // SSE
 
