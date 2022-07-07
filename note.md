@@ -45,6 +45,11 @@ EIGEN_STRONG_INLINE Packet8f Bf16ToF32(const Packet8bf& a) {
 * `cmake .. -DEIGEN_TEST_MIPP=ON`
 * `make buildtests -j12 -k; while [ $? -ne 0 ]; do make buildtests -j12 -k; done`
 
+### non regression tests run and list MIPP undefined functions
+
+* `make avx && ./testEigen 2> test.out ; echo $?`
+* `cat test.out | sort | uniq`
+
 ### types size
 
 > Integer
