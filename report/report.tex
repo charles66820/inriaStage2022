@@ -1,0 +1,38 @@
+\documentclass[10pt, a4paper]{article}
+
+\input{includes}
+
+\newdate{internshipBegin}{16}{05}{2022}
+\newdate{internshipEnd}{15}{07}{2022}
+
+\title{Rapport de stage}
+\author{GOEDEFROIT Charles}
+\subject{Stage du \texorpdfstring{\displaydate{internshipBegin}}{\isoDate{internshipBegin}} au \texorpdfstring{\displaydate{internshipEnd}}{\isoDate{internshipEnd}}}
+\keywords{}
+\date{\today}
+
+\input{configs}
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+  \ {} % important
+	\vfill
+	\vspace{1cm}
+	{\scshape\Huge\MyTitle\par}
+	\vspace{0.5cm}
+	{\LARGE\MySubject\par}
+	\vspace{1cm}
+	\MyAuthor
+	\vfill
+	{\large\MyDate\par}
+\end{titlepage}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\end{document}

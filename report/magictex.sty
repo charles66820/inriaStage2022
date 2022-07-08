@@ -1,0 +1,20 @@
+\NeedsTeXFormat{LaTeX2e}[1999/01/01]
+\ProvidesPackage{magictex}[2022/07/08]
+
+% Options
+% \newif\if@<optionName> \@<optionName>false
+
+% \DeclareOption{<optionName>}{\@<optionName>true}
+\DeclareOption*{} % catch all unknowns options
+\ProcessOptions
+
+% \RequirePackage{<packet>}
+
+\newcommand{\isoDate}[1]{\getdateyear{#1}-\getdatemonth{#1}-\getdateday{#1}}
+
+\def\MySubject{}
+\def\MyKeywords{}
+\newcommand{\subject}[1]{\def\MySubject{#1}}
+\newcommand{\keywords}[1]{\def\MyKeywords{#1}}
+
+\endinput

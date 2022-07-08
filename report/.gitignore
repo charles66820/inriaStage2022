@@ -1,0 +1,14 @@
+*.aux
+*.bbl
+*.blg
+*.log
+*.synctex.gz
+*.toc
+*.fls
+*.fdb_latexmk
+*.dvi
+*.eps
+_minted-*
+*.pyg
+
+report.pdf
