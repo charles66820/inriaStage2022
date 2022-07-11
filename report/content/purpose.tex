@@ -1,0 +1,28 @@
+\section{Objet du stage / travaille demandé}
+
+// faire le portage de Eigen sur MIPP
+
+// Eigen est une lib\dots elle est capable de faire des calcule vectoriser mais pour
+cela elle a une implementation par architectures.
+
+// MIPP est une lib\dots MIPP est un sous partie d'AFF3CT (A Fast Forward Error Correction
+Toolbox) qui\dots.
+
+// MIPP permet de faire des operations vectoriel\dots
+
+// Le premier objectif est donc d'ajouter, avec l'interface MIPP, une implementation
+vectoriel des fonctions élémentaires de Eigen pour que le support des architectures sois
+automatique.
+
+// Le second objectif est de faire une campagne d'évaluation des performances (avant /
+après MIPP)
+
+// Le dernier objectif est de tester Eigen sur l'architecture Risc-V qui n'est pas encore
+présent den Eigen et évaluer les performances sur simulateur.
+
+// L'objectif a long terme est de pouvoirs garder uniquement l'implementation MIPP et
+supprimer les autre.
+
+// Un des intérêt de faire ce portage et de permettre le support de future architectures
+sans avoir a l'ajouter mais juste en mettant a jour MIPP.
+

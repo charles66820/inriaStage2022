@@ -1,0 +1,50 @@
+\section{Future / ce qui reste à faire}
+
+//  Il reste a implementer tous le reste
+
+//  Faire un repliage qui fonctionne
+
+//  Modifier MIPP pour ajouter tous ce qu'il manque\dots
+
+// Evolution possible pour MIPP :
+
+// * Ajout du type bool, d'un type h  et complex (present en AVX512)
+
+// * ajouter la correspondance int8\_t et char (pour le cast)
+
+// * ajout des type unsigned (uint8\_t, uint16\_t\dots)
+
+// * make Reg2 printable
+
+// * peut-être ajouter les operations pour le Reg2 mais ce n'ai peut-être pas dans
+l'esprit de MIPP
+
+// * faire en sorte que le testz fonctionne avec toute les architecture
+
+// * voire le temps de compilation
+
+\begin{table}[H]
+  \centering
+  \caption*{En \textcolor{darkGreen}{vert} les type qui fonctionne, En \textcolor{orange}{orange}
+    les type qui ne fonctionne}
+  \begin{tabular}[H]{|m{.21\linewidth}|m{.18\linewidth}|m{.21\linewidth}|}
+    \hline
+    \textbf{Type standard}          & \textbf{type de base}        & \textbf{type unsigned}        \\
+    \hline
+    \textcolor{darkGreen}{int8\_t}  & \textcolor{orange}{char}     & \textcolor{orange}{uint8\_t}  \\
+    \hline
+    \textcolor{darkGreen}{int16\_t} & \textcolor{darkGreen}{short} & \textcolor{orange}{uint16\_t} \\
+    \hline
+    \textcolor{darkGreen}{int32\_t} & \textcolor{darkGreen}{int}   & \textcolor{orange}{uint32\_t} \\
+    \hline
+    \textcolor{darkGreen}{int64\_t} & \textcolor{darkGreen}{long}  & \textcolor{orange}{uint64\_t} \\
+    \hline
+    \textcolor{darkGreen}{float}    & \----                        & \----                         \\
+    \hline
+    \textcolor{darkGreen}{double}   & \----                        & \----                         \\
+    \hline
+    \textcolor{orange}{bool}        & \----                        & \----                         \\
+    \hline
+  \end{tabular}
+  \caption{Type compatible avec MIPP}
+\end{table}
