@@ -153,5 +153,23 @@ int main(int argc, char const* argv[]) {
     printVar(ccrcp);
   }
 
+  int v1 = -1;
+  uint v2 = -1;
+  printf("%-25s %-8d = ", "int :", v1);
+  printVar(v1);
+  printf("%-25s %-8u = ", "int :", v2);
+  printVar(v2);
+  int v3 = v1 + v1;
+  printf("%-25s %-8d = ", "int :", v3);
+  printVar(v3);
+  int v4 = v2 + v2;
+  printf("%-25s %-8d = ", "int :", v4);
+  printVar(v4);
+  printf("%-25s %-8u = ", "int :", (uint)v4);
+  printVar((uint)v4);
+  int v5 = (uint)v1 + (uint)v1;
+  printf("%-25s %-8d = ", "int :", v5);
+  printVar(v5);
+
   return 0;
 }
