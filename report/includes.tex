@@ -8,6 +8,14 @@
 \ifxetex
     \usepackage{fontspec}
     \setmainfont{OpenDyslexic}
+    [
+      BoldFont=OpenDyslexic-Bold,
+      ItalicFont=OpenDyslexic-Italic,
+      BoldItalicFont=OpenDyslexic-Bold-Italic,
+      SmallCapsFont=OpenDyslexicMono
+    ]
+    \setsansfont{OpenDyslexic}[Scale=MatchLowercase]
+    \setmonofont{OpenDyslexicMono}[Scale=MatchLowercase]
 \else
     \usepackage[T1]{fontenc}
 \fi
@@ -42,6 +50,7 @@
 % Text color
 \usepackage{xcolor}
 
+\usepackage{multicol}
 \usepackage{xspace}
 
 % Edit titles
