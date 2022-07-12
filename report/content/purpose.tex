@@ -1,28 +1,54 @@
 \section{Objet du stage / travaille demandé}
 
-// faire le portage de Eigen sur MIPP
+L'objectif de mon stage est de faire le portage de \emph{Eigen} sur \emph{MIPP}.
 
-// Eigen est une lib\dots elle est capable de faire des calcule vectoriser mais pour
-cela elle a une implementation par architectures.
+\subsection{Les bibliothèques}
 
-// MIPP est une lib\dots MIPP est un sous partie d'AFF3CT (A Fast Forward Error Correction
-Toolbox) qui\dots.
+\emph{Eigen} est une bibliothèque open source écrit en C++11 très utilisé. Elle permet
+de faire de l'algèbre linéaire, de la manipulation de matrices, de vecteurs,
+de solveurs numérique et \textcolor{red}{related algorithms}. Pour accéléré les calcules
+Eigen utilise une vectorization explicite. Il y as donc une implémentation par
+architectures. Elle est principalement développée au centre Inria de l'université de
+Bordeaux et est au coeur de d'autre bibliothèque comme TensorFlow.
 
-// MIPP permet de faire des operations vectoriel\dots
+% définition d'intrinsic ?
 
-// Le premier objectif est donc d'ajouter, avec l'interface MIPP, une implementation
-vectoriel des fonctions élémentaires de Eigen pour que le support des architectures sois
-automatique.
+\emph{MIPP} est une bibliothèque open source écrit en C++11 qui fourni une abstraction
+unique pour les fonctions intrinsic\footnote{intrinsic : une instruction SIMD} (SIMD
+\footnote{SIMD (Single Instruction on Multiple Data) est une architecture parallèles
+qui permet à une intrinsic de fait simultanément des operations sur plusieurs données
+(un ou plusieurs vecteurs) et produire plusieurs résultats}) de plusieurs architectures.
+Elle fonctionne actuelle pour les architectures SSE, AVX, AVX512, ARM NEON (32bits and
+64bits). Elle supporte les nombres flottants de precision simple et double ainsi que les
+entier signé codé sur 64, 32, 16 et 8 bits. Sont objectif est d'écrit une seule fois un
+code qui utilise les fonctions de \emph{MIPP}, j'appellerai ce code \emph{code MIPP} dans
+la suite du rapport, sans avoir a écrire un code d'intrinsic spécifique pour chaque
+architectures. \emph{MIPP} fourni automatiquement à partir d'un \emph{code MIPP} les
+bonne intrinsic pour une architecture specific. \emph{MIPP} est un sous partie
+d'\emph{AFF3CT} (A Fast Forward Error Correction Toolbox) qui est une bibliothèque et un
+simulateur qui est dédié au \emph{Forward Error Correction (FEC or channel coding)}. Elle
+est également écrite en C++.
 
-// Le second objectif est de faire une campagne d'évaluation des performances (avant /
-après MIPP)
+\subsection{Les objectifs}
 
-// Le dernier objectif est de tester Eigen sur l'architecture Risc-V qui n'est pas encore
-présent den Eigen et évaluer les performances sur simulateur.
+Le premier objectif est donc d'ajouter une nouvelle implémentation vectoriel, en
+\emph{code MIPP}, des fonctions élémentaires de Eigen. Ce-ci a fin de permettre que le
+support des différentes architectures sois automatique.
 
-// L'objectif a long terme est de pouvoirs garder uniquement l'implementation MIPP et
-supprimer les autre.
+Le second objectif est de faire une campagne d'évaluation des performances pour voir si
+il y a une différence entre \emph{Eigen} sans l'implémentation en \emph{code MIPP} et
+\emph{Eigen} avec l'implémentation en \emph{code MIPP}. Il n'y a pas de raison d'avoir
+de mayeur performances mais il peut y avoir une légère degradation.
 
-// Un des intérêt de faire ce portage et de permettre le support de future architectures
-sans avoir a l'ajouter mais juste en mettant a jour MIPP.
+Le dernier objectif est de tester \emph{Eigen} sur l'architecture \emph{Risc-V} qui n'est
+pas encore présent dans \emph{Eigen} et évaluer les performances sur simulateur.
 
+L'objectif a long terme est de pouvoirs garder uniquement l'implémentation en
+\emph{code MIPP} qui remplace les autre implémentation explicite.
+
+Les intérêts de ce portage sont :
+\begin{itemize}
+  \item la reduction du nombre de lignes de code et de la complexité du code.
+  \item de permettre le support de future architectures sans avoir à refaire tous une
+  implémentation explicite mais tous simplement en mettant a jour MIPP.
+\end{itemize}
