@@ -1,18 +1,56 @@
 \section{Travaille réaliser}
 
-// J'ai regarder comment ajouter une architecture
+\subsection{Défrichage / démarrage ?}
 
-// J'ai remarquer que dans chaque architecture il y a 4 fichier
+Pour prend en main \emph{Eigen} et \emph{MIPP} j'ai commancer par implementer un produit
+vecteur matrice avec les deux bibliothèques.
 
-// 1. PacketMath.h : qui définit les type Eigen et les operations (vectoriel et scalaire)
-sur les entier et les flottant de différant tailles.
+Ensuite j'ai chercher ou ce trouvé les implémentations vectoriel explicite dans \emph{Eigen}
+et comment elles sont implémentées.
 
-// 2. TypeCasting.h : qui défini les conversion entre les différant type Eigen.
+Chaque architectures sont implémentées en 4 fichiers. Le premier \emph{PacketMath.h}
+définit \hyperref[typeEigen]{les types} que \emph{Eigen} utilise pour représenté les
+vecteurs et les implémentations des operations vectoriel pour chacun d'entre eux.
+Il y a une implémentation générique de ce fichier pour les type scalaire. Le second
+\emph{TypeCasting.h} définit les conversion entre les différant \hyperref[typeEigen]{types
+vectoriel d'\emph{Eigen}}. C'est conversions concerne un peut toute les combinaison
+de vecteurs de type entier, flottant, double, booléen, half\footnote{type present dans
+\emph{Eigen}} et bfloat16\footnote{le type bfloat16 est décrit
+\href{https://en.wikipedia.org/wiki/Bfloat16_floating-point_format}{ici}. Il y a une
+implémentation présent dans \emph{Eigen}}. Le troisièmes \emph{MathFunctions.h}
+implémente les operations mathématique non élémentaire comme : \texttt{ log, log2, log1p,
+expm1, exp, sin, cos, sqrt, rsqrt, reciprocal, tanh, frexp, ldexp}. Le quatrième
+\emph{Complex.h} définit \hyperref[typeEigen]{les types vectoriel d'\emph{Eigen}} et
+les operations sur les nombre complex, simple et double precision.
 
-// 3. MathFunctions.h : qui définit les operations mathématique non élémentaire (comme :
-log, log2, log1p, expm1, exp, sin, cos, sqrt, rsqrt, reciprocal, tanh, frexp, ldexp)
+\subsection{Les types représentent les vecteurs}
+\emph{Eigen} et \emph{MIPP} représentent les vecteurs différemment voyons cela.
 
-// 4. Complex.h : qui définit les type vectoriel complex Eigen les operations sur les complex
+\label{typeEigen}
+\subsubsection{La representation de vecteur dans Eigen}
+{ %TODO: here
+  // Des vecteur à taille fix qui sont dépendent de l'architecture visé \dots
+
+  // Il sont nommer \emph{Packet} suivi d'un nombre, le nombre d'élément qu'il contient,
+  et qui termine par une ou plusieurs letter qui corresponde qu type des éléments dans
+  le vecteur. Par example un vecteur qui contient 4 flottant sera \emph{Packet4f}.
+
+  //\%sur les entier et les flottant de différant tailles.
+
+  // Eigen est capable d'utilise plusieurs tailles de vecteur à la fois\dots
+}
+
+\subsubsection{La representation de vecteur dans MIPP}
+{
+  // Des vecteur avec des taille qui sont variable et indépendant de l'architecture.
+
+  Il y a donc que 2 type de vecteur \emph{reg} et \emph{reg2} (qui fait la moitiés de la
+  taille de \emph{reg}).
+
+  // MIPP n'est pas capable d'utilisé plusieurs taille de vecteur à la fois.
+}
+
+
 
 // dans `Eigen/src/Core/util/ConfigureVectorization.h` j'ai ajouter un cas \_\_MIPP\_\_
 
@@ -66,29 +104,7 @@ ou il y a une différence entre la nouvelle version et l'ancienne version de l'o
 Il sont aussi capable d'afficher le contenu des vecteur en binaire et d'afficher sans
 plantage quant une operations n'existe pas dans MIPP.
 
-// Pour faire fonctionné MIPP et Eigen ensemble j'ai regarder de plus prés comment il
-utilise les vecteurs :
-
-\subsection{La representation de vecteur dans Eigen}
-{
-  // Des vecteur à taille fix qui sont dépendent de l'architecture visé \dots
-
-  // Il sont nommer \emph{Packet} suivi d'un nombre, le nombre d'élément qu'il contient,
-  et qui termine par une ou plusieurs letter qui corresponde qu type des éléments dans
-  le vecteur. Par example un vecteur qui contient 4 flottant sera \emph{Packet4f}.
-
-  // Eigen est capable d'utilise plusieurs tailles de vecteur à la fois\dots
-}
-
-\subsection{La representation de vecteur dans MIPP}
-{
-  // Des vecteur avec des taille qui sont variable et indépendant de l'architecture.
-
-  Il y a donc que 2 type de vecteur \emph{reg} et \emph{reg2} (qui fait la moitiés de la
-  taille de \emph{reg}).
-
-  // MIPP n'est pas capable d'utilisé plusieurs taille de vecteur à la fois.
-}
+% liaison vecteurs
 
 // J'ai commancer sur une mauvaise piste con convertissant les Packet Eigen en reg2
 lors qu'il été petit. Ce qui fait que je devais faire la transformation, \emph{combinate()}
