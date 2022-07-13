@@ -1,39 +1,82 @@
 \section{Conclusion}
 
-// J'ai remarquer que :
+Le premier objectif est en partie rempli car j'ai implémenté une partie des opérations et
+j'ai bien vue les différences entre la manipulation des vecteurs dans \Eigen et \MIPP.
+Par-contre je n'ai pas pus faire une campagne d'évaluation des performances ni le tester
+d'\Eigen sur l'architecture \emph{Risc-V} car toute les operations ne sont pas codé en
+\emph{code MIPP}.
 
-// * Les test unitaire de \Eigen sont très long ce qui fait qui ne mon pas été utile
-pour teseter mes modifications
+\subsection{Ce que j'ai remarquer}
 
-// * Les test unitaire de \Eigen on des bug ce qu'il fait qu'il faut les lancer plusieurs
-fois pour qu'il fonctionne (c'est un bug connue) (trouver l'issus)
+\begin{itemize}
+  \item Les test unitaire de \Eigen sont très long ce qui fait qui ne mon pas été utile
+  pour teseter mes modifications.
+  \item Les test unitaire de \Eigen on des bug ce qu'il fait qu'il faut les lancer
+  plusieurs fois pour qu'il fonctionne.
+  \item J'ai remarquer que plus je codé en \emph{code MIPP} dans \Eigen plus le temps de
+  compilation été élevé. C'est très certainement du au templates mais je ne peut pas dire
+  si cela viens des templates dans \MIPP ou dans \Eigen ou les deux.
+\end{itemize}
 
-// * J'ai remarquer que plus on code en MIPP dans \Eigen plus le temps de compilation est
-élever. C'est très certainement du au templates mais je ne peut pas dire si cela viens
-des templates dans MIPP ou dans \Eigen ou les 2.
+Grâce à mes tests et mes implémentations \MIPP dans \Eigen j'ai pu lister des operations
+qu'il manque dans \MIPP :
 
-// Les connaissances que j'ai acquis lors de mes étude que j'ai utiliser au cours du
-stage :
+\begin{table}[H]
+  \centering
+  \caption*{\texttimes: absent de \MIPP \checkmark: present dans \MIPP}
+  \begin{tabularx}{\linewidth}[H]{|m{.238\linewidth}|m{.1205\linewidth}|m{.0872\linewidth}|m{.0705\linewidth}|m{.1594\linewidth}|m{.108\linewidth}|}
+  % \begin{tabularx}{\linewidth}[H]{|l|c|c|c|c|c|}
+    \hline
+                     & \textbf{AVX512} & \textbf{AVX2} & \textbf{AVX} & \textbf{SSE4.1/4.2} & \textbf{SSE2/3} \\
+    \hline
+    add<int32_t>    & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \checkmark      \\
+    \hline
+    sub<int32_t>    & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \checkmark      \\
+    \hline
+    mul<int32_t>    & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \texttimes      \\
+    \hline
+    orb<int8_t>     & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \checkmark      \\
+    \hline
+    xor<int8_t>     & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \checkmark      \\
+    \hline
+    and<int8_t>     & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \checkmark      \\
+    \hline
+    cmpneq<int16_t> & \texttimes      & \checkmark    & \texttimes   & \texttimes          & \texttimes      \\
+    \hline
+    cmpneq<int8_t>  & \texttimes      & \checkmark    & \texttimes   & \texttimes          & \texttimes      \\
+    \hline
+  \end{tabularx}
+  \caption{Abstractions \MIPP non implementer}
+\end{table}
 
-// * Les test de non regression que j'ai du implementer pour verifier que mes
-implémentation été bonne. (AL / PdP / PLE / SLAM4) (Le GL)
+Pour exécuter le code en \emph{AVX512} j'ai utilisé \emph{PlaFRIM}.
 
-// * Le fait de refactorisé du code (utilisation des 5 principe\dots) (AL / PdP)
+\subsection{Les connaissances que j'ai acquis lors de mes études que j'ai utilisé au
+cours du stage}
 
-// * L'utilisation des intransics et le calcule vectoriel (vue en PAP)
+\begin{itemize}
+  \item Les tests de non regression que j'ai du implementer pour verifier que mes
+  implémentations été conforme à la version précédente. J'ai obtenu c'est compétences de
+  des lors des cours d'Architecture Logiciel (AL), de Projet de Programmation (PdP) et dans
+  un cours de BTS (SLAM4).
+  \item La refactorisation de code et l'utilisation des 5 principe solides. Que j'ai
+  appris en cours d'Architecture Logiciel (AL) et de Projet de Programmation (PdP).
+  \item L'utilisation des intransics et le calcule vectoriel que j'ai vue en Programmation
+  sur Architecture Parallèles (PAP).
+  \item Les base en C++ que j'ai vue un petit-peu dans nachos en tp Système
+  d'Exploitation(SE) mais aussi dans le projet PdP de mon équipe.
+  \item La comprehension du monde de la recherche grâce à l'UE initiation recherche de L3.
+\end{itemize}
 
-// * Les base en C++ vue un petit-peu en OS dans nahos mais aussi dans mon projet PdP\dots
+\subsection{Ce que ma apporter le stage}
 
-// * La comprehension du monde de la recherche grace à l'UE initiation recherche.
-
-// Ce que ma apporter le stage :
-
-// * une mayeur comprehension des cast, conversion des type de base et des vecteurs
-
-// * Utilisation avancer des templates en c++
-
-// * des Utilisation différentes des vecteurs, plusieurs vision de leur utilisation.
-(taille fix ou non)
-
-// * une mayeur comprehension du monde de la recherche
-
+\begin{itemize}
+  \item Une mayeur comprehension des cast, des conversions des type de base et de la
+  manipulation des des vecteurs.
+  \item Une nouvelle expérience de développement dans un projet opensource qui est très
+  utiliser.
+  \item L'utilisation avancé des templates en c++.
+  \item Des utilisation différentes des vecteurs avec plusieurs vision de leur
+  utilisation.
+  \item Une mayeur comprehension du monde de la recherche.
+\end{itemize}

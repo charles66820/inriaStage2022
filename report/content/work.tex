@@ -40,7 +40,7 @@ les operations sur les nombre complex, simple et double precision.
   \Eigen et donc capable d'utilisé des taille de vecteur différente en même temps.
 }
 
-\subsubsection{La representation de vecteur dans MIPP}
+\subsubsection{La representation de vecteur dans \MIPP}
 {
   Les vecteurs sont de taille variable en fonction de l'architecture visé. \MIPP permet
   d'obtenir la taille des vecteurs qu'il manipule. Le \emph{code MIPP} dois respecté
@@ -152,7 +152,7 @@ TODO: (Benchmark here ?)
 
 J'ai ensuite continué l'implémentation en \emph{code MIPP} de plusieurs opérations pour
 chaque types \emph{SSE} et \emph{AVX} quelle support. Ce qui ma amené à avoir plusieurs
-fois la même implémentation MIPP avec seulement le type qui change. Par exemple
+fois la même implémentation \MIPP avec seulement le type qui change. Par exemple
 l'operation \emph{pset1<Packet4f>()} et l'operation \emph{pset1<Packet4i>}.
 
 Dans un second temps le but à été de \textit{replier} les fonctions pour en avoir qu'une
@@ -175,36 +175,3 @@ Je vois deux solutions qui fonctionneraient peut-être :
   \item ajouté des adaptateur d'objet pour avoir une arborescence et utiliser le
   polymorphisme pour avoir un seul cas spécifique qui correspondrai au \emph{code MIPP}.
 \end{itemize}
-
-// Grace à mes tests et mes quelque implémentation j'ai pu lister des operations qu'il
-manque dans MIPP :
-
-\begin{table}[H]
-  \centering
-  \caption*{\texttimes: absent de MIPP \checkmark: present dans MIPP}
-  \begin{tabularx}{\linewidth}[H]{|m{.238\linewidth}|m{.1205\linewidth}|m{.0872\linewidth}|m{.0705\linewidth}|m{.1594\linewidth}|m{.108\linewidth}|}
-  % \begin{tabularx}{\linewidth}[H]{|l|c|c|c|c|c|}
-    \hline
-                     & \textbf{AVX512} & \textbf{AVX2} & \textbf{AVX} & \textbf{SSE4.1/4.2} & \textbf{SSE2/3} \\
-    \hline
-    add<int32_t>    & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \checkmark      \\
-    \hline
-    sub<int32_t>    & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \checkmark      \\
-    \hline
-    mul<int32_t>    & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \texttimes      \\
-    \hline
-    orb<int8_t>     & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \checkmark      \\
-    \hline
-    xor<int8_t>     & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \checkmark      \\
-    \hline
-    and<int8_t>     & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \checkmark      \\
-    \hline
-    cmpneq<int16_t> & \texttimes      & \checkmark    & \texttimes   & \texttimes          & \texttimes      \\
-    \hline
-    cmpneq<int8_t>  & \texttimes      & \checkmark    & \texttimes   & \texttimes          & \texttimes      \\
-    \hline
-  \end{tabularx}
-  \caption{Abstractions MIPP non implementer}
-\end{table}
-
-// Pour exécuter le code en AVX512 j'ai utilisé PlaFRIM\dots
