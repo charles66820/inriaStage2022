@@ -1,0 +1,16 @@
+\begin{Form}[action=http://your-web-server.com/path/receiveform.cgi]
+
+\begin{multicols}{2}
+  \TextField[name=name, color=0.18 0.55 0.34]{Name}
+
+  \columnbreak
+
+  \TextField[name=lastName]{Last name :}
+\end{multicols}
+
+\noindent
+Have you ? \hfill{} \CheckBox[name=ag, value=yes]{Yes} \hfill{} \CheckBox[name=ag, value=no]{No}
+
+\noindent
+\Submit{Submit}
+\end{Form}
