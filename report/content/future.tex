@@ -1,33 +1,28 @@
 \section{Future / ce qui reste à faire}
 
-//  Il reste a implementer tous le reste
+Il reste à implementer tous les opérations qui ne sont pas encore ne \emph{code MIPP} et
+faire un \textit{repliage} qui fonctionne correctement.
 
-//  Faire un repliage qui fonctionne
+Il serai intéressant d'ajouter les évolutions suivant à \MIPP :
 
-//  Modifier \MIPP pour ajouter tous ce qu'il manque\dots
-
-// Evolution possible pour \MIPP :
-
-// * Ajout du type bool, d'un type h  et complex (present en AVX512)
-
-// * ajouter la correspondance int8_t et char (pour le cast)
-
-// * ajout des type unsigned (uint8_t, uint16_t\dots)
-
-// * make Reg2 printable
-
-// * peut-être ajouter les operations pour le Reg2 mais ce n'ai peut-être pas dans
-l'esprit de \MIPP
-
-// * faire en sorte que le testz fonctionne avec toute les architecture
-
-// * voire le temps de compilation
+\begin{itemize}
+  \item Ajouter le type boolean (\verb|bool|), le type half (\emph{HF} ou
+  \verb|_m512h| en \emph{AVX512}) et les complex.
+  \item Ajout des type non signé (\verb|uint8_t|, \verb|uint16_t|\dots)
+  \item Faire en sorte que les \emph{Reg2} soit printable.
+  \item Ajouter la correspondance int8_t et char pour permettre a l'utilisateur de faire
+  des cast avec char.
+  \item Faire en sorte que l'abstraction \verb|testz| fonctionne sur toute les architectures.
+  \item Peut-être ajouter les operations pour le Reg2 mais ce n'ai peut-être pas dans
+  l'esprit de \MIPP.
+  \item Voire pour le temps de compatible
+\end{itemize}
 
 \begin{table}[H]
   \centering
   \caption*{En \textcolor{darkGreen}{vert} les type qui fonctionne, En \textcolor{orange}{orange}
     les type qui ne fonctionne}
-  \begin{tabular}[H]{|m{.21\linewidth}|m{.18\linewidth}|m{.21\linewidth}|}
+  \begin{tabular}[H]{|l|l|l|}
     \hline
     \textbf{Type standard}          & \textbf{type de base}        & \textbf{type unsigned}        \\
     \hline
