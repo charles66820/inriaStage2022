@@ -49,11 +49,25 @@ les operations sur les nombre complex, simple et double precision.
   \MIPP n'est donc pas capable d'utilisé différente taille de vecteur à la fois.
 }
 
-// dans `Eigen/src/Core/util/ConfigureVectorization.h` j'ai ajouter un cas __MIPP__
+\subsection{Ajoute d'une nouvelle architecture \MIPP}
 
-// j'ai ajouter une nouvelle architecture MIPP dans `Eigen/src/Core/arch/` et que j'ai
-charger dans `Eigen/Core`
-
+Pour ajouter la nouvelle architecture \MIPP j'ai créé un nouveaux dossier \verb|MIPP|
+dans le dossier \verb|Eigen/src/Core/arch/|. J'ai ensuite créé le 4 fichiers
+\emph{PacketMath.h}, \emph{TypeCasting.h}, \emph{MathFunctions.h} et \emph{Complex.h}
+en copient le contenu des fichiers des architecture \emph{SSE}, \emph{AVX} et \emph{AVX512}
+que j'ai adapté pour que tous fonctionne. Je me suis basé sur c'est trois architecture
+car c'est celles qui ce trouver sur mon ordinateur. Il à été aisé de les faire fonctionné
+ensemble car lorsque l'architecture \emph{AVX} est definit l'architecture \emph{SSE} l'ai
+aussi.
+Une fois l'architecture ajouté j'ai modifier le fichier
+\verb|Eigen/src/Core/util/ConfigureVectorization.h| pour y ajouter la définition de la
+macro \emph{EIGEN_VECTORIZE_MIPP} dans le cas où \emph{__MIPP__} est définit à la
+compilation. Cette macro ce définit en plus des macro de l'architecture actuel
+\emph{EIGEN_VECTORIZE_AVX}, \emph{EIGEN_VECTORIZE_SSE}\dots
+Pour finir j'ai modifier le fichier \verb|Eigen/Core| pour charger les quatre fichiers
+de la nouvelle architecture \MIPP. Le chargement de l'architecture \MIPP est prioritaire
+par rapport au autre.
+% TODO: here
 // J'ai copier le contenu des architecture SSE, AVX et AVX512 dans les même fichier.
 C'est 3 architecture qui fonctionne ensemble (AVX depend de SSE, etc)
 
@@ -80,6 +94,9 @@ operations supporter (tableau avec toute les fonctions)
   \caption{Les type vectoriel Eigen par architecture}
 \end{table}
 
+
+\subsection{Les tests}
+
 // J'ai lancer les tests Eigen sur mon architecture fraîchement copier de AVX.
 
 // En lancent les tests Eigen j'ai remarquer qu'il sont très long à ce lancer et qu'il
@@ -101,6 +118,7 @@ ou il y a une différence entre la nouvelle version et l'ancienne version de l'o
 Il sont aussi capable d'afficher le contenu des vecteur en binaire et d'afficher sans
 plantage quant une operations n'existe pas dans MIPP.
 
+\subsection{l'implémentation}
 % liaison vecteurs
 
 // J'ai commancer sur une mauvaise piste con convertissant les Packet Eigen en reg2
