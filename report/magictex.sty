@@ -17,4 +17,14 @@
 \newcommand{\subject}[1]{\def\MySubject{#1}}
 \newcommand{\keywords}[1]{\def\MyKeywords{#1}}
 
+% \AtBeginDocument{
+%   \catcode`_=12 % define text value // allow underscore
+%   \begingroup\lccode`~=`_ % math with _
+%   \lowercase{\endgroup\let~}\sb % produce math subscript
+%   \mathcode`_="8000 % define math value
+% }
+
+\catcode`\_=\active
+\def_{\relax\ifmmode\sb \else \_\fi}
+
 \endinput

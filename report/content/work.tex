@@ -28,12 +28,13 @@ les operations sur les nombre complex, simple et double precision.
 
 \label{typeEigen}
 \subsubsection{La representation de vecteur dans Eigen}
-{ %TODO: here
-  // Des vecteur à taille fix qui sont dépendent de l'architecture visé \dots
-
-  // Il sont nommer \emph{Packet} suivi d'un nombre, le nombre d'élément qu'il contient,
-  et qui termine par une ou plusieurs letter qui corresponde qu type des éléments dans
-  le vecteur. Par example un vecteur qui contient 4 flottant sera \emph{Packet4f}.
+{
+  Les vecteurs sont de taille fix et représenté par des types. Ces représentation sont
+  dépendent de l'architecture visé. Ces types sont nommés \emph{Packet} suivi d'un nombre.
+  Ce nombre corresponde au nombre d'éléments que le vecteur peut contenir. Les type ce
+  termine par une ou plusieurs letter qui corresponde au type des éléments du vecteur.
+  Par example un vecteur qui contient quatre flottant sera nommé \emph{Packet4f} et
+  correspondra au type AVX \emph{__m128}.
 
   //\%sur les entier et les flottant de différant tailles.
 
@@ -52,7 +53,7 @@ les operations sur les nombre complex, simple et double precision.
 
 
 
-// dans `Eigen/src/Core/util/ConfigureVectorization.h` j'ai ajouter un cas \_\_MIPP\_\_
+// dans `Eigen/src/Core/util/ConfigureVectorization.h` j'ai ajouter un cas __MIPP__
 
 // j'ai ajouter une nouvelle architecture MIPP dans `Eigen/src/Core/arch/` et que j'ai
 charger dans `Eigen/Core`
@@ -90,7 +91,7 @@ ne fonctionne pas à tous les coup.
 
 // Pour que je puis tester efficacement et rapidement j'ai implémenter des tests de non
 regression. Pour exécuter ces tests j'ai copier les fonctions actuel dans un nouveaux
-fichier et j'ai suffixés ces fonctions par \emph{\_old}.
+fichier et j'ai suffixés ces fonctions par \emph{_old}.
 
 // J'ai implémenter les test de non regression pour la fonctionne \emph{pset1}, qui
 rempli un vecteur avec la même valeur a chaque case, et j'ai fait l'implémentation en
@@ -146,21 +147,21 @@ manque dans MIPP :
     \hline
                      & \textbf{AVX512} & \textbf{AVX2} & \textbf{AVX} & \textbf{SSE4.1/4.2} & \textbf{SSE2/3} \\
     \hline
-    add<int32\_t>    & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \checkmark      \\
+    add<int32_t>    & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \checkmark      \\
     \hline
-    sub<int32\_t>    & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \checkmark      \\
+    sub<int32_t>    & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \checkmark      \\
     \hline
-    mul<int32\_t>    & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \texttimes      \\
+    mul<int32_t>    & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \texttimes      \\
     \hline
-    orb<int8\_t>     & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \checkmark      \\
+    orb<int8_t>     & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \checkmark      \\
     \hline
-    xor<int8\_t>     & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \checkmark      \\
+    xor<int8_t>     & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \checkmark      \\
     \hline
-    and<int8\_t>     & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \checkmark      \\
+    and<int8_t>     & \checkmark      & \checkmark    & \texttimes   & \checkmark          & \checkmark      \\
     \hline
-    cmpneq<int16\_t> & \texttimes      & \checkmark    & \texttimes   & \texttimes          & \texttimes      \\
+    cmpneq<int16_t> & \texttimes      & \checkmark    & \texttimes   & \texttimes          & \texttimes      \\
     \hline
-    cmpneq<int8\_t>  & \texttimes      & \checkmark    & \texttimes   & \texttimes          & \texttimes      \\
+    cmpneq<int8_t>  & \texttimes      & \checkmark    & \texttimes   & \texttimes          & \texttimes      \\
     \hline
   \end{tabular}
   \caption{Abstractions MIPP non implementer}
