@@ -2,29 +2,29 @@
 
 \subsection{Défrichage / démarrage ?}
 
-Pour prend en main \emph{Eigen} et \emph{MIPP} j'ai commancer par implementer un produit
+Pour prend en main \Eigen et \MIPP j'ai commancer par implementer un produit
 vecteur matrice avec les deux bibliothèques.
 
-Ensuite j'ai chercher ou ce trouvé les implémentations vectoriel explicite dans \emph{Eigen}
+Ensuite j'ai chercher ou ce trouvé les implémentations vectoriel explicite dans \Eigen
 et comment elles sont implémentées.
 
 Chaque architectures sont implémentées en 4 fichiers. Le premier \emph{PacketMath.h}
-définit \hyperref[typeEigen]{les types} que \emph{Eigen} utilise pour représenté les
+définit \hyperref[typeEigen]{les types} que \Eigen utilise pour représenté les
 vecteurs et les implémentations des operations vectoriel pour chacun d'entre eux.
 Il y a une implémentation générique de ce fichier pour les type scalaire. Le second
 \emph{TypeCasting.h} définit les conversion entre les différant \hyperref[typeEigen]{types
-vectoriel d'\emph{Eigen}}. C'est conversions concerne un peut toute les combinaison
+vectoriel d'\Eigen}. C'est conversions concerne un peut toute les combinaison
 de vecteurs de type entier, flottant, double, booléen, half\footnote{type present dans
-\emph{Eigen}} et bfloat16\footnote{le type bfloat16 est décrit
+\Eigen} et bfloat16\footnote{le type bfloat16 est décrit
 \href{https://en.wikipedia.org/wiki/Bfloat16_floating-point_format}{ici}. Il y a une
-implémentation présent dans \emph{Eigen}}. Le troisièmes \emph{MathFunctions.h}
+implémentation présent dans \Eigen}. Le troisièmes \emph{MathFunctions.h}
 implémente les operations mathématique non élémentaire comme : \texttt{ log, log2, log1p,
 expm1, exp, sin, cos, sqrt, rsqrt, reciprocal, tanh, frexp, ldexp}. Le quatrième
-\emph{Complex.h} définit \hyperref[typeEigen]{les types vectoriel d'\emph{Eigen}} et
+\emph{Complex.h} définit \hyperref[typeEigen]{les types vectoriel d'\Eigen} et
 les operations sur les nombre complex, simple et double precision.
 
 \subsection{Les types représentent les vecteurs}
-\emph{Eigen} et \emph{MIPP} représentent les vecteurs différemment voyons cela.
+\Eigen et \MIPP représentent les vecteurs différemment voyons cela.
 
 \label{typeEigen}
 \subsubsection{La representation de vecteur dans Eigen}
@@ -34,24 +34,20 @@ les operations sur les nombre complex, simple et double precision.
   Ce nombre corresponde au nombre d'éléments que le vecteur peut contenir. Les type ce
   termine par une ou plusieurs letter qui corresponde au type des éléments du vecteur.
   Par example un vecteur qui contient quatre flottant sera nommé \emph{Packet4f} et
-  correspondra au type AVX \emph{__m128}.
-
-  //\%sur les entier et les flottant de différant tailles.
-
-  // Eigen est capable d'utilise plusieurs tailles de vecteur à la fois\dots
+  correspondra au type AVX \emph{__m128} car un flottant et codé sur 32bits donc
+  $32\cdot 4=128$. Il y as donc des représentation de différant tailles pour les entiers,
+  les flottants (simple et double precision), les nombres complex\dots
+  \Eigen et donc capable d'utilisé des taille de vecteur différente en même temps.
 }
 
 \subsubsection{La representation de vecteur dans MIPP}
 {
-  // Des vecteur avec des taille qui sont variable et indépendant de l'architecture.
-
-  Il y a donc que 2 type de vecteur \emph{reg} et \emph{reg2} (qui fait la moitiés de la
-  taille de \emph{reg}).
-
-  // MIPP n'est pas capable d'utilisé plusieurs taille de vecteur à la fois.
+  Les vecteurs sont de taille variable en fonction de l'architecture visé. \MIPP permet
+  d'obtenir la taille des vecteurs qu'il manipule. Le \emph{code MIPP} dois respecté
+  Le fait que les vecteurs on une taille variable. Il y a donc que 2 type de vecteurs
+  \emph{reg} et \emph{reg2} qui fait la moitiés de la taille de \emph{reg}.
+  \MIPP n'est donc pas capable d'utilisé différente taille de vecteur à la fois.
 }
-
-
 
 // dans `Eigen/src/Core/util/ConfigureVectorization.h` j'ai ajouter un cas __MIPP__
 

@@ -1,10 +1,10 @@
 \section{Objet du stage / travaille demandé}
 
-L'objectif de mon stage est de faire le portage de \emph{Eigen} sur \emph{MIPP}.
+L'objectif de mon stage est de faire le portage de \Eigen sur \MIPP.
 
 \subsection{Les bibliothèques}
 
-\emph{Eigen} est une bibliothèque open source écrit en C++11 très utilisé. Elle permet
+\Eigen est une bibliothèque open source écrit en C++11 très utilisé. Elle permet
 de faire de l'algèbre linéaire, de la manipulation de matrices, de vecteurs,
 de solveurs numérique et \textcolor{red}{related algorithms}. Pour accéléré les calcules
 Eigen utilise une vectorization explicite. Il y as donc une implémentation par
@@ -13,7 +13,7 @@ Bordeaux et est au coeur de d'autre bibliothèque comme TensorFlow.
 
 % définition d'intrinsic ?
 
-\emph{MIPP} est une bibliothèque open source écrit en C++11 qui fourni une abstraction
+\MIPP est une bibliothèque open source écrit en C++11 qui fourni une abstraction
 unique pour les fonctions intrinsic\footnote{intrinsic : une instruction SIMD} (SIMD
 \footnote{SIMD (Single Instruction on Multiple Data) est une architecture parallèles
 qui permet à une intrinsic de fait simultanément des operations sur plusieurs données
@@ -21,10 +21,10 @@ qui permet à une intrinsic de fait simultanément des operations sur plusieurs 
 Elle fonctionne actuelle pour les architectures SSE, AVX, AVX512, ARM NEON (32bits and
 64bits). Elle supporte les nombres flottants de precision simple et double ainsi que les
 entier signé codé sur 64, 32, 16 et 8 bits. Sont objectif est d'écrit une seule fois un
-code qui utilise les fonctions de \emph{MIPP}, j'appellerai ce code \emph{code MIPP} dans
+code qui utilise les fonctions de \MIPP, j'appellerai ce code \emph{code MIPP} dans
 la suite du rapport, sans avoir a écrire un code d'intrinsic spécifique pour chaque
-architectures. \emph{MIPP} fourni automatiquement à partir d'un \emph{code MIPP} les
-bonne intrinsic pour une architecture specific. \emph{MIPP} est un sous partie
+architectures. \MIPP fourni automatiquement à partir d'un \emph{code MIPP} les
+bonne intrinsic pour une architecture specific. \MIPP est un sous partie
 d'\emph{AFF3CT} (A Fast Forward Error Correction Toolbox) qui est une bibliothèque et un
 simulateur qui est dédié au \emph{Forward Error Correction (FEC or channel coding)}. Elle
 est également écrite en C++.
@@ -36,12 +36,12 @@ Le premier objectif est donc d'ajouter une nouvelle implémentation vectoriel, e
 support des différentes architectures sois automatique.
 
 Le second objectif est de faire une campagne d'évaluation des performances pour voir si
-il y a une différence entre \emph{Eigen} sans l'implémentation en \emph{code MIPP} et
-\emph{Eigen} avec l'implémentation en \emph{code MIPP}. Il n'y a pas de raison d'avoir
+il y a une différence entre \Eigen sans l'implémentation en \emph{code MIPP} et
+\Eigen avec l'implémentation en \emph{code MIPP}. Il n'y a pas de raison d'avoir
 de mayeur performances mais il peut y avoir une légère degradation.
 
-Le dernier objectif est de tester \emph{Eigen} sur l'architecture \emph{Risc-V} qui n'est
-pas encore présent dans \emph{Eigen} et évaluer les performances sur simulateur.
+Le dernier objectif est de tester \Eigen sur l'architecture \emph{Risc-V} qui n'est
+pas encore présent dans \Eigen et évaluer les performances sur simulateur.
 
 L'objectif a long terme est de pouvoirs garder uniquement l'implémentation en
 \emph{code MIPP} qui remplace les autre implémentation explicite.
