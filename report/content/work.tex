@@ -27,7 +27,7 @@ les operations sur les nombre complex, simple et double precision.
 \Eigen et \MIPP représentent les vecteurs différemment voyons cela.
 
 \label{typeEigen}
-\subsubsection{La representation de vecteur dans Eigen}
+\subsubsection{La representation de vecteur dans \Eigen}
 {
   Les vecteurs sont de taille fix et représenté par des types. Ces représentation sont
   dépendent de l'architecture visé. Ces types sont nommés \emph{Packet} suivi d'un nombre.
@@ -66,19 +66,21 @@ compilation. Cette macro ce définit en plus des macro de l'architecture actuel
 \emph{EIGEN_VECTORIZE_AVX}, \emph{EIGEN_VECTORIZE_SSE}\dots
 Pour finir j'ai modifier le fichier \verb|Eigen/Core| pour charger les quatre fichiers
 de la nouvelle architecture \MIPP. Le chargement de l'architecture \MIPP est prioritaire
-par rapport au autre.
-% TODO: here
-// J'ai copier le contenu des architecture SSE, AVX et AVX512 dans les même fichier.
-C'est 3 architecture qui fonctionne ensemble (AVX depend de SSE, etc)
+par rapport aux autre.
 
-// J'ai listé les différant type Eigen définit pour chaque architecture aussi que les
-operations supporter (tableau avec toute les fonctions)
+\subsection{Types et operations \Eigen ?}
+
+J'ai listé les différents types \Eigen définit ainsi que leur operations pour les
+architectures \emph{SSE}, \emph{AVX}, \emph{AVX2} et \emph{AVX512}.
+
+Les types :
 
 \begin{table}[H]
+  \label{eigenTypesTable}
   \centering
   \begin{tabular}[H]{|l|l|l|l|}
     \hline
-    \textbf{SSE} & \textbf{AVX} & \textbf{AVX2} & \textbf{AVX512} \\
+    \textbf{SSE} \verb|__m128| & \textbf{AVX} \verb|__m256| & \textbf{AVX2} \verb|__m256| & \textbf{AVX512} \verb|__m512|\\
     \hline
     Packet4f     & Packet8f     & Packet4l      & Packet16f       \\
     \hline
@@ -91,65 +93,88 @@ operations supporter (tableau avec toute les fonctions)
                  & Packet8bf    &               & Packet16bf      \\
     \hline
   \end{tabular}
-  \caption{Les type vectoriel Eigen par architecture}
+  \caption{Les type vectoriel \Eigen par architecture}
 \end{table}
 
+Les opérations :
+
+// TODO: (tableau avec toute les fonctions)?
 
 \subsection{Les tests}
 
-// J'ai lancer les tests Eigen sur mon architecture fraîchement copier de AVX.
+Avant de commancer l'implémentation en \emph{code MIPP} j'ai lancer les tests \Eigen.
+En lancent ces tests j'ai remarquer qu'il sont très long à compiler et à ce lancer, de
+plus il ne fonctionne pas tous à tout les coups. Les tests vont un peut plus vite sur
+une machine plus puissante mais cela reste très long.
 
-// En lancent les tests Eigen j'ai remarquer qu'il sont très long à ce lancer et qu'il
-ne fonctionne pas à tous les coup.
+Pour que je puis tester efficacement et rapidement j'ai donc implémenté des tests de non
+regression. Pour ces tests j'ai copier les fonctions actuel dans un nouveaux fichier et
+je suffixés ces fonctions par \emph{_old}.
 
-// Pour que je puis tester efficacement et rapidement j'ai implémenter des tests de non
-regression. Pour exécuter ces tests j'ai copier les fonctions actuel dans un nouveaux
-fichier et j'ai suffixés ces fonctions par \emph{_old}.
+J'ai ensuite implémenté les tests de non regression pour toutes les operations présent
+dans \emph{PacketMath.h}. Ces test fonctionne pour les architectures \emph{SSE}, \emph{AVX},
+\emph{AVX2} et quelque operations en \emph{AVX512}.
 
-// J'ai implémenter les test de non regression pour la fonctionne \emph{pset1}, qui
-rempli un vecteur avec la même valeur a chaque case, et j'ai fait l'implémentation en
-MIPP. Pour finir j'ai lancer mes tests qui passé.
-
-// J'ai implémenter les test de non regression pour toutes les operations présent dans
-PacketMath.h. Ces test fonctionne pour les architectures SSE, AVX, AVX2 et quelque AVX512.
-
-// Mes test de non régression son capable d'afficher le contenu des vecteur dans le cas
-ou il y a une différence entre la nouvelle version et l'ancienne version de l'operation.
-Il sont aussi capable d'afficher le contenu des vecteur en binaire et d'afficher sans
-plantage quant une operations n'existe pas dans MIPP.
+Mes test de non régression son capable d'afficher le contenu des vecteurs lorsque il y a
+une différence entre le résultat de la nouvelle version et celui de l'ancienne version
+de l'operation.
+Ils sont aussi capable d'afficher le contenu des vecteurs en binaire et de dire, sans
+arrêter les test, quant le \emph{code MIPP} appelé une fonction \MIPP sur un type qui
+n'est pas encore supporter par \MIPP.
 
 \subsection{l'implémentation}
-% liaison vecteurs
 
-// J'ai commancer sur une mauvaise piste con convertissant les Packet Eigen en reg2
-lors qu'il été petit. Ce qui fait que je devais faire la transformation, \emph{combinate()}
-, entre reg et reg2 a chaque fois que je voulais faire un calcule car, dans MIPP, il
-n'y a presque aucune operations sur les reg2. De plus cela ne fonctionné pas avec AVX512
-et ajouter pleins de complication ce qui fait que j'ai du faire des conversion.
+Dans un premier temps j'ai implémenté seulement les operations \emph{SSE}, \emph{AVX} et
+\emph{AVX2}.
+J'ai commancé par l'implémentation de l'opération \emph{pset1} qui rempli un vecteur avec
+la même valeur à chaque case. Dans le \hyperref[eigenTypesTable]{tableau des types \Eigen}
+on vois que les types \emph{SSE} font 128 bits et les type \emph{AVX} font 256 bits. Je
+suis donc partie sur une mauvaise piste en convertissant les \emph{Packet4f},
+\emph{Packet2d} et\emph{Packet4i} en \emph{reg2} et les \emph{Packet8f}, \emph{Packet4d}
+et \emph{Packet8i} en \emph{reg}. Le problème est que \MIPP ne support qu'une seul taille
+de vecteur à la fois donc il ne peut pas faire des opérations sur les \emph{reg2} mais
+que sur les \emph{reg}. Ce problème ma amené à devoir transformer mes vecteurs \emph{reg2}
+en \emph{reg} ce qui ce fait avec la fonction \emph{combinate()} et \emph{low()}, pour
+respectivement fusionné deux \emph{reg2} vecteurs en un vecteur \emph{reg} et récupérer
+la premier moitiés \emph{reg2} d'un vecteur \emph{reg}. Toute c'est transformation amené
+à deux problème principaux. Le premier est que on a un surcoûts supplémentaire a chaque
+appelle. Le second est que cette stratégie ne fonctionne pas avec \emph{AVX512} qu'on a
+mis de côté pour l'instant. Néanmoins ces premier implémentations fonctionne et passe
+mes tests.
 
-// Comme il MIPP ne peut pas utilisé des taille de vecteur différant je suis obliger de
-cast les vecteur entre Eigen et MIPP\dots je me retrouve donc à faite des conversion
-entre des vecteurs de taille différant par exemple un vecteur de 128 bits que je dois
-convertir en vecteur de 512 bits et inversement. Ces conversion peuvent amené a une
-perte de performance. (Benchmark here ?)
+Pour palier ce problème j'ai donc ajouté un système de conversion. Pour cela j'ai du pour
+chaque architectures ajouté des cast\footnote{conversion d'un type à un autre} simple et
+des cast en intrinsic pour les changement de taille, Par exemple un vecteur de 128 bits
+que je dois convertir en vecteur de 512 bits et inversement.
+Ces conversion peuvent amené a une perte de performance.
 
-// Dans un premier temps, pour chaque fonction, j'ai fait l'implémentation en MIPP pour
-chaque type quelle support. Ce qui ma amené à avoir 2 fois la même implémentation MIPP
-avec seulement le type qui change par exemple une \emph{pset1<Packet4f>()} et une autre
-\emph{pset1<Packet4i>}. Dans un second temps le but à été de \textit{replier} les
-fonctions pour en avoir qu'une seul. Mais je suis tombés sur un problème, le
-comportement par défaut et une operation scalaire. En effet Eigen permet d'activer
-ou non la vectorisation. Lors que la vectorisation et désactiver se sont les même
-operations qui sont appelé mais, dans ce cas, c'est l'operation par défaut qui est
-appelé et quant la vectorisation et activer on tombe sur un cas spécifique (Le Packet)
-et preciser a l'appelle. On ce retrouve donc avec 2 cas spécifique, un pour les scalaire
-et un pour les vecteurs. Cette situation amené à un état compliqué qui reste encore à
-résoudre. Peut-être 2 solutions :
+TODO: (Benchmark here ?)
 
-// * Tous coder et faire en sorte que tous les Packet corresponde au type reg de MIPP,
-ce qui permet d'avoir un seul type.
+J'ai ensuite continué l'implémentation en \emph{code MIPP} de plusieurs opérations pour
+chaque types \emph{SSE} et \emph{AVX} quelle support. Ce qui ma amené à avoir plusieurs
+fois la même implémentation MIPP avec seulement le type qui change. Par exemple
+l'operation \emph{pset1<Packet4f>()} et l'operation \emph{pset1<Packet4i>}.
 
-// * Ajouter des adaptateur pour avoir une arborescence et utiliser le polymorphisme.
+Dans un second temps le but à été de \textit{replier} les fonctions pour en avoir qu'une
+seul. Mais je suis tombés sur un problème, le comportement par défaut est une operation
+scalaire. En effet \Eigen permet d'activer ou non la vectorisation. Lorsque la
+vectorisation et désactiver se sont les même operations qui sont appelé mais dans ce cas
+se sont les operation par défaut qui sont appelé. Et dans le cas où la vectorisation et
+activer on tombe sur un cas spécifique, les cas avec les \emph{Packet} qui sont précisé
+à l'appelle. On ce retrouve donc avec 2 cas générique, un pour les scalaires
+et un pour les vecteurs (\emph{Packet}). Cette situation amené à un état compliqué qui
+reste encore à résoudre.
+
+Je vois deux solutions qui fonctionneraient peut-être :
+
+\begin{itemize}
+  \item finir de tous implémenté puis faire en sorte que tous les \emph{Packet}
+  corresponde au type \emph{reg} de \MIPP ce qui permettrai d'avoir qu'un seul cas
+  spécifique qui correspondrai au \emph{code MIPP}. Cela nous permettrai en plus de ne
+  plus avoir besoin du système de conversion.
+  \item ajouté des adaptateur d'objet pour avoir une arborescence et utiliser le
+  polymorphisme pour avoir un seul cas spécifique qui correspondrai au \emph{code MIPP}.
+\end{itemize}
 
 // Grace à mes tests et mes quelque implémentation j'ai pu lister des operations qu'il
 manque dans MIPP :
@@ -157,7 +182,8 @@ manque dans MIPP :
 \begin{table}[H]
   \centering
   \caption*{\texttimes: absent de MIPP \checkmark: present dans MIPP}
-  \begin{tabular}[H]{|m{.238\linewidth}|m{.1205\linewidth}|m{.0872\linewidth}|m{.0705\linewidth}|m{.1594\linewidth}|m{.108\linewidth}|}
+  \begin{tabularx}{\linewidth}[H]{|m{.238\linewidth}|m{.1205\linewidth}|m{.0872\linewidth}|m{.0705\linewidth}|m{.1594\linewidth}|m{.108\linewidth}|}
+  % \begin{tabularx}{\linewidth}[H]{|l|c|c|c|c|c|}
     \hline
                      & \textbf{AVX512} & \textbf{AVX2} & \textbf{AVX} & \textbf{SSE4.1/4.2} & \textbf{SSE2/3} \\
     \hline
@@ -177,7 +203,7 @@ manque dans MIPP :
     \hline
     cmpneq<int8_t>  & \texttimes      & \checkmark    & \texttimes   & \texttimes          & \texttimes      \\
     \hline
-  \end{tabular}
+  \end{tabularx}
   \caption{Abstractions MIPP non implementer}
 \end{table}
 
