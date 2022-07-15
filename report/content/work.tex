@@ -1,76 +1,76 @@
-\section{Travaille réaliser}
+\section{Travail réalisé}
 
 \subsection{Défrichage / démarrage ?}
 
-Pour prend en main \Eigen et \MIPP j'ai commancer par implementer un produit
+Pour prendre en main \Eigen et \MIPP j'ai commencé par implémenter un produit
 vecteur matrice avec les deux bibliothèques.
 
-Ensuite j'ai chercher ou ce trouvé les implémentations vectoriel explicite dans \Eigen
+Ensuite j'ai cherché ou se trouvait les implémentations vectorielles explicites dans \Eigen
 et comment elles sont implémentées.
 
-Chaque architectures sont implémentées en 4 fichiers. Le premier \emph{PacketMath.h}
-définit \hyperref[typeEigen]{les types} que \Eigen utilise pour représenté les
-vecteurs et les implémentations des operations vectoriel pour chacun d'entre eux.
-Il y a une implémentation générique de ce fichier pour les type scalaire. Le second
-\emph{TypeCasting.h} définit les conversion entre les différant \hyperref[typeEigen]{types
-vectoriel d'\Eigen}. C'est conversions concerne un peut toute les combinaison
-de vecteurs de type entier, flottant, double, booléen, half\footnote{type present dans
+Chaque architecture est implémentée en 4 fichiers. Le premier \emph{PacketMath.h}
+définit \hyperref[typeEigen]{les types} que \Eigen utilise pour représenter les
+vecteurs et les implémentations des opérations vectorielles pour chacun d'entre eux.
+Il y a une implémentation générique de ce fichier pour les types scalaires. Le second
+\emph{TypeCasting.h} définit les conversions entre les différents \hyperref[typeEigen]{types
+vectoriel d'\Eigen}. Ces conversions concernent un peu toute les combinaisons
+de vecteurs de type entier, flottant, double, booléen, half\footnote{type présent dans
 \Eigen} et bfloat16\footnote{le type bfloat16 est décrit
 \href{https://en.wikipedia.org/wiki/Bfloat16_floating-point_format}{ici}. Il y a une
-implémentation présent dans \Eigen}. Le troisièmes \emph{MathFunctions.h}
-implémente les operations mathématique non élémentaire comme : \texttt{ log, log2, log1p,
+implémentation présente dans \Eigen}. Le troisième \emph{MathFunctions.h}
+implémente les opérations mathématiques non élémentaires comme : \texttt{ log, log2, log1p,
 expm1, exp, sin, cos, sqrt, rsqrt, reciprocal, tanh, frexp, ldexp}. Le quatrième
-\emph{Complex.h} définit \hyperref[typeEigen]{les types vectoriel d'\Eigen} et
-les operations sur les nombre complex, simple et double precision.
+\emph{Complex.h} définit \hyperref[typeEigen]{les types vectoriels d'\Eigen} et
+les opérations sur les nombres complexes, simples et doubles précisions.
 
 \subsection{Les types représentent les vecteurs}
-\Eigen et \MIPP représentent les vecteurs différemment voyons cela.
+\Eigen et \MIPP représentent les vecteurs différemment, voyons cela.
 
 \label{typeEigen}
-\subsubsection{La representation de vecteur dans \Eigen}
+\subsubsection{La représentation de vecteur dans \Eigen}
 {
-  Les vecteurs sont de taille fix et représenté par des types. Ces représentation sont
-  dépendent de l'architecture visé. Ces types sont nommés \emph{Packet} suivi d'un nombre.
-  Ce nombre corresponde au nombre d'éléments que le vecteur peut contenir. Les type ce
-  termine par une ou plusieurs letter qui corresponde au type des éléments du vecteur.
-  Par example un vecteur qui contient quatre flottant sera nommé \emph{Packet4f} et
-  correspondra au type AVX \emph{__m128} car un flottant et codé sur 32bits donc
-  $32\cdot 4=128$. Il y as donc des représentation de différant tailles pour les entiers,
-  les flottants (simple et double precision), les nombres complex\dots
-  \Eigen et donc capable d'utilisé des taille de vecteur différente en même temps.
+  Les vecteurs sont de taille fixe et représentés par des types. Ces représentations sont
+  dépendantes de l'architecture visée. Ces types sont nommés \emph{Packet} suivis d'un nombre.
+  Ce nombre correspond au nombre d'éléments que le vecteur peut contenir. Les types se
+  terminent par une ou plusieurs lettres qui correspondent au type des éléments du vecteur.
+  Par exemple, un vecteur qui contient quatre flottants sera nommé \emph{Packet4f} et
+  correspondra au type AVX \emph{__m128} car un flottant est codé sur 32 bits donc
+  $32\cdot 4=128$. Il y a donc des représentations de différentes tailles pour les entiers,
+  les flottants (simple et double précision), les nombres complexes\dots
+  \Eigen et donc capable d'utiliser des tailles de vecteur différentes en même temps.
 }
 
-\subsubsection{La representation de vecteur dans \MIPP}
+\subsubsection{La représentation de vecteur dans \MIPP}
 {
-  Les vecteurs sont de taille variable en fonction de l'architecture visé. \MIPP permet
-  d'obtenir la taille des vecteurs qu'il manipule. Le \emph{code MIPP} dois respecté
-  Le fait que les vecteurs on une taille variable. Il y a donc que 2 type de vecteurs
-  \emph{reg} et \emph{reg2} qui fait la moitiés de la taille de \emph{reg}.
-  \MIPP n'est donc pas capable d'utilisé différente taille de vecteur à la fois.
+  Les vecteurs sont de tailles variables en fonction de l'architecture visée. \MIPP permet
+  d'obtenir la taille des vecteurs qu'il manipule. Le \emph{code MIPP} doit respecter
+  le fait que les vecteurs ont une taille variable. Il n'y a donc que 2 types de vecteurs :
+  \emph{reg} et \emph{reg2} qui fait la moitié de la taille de \emph{reg}.
+  \MIPP n'est donc pas capable d'utiliser différentes tailles de vecteur à la fois.
 }
 
-\subsection{Ajoute d'une nouvelle architecture \MIPP}
+\subsection{Ajout d'une nouvelle architecture \MIPP}
 
-Pour ajouter la nouvelle architecture \MIPP j'ai créé un nouveaux dossier \verb|MIPP|
-dans le dossier \verb|Eigen/src/Core/arch/|. J'ai ensuite créé le 4 fichiers
+Pour ajouter la nouvelle architecture \MIPP, j'ai créé un nouveau dossier \verb|MIPP|
+dans le dossier \verb|Eigen/src/Core/arch/|. J'ai ensuite créé les 4 fichiers
 \emph{PacketMath.h}, \emph{TypeCasting.h}, \emph{MathFunctions.h} et \emph{Complex.h}
-en copient le contenu des fichiers des architecture \emph{SSE}, \emph{AVX} et \emph{AVX512}
-que j'ai adapté pour que tous fonctionne. Je me suis basé sur c'est trois architecture
-car c'est celles qui ce trouver sur mon ordinateur. Il à été aisé de les faire fonctionné
-ensemble car lorsque l'architecture \emph{AVX} est définit l'architecture \emph{SSE} l'ai
+en copiant le contenu des fichiers des architectures \emph{SSE}, \emph{AVX} et \emph{AVX512}
+que j'ai adapté pour que tout fonctionne. Je me suis basé sur ces trois architectures,
+car se sont celles qui se trouvent sur mon ordinateur. Il a été aisé de les faire fonctionner
+ensemble, car lorsque l'architecture \emph{AVX} est définie, l'architecture \emph{SSE} l'est
 aussi.
-Une fois l'architecture ajouté j'ai modifier le fichier
+Une fois l'architecture ajoutée, j'ai modifié le fichier
 \verb|Eigen/src/Core/util/ConfigureVectorization.h| pour y ajouter la définition de la
-macro \emph{EIGEN_VECTORIZE_MIPP} dans le cas où \emph{__MIPP__} est définit à la
-compilation. Cette macro ce définit en plus des macro de l'architecture actuel
+macro \emph{EIGEN_VECTORIZE_MIPP} dans le cas où \emph{__MIPP__} est défini à la
+compilation. Cette macro se définit en plus des macros de l'architecture actuelle
 \emph{EIGEN_VECTORIZE_AVX}, \emph{EIGEN_VECTORIZE_SSE}\dots
-Pour finir j'ai modifier le fichier \verb|Eigen/Core| pour charger les quatre fichiers
+Pour finir, j'ai modifié le fichier \verb|Eigen/Core| pour charger les quatre fichiers
 de la nouvelle architecture \MIPP. Le chargement de l'architecture \MIPP est prioritaire
-par rapport aux autre.
+par rapport aux autres.
 
-\subsection{Types et operations \Eigen ?}
+\subsection{Types et opérations \Eigen ?}
 
-J'ai listé les différents types \Eigen définit ainsi que leur operations pour les
+J'ai listé les différents types \Eigen définis ainsi que leurs opérations pour les
 architectures \emph{SSE}, \emph{AVX}, \emph{AVX2} et \emph{AVX512}.
 
 Les types :
@@ -93,85 +93,85 @@ Les types :
                  & Packet8bf    &               & Packet16bf      \\
     \hline
   \end{tabular}
-  \caption{Les type vectoriel \Eigen par architecture}
+  \caption{Les types vectoriels \Eigen par architecture}
 \end{table}
 
 Les opérations :
 
-// TODO: (tableau avec toute les fonctions)?
+// TODO: (tableau avec toutes les fonctions)?
 
 \subsection{Les tests}
 
-Avant de commancer l'implémentation en \emph{code MIPP} j'ai lancer les tests \Eigen.
-En lancent ces tests j'ai remarquer qu'il sont très long à compiler et à ce lancer, de
-plus il ne fonctionne pas tous à tout les coups. Les tests vont un peut plus vite sur
-une machine plus puissante mais cela reste très long.
+Avant de commencer l'implémentation en \emph{code MIPP}, j'ai lancé les tests \Eigen.
+En lançant ces tests, j'ai remarqué qu'ils sont très long à compiler et à se lancer, de
+plus, ils ne fonctionnent pas tous à tous les coups. Les tests vont un peu plus vite sur
+une machine plus puissante, mais cela reste très long.
 
-Pour que je puis tester efficacement et rapidement j'ai donc implémenté des tests de non
-regression. Pour ces tests j'ai copier les fonctions actuel dans un nouveaux fichier et
-je suffixés ces fonctions par \emph{_old}.
+Pour que je puisse tester efficacement et rapidement, j'ai donc implémenté des tests de non-régression.
+Pour ces tests, j'ai copié les fonctions actuelles dans un nouveau fichier et
+j'ai suffixé ces fonctions par \emph{_old}.
 
-J'ai ensuite implémenté les tests de non regression pour toutes les operations présent
-dans \emph{PacketMath.h}. Ces test fonctionne pour les architectures \emph{SSE}, \emph{AVX},
-\emph{AVX2} et quelque operations en \emph{AVX512}.
+J'ai ensuite implémenté les tests de non-régression pour toutes les opérations présentes
+dans \emph{PacketMath.h}. Ces tests fonctionnent pour les architectures \emph{SSE}, \emph{AVX},
+\emph{AVX2} et quelque opérations en \emph{AVX512}.
 
-Mes test de non régression son capable d'afficher le contenu des vecteurs lorsque il y a
+Mes tests de non-régression sont capables d'afficher le contenu des vecteurs lorsqu'il y a
 une différence entre le résultat de la nouvelle version et celui de l'ancienne version
-de l'operation.
-Ils sont aussi capable d'afficher le contenu des vecteurs en binaire et de dire, sans
-arrêter les test, quant le \emph{code MIPP} appelé une fonction \MIPP sur un type qui
-n'est pas encore supporter par \MIPP.
+de l'opération.
+Ils sont aussi capables d'afficher le contenu des vecteurs en binaire et de dire, sans
+arrêter les tests, quand le \emph{code MIPP} appelle une fonction \MIPP sur un type qui
+n'est pas encore supporté par \MIPP.
 
-\subsection{l'implémentation}
+\subsection{L'implémentation}
 
-Dans un premier temps j'ai implémenté seulement les operations \emph{SSE}, \emph{AVX} et
+Dans un premier temps, j'ai implémenté seulement les opérations \emph{SSE}, \emph{AVX} et
 \emph{AVX2}.
-J'ai commancé par l'implémentation de l'opération \emph{pset1} qui rempli un vecteur avec
-la même valeur à chaque case. Dans le \hyperref[eigenTypesTable]{tableau des types \Eigen}
-on vois que les types \emph{SSE} font 128 bits et les type \emph{AVX} font 256 bits. Je
-suis donc partie sur une mauvaise piste en convertissant les \emph{Packet4f},
-\emph{Packet2d} et\emph{Packet4i} en \emph{reg2} et les \emph{Packet8f}, \emph{Packet4d}
-et \emph{Packet8i} en \emph{reg}. Le problème est que \MIPP ne support qu'une seul taille
+J'ai commencé par l'implémentation de l'opération \emph{pset1} qui remplie un vecteur avec
+la même valeur à chaque case. Dans le \hyperref[eigenTypesTable]{tableau des types \Eigen},
+on voit que les types \emph{SSE} font 128 bits et les types \emph{AVX} font 256 bits. Je
+suis donc parti sur une mauvaise piste en convertissant les \emph{Packet4f},
+\emph{Packet2d} et \emph{Packet4i} en \emph{reg2} et les \emph{Packet8f}, \emph{Packet4d}
+et \emph{Packet8i} en \emph{reg}. Le problème est que \MIPP ne support qu'une seule taille
 de vecteur à la fois donc il ne peut pas faire des opérations sur les \emph{reg2} mais
-que sur les \emph{reg}. Ce problème ma amené à devoir transformer mes vecteurs \emph{reg2}
-en \emph{reg} ce qui ce fait avec la fonction \emph{combinate()} et \emph{low()}, pour
-respectivement fusionné deux \emph{reg2} vecteurs en un vecteur \emph{reg} et récupérer
-la premier moitiés \emph{reg2} d'un vecteur \emph{reg}. Toute c'est transformation amené
-à deux problème principaux. Le premier est que on a un surcoûts supplémentaire a chaque
-appelle. Le second est que cette stratégie ne fonctionne pas avec \emph{AVX512} qu'on a
-mis de côté pour l'instant. Néanmoins ces premier implémentations fonctionne et passe
+que sur les \emph{reg}. Ce problème m'a amené à devoir transformer mes vecteurs \emph{reg2}
+en \emph{reg} ce qui se fait avec les fonctions \emph{combinate()} et \emph{low()}, pour
+respectivement fusionner deux \emph{reg2} vecteurs en un vecteur \emph{reg} et récupérer
+la première moitié \emph{reg2} d'un vecteur \emph{reg}. Toutes ces transformations amenaient
+à deux principaux problèmes :  le premier est qu'on a un surcoût supplémentaire à chaque
+appel. Le second est que cette stratégie ne fonctionne pas avec \emph{AVX512} qu'on a
+mis de côté pour l'instant. Néanmoins, ces premières implémentations fonctionnent et passent
 mes tests.
 
-Pour palier ce problème j'ai donc ajouté un système de conversion. Pour cela j'ai du pour
-chaque architectures ajouté des cast\footnote{conversion d'un type à un autre} simple et
-des cast en intrinsic pour les changement de taille, Par exemple un vecteur de 128 bits
+Pour palier ce problème, j'ai donc ajouté un système de conversion. Pour cela j'ai dû, pour
+chaque architecture, ajouter des casts\footnote{conversion d'un type à un autre} simples et
+des casts en intrinsic pour les changements de taille. Par exemple, un vecteur de 128 bits
 que je dois convertir en vecteur de 512 bits et inversement.
-Ces conversion peuvent amené a une perte de performance.
+Ces conversions peuvent amener à une perte de performance.
 
 TODO: (Benchmark here ?)
 
-J'ai ensuite continué l'implémentation en \emph{code MIPP} de plusieurs opérations pour
-chaque types \emph{SSE} et \emph{AVX} quelle support. Ce qui ma amené à avoir plusieurs
-fois la même implémentation \MIPP avec seulement le type qui change. Par exemple
-l'operation \emph{pset1<Packet4f>()} et l'operation \emph{pset1<Packet4i>}.
+J'ai ensuite continué l'implémentation en \emph{code MIPP}, de plusieurs opérations pour
+chaque type \emph{SSE} et \emph{AVX}, qu'elle supporte. Ce qui m'a amené à avoir plusieurs
+fois la même implémentation \MIPP avec seulement le type qui change. Par exemple,
+l'opération \emph{pset1<Packet4f>()} et l'opération \emph{pset1<Packet4i>}.
 
-Dans un second temps le but à été de \textit{replier} les fonctions pour en avoir qu'une
-seul. Mais je suis tombés sur un problème, le comportement par défaut est une operation
-scalaire. En effet \Eigen permet d'activer ou non la vectorisation. Lorsque la
-vectorisation et désactiver se sont les même operations qui sont appelé mais dans ce cas
-se sont les operation par défaut qui sont appelé. Et dans le cas où la vectorisation et
-activer on tombe sur un cas spécifique, les cas avec les \emph{Packet} qui sont précisé
-à l'appelle. On ce retrouve donc avec 2 cas générique, un pour les scalaires
-et un pour les vecteurs (\emph{Packet}). Cette situation amené à un état compliqué qui
+Dans un second temps, le but à été de \textit{replier} les fonctions pour en avoir qu'une
+seule. Mais je suis tombé sur un problème, le comportement par défaut est une opération
+scalaire. En effet, \Eigen permet d'activer ou non la vectorisation. Lorsque la
+vectorisation et désactivée, ce sont les mêmes opérations qui sont appelées, mais dans ce cas,
+ce sont les opérations par défaut qui sont appelées. Et dans le cas où la vectorisation est
+activée, on tombe sur un cas spécifique, les cas avec les \emph{Packet} qui sont précisés
+à l'appel. On se retrouve donc avec 2 cas génériques, un pour les scalaires
+et un pour les vecteurs (\emph{Packet}). Cette situation amenait à un état compliqué qui
 reste encore à résoudre.
 
 Je vois deux solutions qui fonctionneraient peut-être :
 
 \begin{itemize}
-  \item finir de tous implémenté puis faire en sorte que tous les \emph{Packet}
-  corresponde au type \emph{reg} de \MIPP ce qui permettrai d'avoir qu'un seul cas
-  spécifique qui correspondrai au \emph{code MIPP}. Cela nous permettrai en plus de ne
+  \item finir de tout implémenter puis faire en sorte que tous les \emph{Packet}
+  correspondent au type \emph{reg} de \MIPP ce qui permettrait de n'avoir qu'un seul cas
+  spécifique qui correspondrait au \emph{code MIPP}. Cela nous permettrait en plus de ne
   plus avoir besoin du système de conversion.
-  \item ajouté des adaptateur d'objet pour avoir une arborescence et utiliser le
-  polymorphisme pour avoir un seul cas spécifique qui correspondrai au \emph{code MIPP}.
+  \item ajouter des adaptateurs d'objet pour avoir une arborescence et utiliser le
+  polymorphisme pour avoir un seul cas spécifique qui correspondrait au \emph{code MIPP}.
 \end{itemize}

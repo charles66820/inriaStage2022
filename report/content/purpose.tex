@@ -1,54 +1,54 @@
-\section{Objet du stage / travaille demandé}
+\section{Objet du stage / travail demandé}
 
 L'objectif de mon stage est de faire le portage de \Eigen sur \MIPP.
 
 \subsection{Les bibliothèques}
 
-\Eigen est une bibliothèque open source écrit en C++11 très utilisé. Elle permet
+\Eigen est une bibliothèque open source écrite en C++11 très utilisé. Elle permet
 de faire de l'algèbre linéaire, de la manipulation de matrices, de vecteurs,
-de solveurs numérique et \textcolor{red}{related algorithms}. Pour accéléré les calcules
-Eigen utilise une vectorization explicite. Il y as donc une implémentation par
-architectures. Elle est principalement développée au centre Inria de l'université de
-Bordeaux et est au coeur de d'autre bibliothèque comme TensorFlow.
+de solveurs numérique et \textcolor{red}{related algorithms}. Pour accélérer les calculs,
+Eigen utilise une vectorisation explicite. Il y a donc une implémentation par
+architecture. Elle est principalement développée au centre Inria de l'université de
+Bordeaux et est au cœur d'autres bibliothèques comme TensorFlow.
 
 % définition d'intrinsic ?
 
-\MIPP est une bibliothèque open source écrit en C++11 qui fourni une abstraction
+\MIPP est une bibliothèque open source écrite en C++11 qui fournit une abstraction
 unique pour les fonctions intrinsic\footnote{intrinsic : une instruction SIMD} (SIMD
-\footnote{SIMD (Single Instruction on Multiple Data) est une architecture parallèles
-qui permet à une intrinsic de fait simultanément des operations sur plusieurs données
+\footnote{SIMD (Single Instruction on Multiple Data) est une architecture parallèle
+qui permet à une intrinsic de faire simultanément des opérations sur plusieurs données
 (un ou plusieurs vecteurs) et produire plusieurs résultats}) de plusieurs architectures.
-Elle fonctionne actuelle pour les architectures SSE, AVX, AVX512, ARM NEON (32bits and
-64bits). Elle supporte les nombres flottants de precision simple et double ainsi que les
-entier signé codé sur 64, 32, 16 et 8 bits. Sont objectif est d'écrit une seule fois un
+Elle fonctionne actuellement pour les architectures SSE, AVX, AVX512, ARM NEON (32bits and
+64bits). Elle supporte les nombres flottants de précision simple et double ainsi que les
+entiers signés et codés sur 64, 32, 16 et 8 bits. Son objectif est d'écrire une seule fois un
 code qui utilise les fonctions de \MIPP, j'appellerai ce code \emph{code MIPP} dans
-la suite du rapport, sans avoir a écrire un code d'intrinsic spécifique pour chaque
-architectures. \MIPP fourni automatiquement à partir d'un \emph{code MIPP} les
-bonne intrinsic pour une architecture specific. \MIPP est un sous partie
+la suite du rapport, sans avoir à écrire un code d'intrinsic spécifique pour chaque
+architecture. \MIPP fournit automatiquement, à partir d'un \emph{code MIPP}, les
+bonnes intrinsic pour une architecture spécifique. \MIPP est une sous partie
 d'\emph{AFF3CT} (A Fast Forward Error Correction Toolbox) qui est une bibliothèque et un
 simulateur qui est dédié au \emph{Forward Error Correction (FEC or channel coding)}. Elle
 est également écrite en C++.
 
 \subsection{Les objectifs}
 
-Le premier objectif est donc d'ajouter une nouvelle implémentation vectoriel, en
-\emph{code MIPP}, des fonctions élémentaires de \Eigen. Ce-ci a fin de permettre que le
-support des différentes architectures sois automatique.
+Le premier objectif est donc d'ajouter une nouvelle implémentation vectorielle, en
+\emph{code MIPP}, des fonctions élémentaires de \Eigen. Ceci afin de permettre que le
+support des différentes architectures soit automatique.
 
-Le second objectif est de faire une campagne d'évaluation des performances pour voir si
-il y a une différence entre \Eigen sans l'implémentation en \emph{code MIPP} et
+Le second objectif est de faire une campagne d'évaluation des performances pour voir
+s'il y a une différence entre \Eigen sans l'implémentation en \emph{code MIPP} et
 \Eigen avec l'implémentation en \emph{code MIPP}. Il n'y a pas de raison d'avoir
-de mayeur performances mais il peut y avoir une légère degradation.
+de meilleures performances, mais il peut y avoir une légère dégradation.
 
 Le dernier objectif est de tester \Eigen sur l'architecture \emph{Risc-V} qui n'est
 pas encore présent dans \Eigen et évaluer les performances sur simulateur.
 
-L'objectif a long terme est de pouvoirs garder uniquement l'implémentation en
-\emph{code MIPP} qui remplace les autre implémentation explicite.
+L'objectif à long terme est de pouvoir garder uniquement l'implémentation en
+\emph{code MIPP} qui remplace les autres implémentations explicites.
 
 Les intérêts de ce portage sont :
 \begin{itemize}
-  \item la reduction du nombre de lignes de code et de la complexité du code.
-  \item de permettre le support de future architectures sans avoir à refaire tous une
-  implémentation explicite mais tous simplement en mettant à jour \MIPP.
+  \item la réduction du nombre de lignes de code et de la complexité du code.
+  \item permettre le support de futures architectures sans avoir à refaire toute une
+  implémentation explicite, mais tous simplement en mettant à jour \MIPP.
 \end{itemize}

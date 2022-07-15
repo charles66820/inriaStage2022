@@ -1,29 +1,29 @@
 \section{Conclusion}
 
-Le premier objectif est en partie rempli car j'ai implémenté une partie des opérations et
-j'ai bien vue les différences entre la manipulation des vecteurs dans \Eigen et \MIPP.
-Par-contre je n'ai pas pus faire une campagne d'évaluation des performances ni le tester
-d'\Eigen sur l'architecture \emph{Risc-V} car toute les operations ne sont pas codé en
+Le premier objectif est en partie rempli, car j'ai implémenté une partie des opérations et
+j'ai bien vu les différences entre la manipulation des vecteurs dans \Eigen et \MIPP.
+Par-contre je n'ai pas pu faire une campagne d'évaluation des performances, ni le test
+d'\Eigen sur l'architecture \emph{Risc-V}, car toutes les opérations ne sont pas codées en
 \emph{code MIPP}.
 
-\subsection{Ce que j'ai remarquer}
+\subsection{Ce que j'ai remarqué}
 
 \begin{itemize}
-  \item Les test unitaire de \Eigen sont très long ce qui fait qui ne mon pas été utile
-  pour teseter mes modifications.
-  \item Les test unitaire de \Eigen on des bug ce qu'il fait qu'il faut les lancer
-  plusieurs fois pour qu'il fonctionne.
-  \item J'ai remarquer que plus je codé en \emph{code MIPP} dans \Eigen plus le temps de
-  compilation été élevé. C'est très certainement du au templates mais je ne peut pas dire
-  si cela viens des templates dans \MIPP ou dans \Eigen ou les deux.
+  \item Les tests unitaires d'\Eigen sont très longs ce qui fait qu'ils ne m'ont pas été utiles
+  pour tester mes modifications.
+  \item Les tests unitaires d'\Eigen ont des bugs ce qui fait qu'il faut les lancer
+  plusieurs fois pour qu'ils fonctionnent.
+  \item J'ai remarqué que plus je codais en \emph{code MIPP} dans \Eigen, plus le temps de
+  compilation était élevé. C'est très certainement dû aux templates mais je ne peux pas dire
+  si cela vient des templates dans \MIPP ou dans \Eigen ou les deux.
 \end{itemize}
 
-Grâce à mes tests et mes implémentations \MIPP dans \Eigen j'ai pu lister des operations
-qu'il manque dans \MIPP :
+Grâce à mes tests et mes implémentations \MIPP dans \Eigen j'ai pu lister des opérations
+qui manquent dans \MIPP :
 
 \begin{table}[H]
   \centering
-  \caption*{\texttimes: absent de \MIPP \checkmark: present dans \MIPP}
+  \caption*{\texttimes: absent de \MIPP \checkmark: présent dans \MIPP}
   \begin{tabularx}{\linewidth}[H]{|m{.238\linewidth}|m{.1205\linewidth}|m{.0872\linewidth}|m{.0705\linewidth}|m{.1594\linewidth}|X|} %m{.108\linewidth}
   % \begin{tabularx}{\linewidth}[H]{|l|c|c|c|c|c|}
     \hline
@@ -46,37 +46,37 @@ qu'il manque dans \MIPP :
     cmpneq<int8_t>  & \texttimes      & \checkmark    & \texttimes   & \texttimes          & \texttimes      \\
     \hline
   \end{tabularx}
-  \caption{Abstractions \MIPP non implementer}
+  \caption{Abstractions \MIPP non implémentées}
 \end{table}
 
 Pour exécuter le code en \emph{AVX512} j'ai utilisé \emph{PlaFRIM}.
 
-\subsection{Les connaissances que j'ai acquis lors de mes études que j'ai utilisé au
+\subsection{Les connaissances que j'ai acquises lors de mes études et que j'ai utilisées au
 cours du stage}
 
 \begin{itemize}
-  \item Les tests de non regression que j'ai du implementer pour verifier que mes
-  implémentations été conforme à la version précédente. J'ai obtenu c'est compétences de
-  des lors des cours d'Architecture Logiciel (AL), de Projet de Programmation (PdP) et dans
+  \item Les tests de non-régression que j'ai dû implémenter pour vérifier que mes
+  implémentations étaient conformes à la version précédente. J'ai obtenu ces compétences
+  lors des cours d'Architecture Logiciel (AL), de Projet de Programmation (PdP) et dans
   un cours de BTS (SLAM4).
-  \item La refactorisation de code et l'utilisation des 5 principe solides. Que j'ai
+  \item La factorisation de code et l'utilisation des 5 principes solides que j'ai
   appris en cours d'Architecture Logiciel (AL) et de Projet de Programmation (PdP).
-  \item L'utilisation des intransics et le calcule vectoriel que j'ai vue en Programmation
+  \item L'utilisation des intrasics et le calcul vectoriel que j'ai vu en Programmation
   sur Architecture Parallèles (PAP).
-  \item Les base en C++ que j'ai vue un petit-peu dans nachos en tp Système
-  d'Exploitation(SE) mais aussi dans le projet PdP de mon équipe.
-  \item La comprehension du monde de la recherche grâce à l'UE initiation recherche de L3.
+  \item Les bases en C++ que j'ai vu un petit peu dans Nachos en TP de Système
+  d'Exploitation (SE) mais aussi dans le projet PdP de mon équipe.
+  \item La compréhension du monde de la recherche grâce à l'UE Initiation recherche de L3.
 \end{itemize}
 
-\subsection{Ce que ma apporter le stage}
+\subsection{Ce que m'a apporté le stage}
 
 \begin{itemize}
-  \item Une mayeur comprehension des cast, des conversions des type de base et de la
-  manipulation des des vecteurs.
-  \item Une nouvelle expérience de développement dans un projet opensource qui est très
-  utiliser.
-  \item L'utilisation avancé des templates en c++.
-  \item Des utilisation différentes des vecteurs avec plusieurs vision de leur
+  \item Une meilleure compréhension des casts, des conversions des types de base et de la
+  manipulation des vecteurs.
+  \item Une nouvelle expérience de développement dans un projet open source qui est très
+  utilisé.
+  \item L'utilisation avancée des templates en C++.
+  \item Des utilisations différentes des vecteurs avec plusieurs visions de leur
   utilisation.
-  \item Une mayeur comprehension du monde de la recherche.
+  \item Une meilleure compréhension du monde de la recherche.
 \end{itemize}

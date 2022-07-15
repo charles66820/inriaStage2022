@@ -1,27 +1,27 @@
-\section{Future / ce qui reste à faire}
+\section{Futur / ce qui reste à faire}
 
-Il reste à implementer tous les opérations qui ne sont pas encore ne \emph{code MIPP} et
+Il reste à implémenter toutes les opérations qui ne sont pas encore en \emph{code MIPP} et
 faire un \textit{repliage} qui fonctionne correctement.
 
-Il serai intéressant d'ajouter les évolutions suivant à \MIPP :
+Il serait intéressant d'ajouter les évolutions suivantes à \MIPP :
 
 \begin{itemize}
   \item Ajouter le type boolean (\verb|bool|), le type half (\emph{HF} ou
-  \verb|_m512h| en \emph{AVX512}) et les complex.
-  \item Ajout des type non signé (\verb|uint8_t|, \verb|uint16_t|\dots)
-  \item Faire en sorte que les \emph{Reg2} soit printable.
-  \item Ajouter la correspondance int8_t et char pour permettre a l'utilisateur de faire
-  des cast avec char.
-  \item Faire en sorte que l'abstraction \verb|testz| fonctionne sur toute les architectures.
-  \item Peut-être ajouter les operations pour le Reg2 mais ce n'ai peut-être pas dans
+  \verb|_m512h| en \emph{AVX512}) et les nombres complexes.
+  \item Ajouter des types non signés (\verb|uint8_t|, \verb|uint16_t|\dots)
+  \item Faire en sorte que les \emph{Reg2} soit affichable.
+  \item Ajouter la correspondance int8_t et char pour permettre à l'utilisateur de faire
+  des casts avec char.
+  \item Faire en sorte que l'abstraction \verb|testz| fonctionne sur toutes les architectures.
+  \item Peut-être ajouter les opérations pour le Reg2 mais ce n'est peut-être pas dans
   l'esprit de \MIPP.
-  \item Voire pour le temps de compatible
+  \item Voir pour le temps de compatible. %FIXME: pas français, que veux-tu dire ????
 \end{itemize}
 
 \begin{table}[H]
   \centering
-  \caption*{En \textcolor{darkGreen}{vert} les type qui fonctionne, En \textcolor{orange}{orange}
-    les type qui ne fonctionne}
+  \caption*{En \textcolor{darkGreen}{vert} les types qui fonctionnent et en \textcolor{orange}{orange}
+    les types qui ne fonctionnent pas}
   \begin{tabular}[H]{|l|l|l|}
     \hline
     \textbf{Type standard}          & \textbf{type de base}        & \textbf{type unsigned}        \\
@@ -41,5 +41,5 @@ Il serai intéressant d'ajouter les évolutions suivant à \MIPP :
     \textcolor{orange}{bool}        & \----                        & \----                         \\
     \hline
   \end{tabular}
-  \caption{Type compatible avec \MIPP}
+  \caption{Types compatibles avec \MIPP}
 \end{table}
