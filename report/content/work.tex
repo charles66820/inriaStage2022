@@ -1,6 +1,6 @@
 \section{Travail réalisé}
 
-\subsection{Défrichage / démarrage ?}
+\subsection{Défrichage}
 
 Pour prendre en main \Eigen et \MIPP j'ai commencé par implémenter un produit
 vecteur matrice avec les deux bibliothèques.
@@ -23,11 +23,11 @@ expm1, exp, sin, cos, sqrt, rsqrt, reciprocal, tanh, frexp, ldexp}. Le quatrièm
 \emph{Complex.h} définit \hyperref[typeEigen]{les types vectoriels d'\Eigen} et
 les opérations sur les nombres complexes, simples et doubles précisions.
 
-\subsection{Les types représentent les vecteurs}
+\subsection{Les types représentant les vecteurs}
 \Eigen et \MIPP représentent les vecteurs différemment, voyons cela.
 
 \label{typeEigen}
-\subsubsection{La représentation de vecteur dans \Eigen}
+\subsubsection{La représentation des vecteurs dans \Eigen}
 {
   Les vecteurs sont de taille fixe et représentés par des types. Ces représentations sont
   dépendantes de l'architecture visée. Ces types sont nommés \emph{Packet} suivis d'un nombre.
@@ -36,11 +36,11 @@ les opérations sur les nombres complexes, simples et doubles précisions.
   Par exemple, un vecteur qui contient quatre flottants sera nommé \emph{Packet4f} et
   correspondra au type AVX \emph{__m128} car un flottant est codé sur 32 bits donc
   $32\cdot 4=128$. Il y a donc des représentations de différentes tailles pour les entiers,
-  les flottants (simple et double précision), les nombres complexes\dots
+  les flottants (simple et double précision), les nombres complexes\dots\space
   \Eigen et donc capable d'utiliser des tailles de vecteur différentes en même temps.
 }
 
-\subsubsection{La représentation de vecteur dans \MIPP}
+\subsubsection{La représentation des vecteurs dans \MIPP}
 {
   Les vecteurs sont de tailles variables en fonction de l'architecture visée. \MIPP permet
   d'obtenir la taille des vecteurs qu'il manipule. Le \emph{code MIPP} doit respecter
@@ -63,12 +63,12 @@ Une fois l'architecture ajoutée, j'ai modifié le fichier
 \verb|Eigen/src/Core/util/ConfigureVectorization.h| pour y ajouter la définition de la
 macro \emph{EIGEN_VECTORIZE_MIPP} dans le cas où \emph{__MIPP__} est défini à la
 compilation. Cette macro se définit en plus des macros de l'architecture actuelle
-\emph{EIGEN_VECTORIZE_AVX}, \emph{EIGEN_VECTORIZE_SSE}\dots
+\emph{EIGEN_VECTORIZE_AVX}, \emph{EIGEN_VECTORIZE_SSE}\dots\space
 Pour finir, j'ai modifié le fichier \verb|Eigen/Core| pour charger les quatre fichiers
-de la nouvelle architecture \MIPP. Le chargement de l'architecture \MIPP est prioritaire
+de la nouvelle architecture \emph{MIPP} Le chargement de l'architecture \MIPP est prioritaire
 par rapport aux autres.
 
-\subsection{Types et opérations \Eigen ?}
+\subsection{Types et opérations \Eigen}
 
 J'ai listé les différents types \Eigen définis ainsi que leurs opérations pour les
 architectures \emph{SSE}, \emph{AVX}, \emph{AVX2} et \emph{AVX512}.
@@ -102,7 +102,7 @@ Les opérations :
 
 \subsection{Les tests}
 
-Avant de commencer l'implémentation en \emph{code MIPP}, j'ai lancé les tests \Eigen.
+Avant de commencer l'implémentation en \emph{code MIPP}, j'ai lancé les tests \emph{Eigen}
 En lançant ces tests, j'ai remarqué qu'ils sont très long à compiler et à se lancer, de
 plus, ils ne fonctionnent pas tous à tous les coups. Les tests vont un peu plus vite sur
 une machine plus puissante, mais cela reste très long.
@@ -120,7 +120,7 @@ une différence entre le résultat de la nouvelle version et celui de l'ancienne
 de l'opération.
 Ils sont aussi capables d'afficher le contenu des vecteurs en binaire et de dire, sans
 arrêter les tests, quand le \emph{code MIPP} appelle une fonction \MIPP sur un type qui
-n'est pas encore supporté par \MIPP.
+n'est pas encore supporté par \emph{MIPP}
 
 \subsection{L'implémentation}
 

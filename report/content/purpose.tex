@@ -1,13 +1,13 @@
-\section{Objet du stage / travail demandé}
+\section{Objet du stage}
 
-L'objectif de mon stage est de faire le portage de \Eigen sur \MIPP.
+L'objectif de mon stage est de faire le portage de \Eigen sur \emph{MIPP}
 
 \subsection{Les bibliothèques}
 
 \Eigen est une bibliothèque open source écrite en C++11 très utilisé. Elle permet
 de faire de l'algèbre linéaire, de la manipulation de matrices, de vecteurs,
-de solveurs numérique et \textcolor{red}{related algorithms}. Pour accélérer les calculs,
-Eigen utilise une vectorisation explicite. Il y a donc une implémentation par
+de solveurs numérique et algorithmes connexes (related algorithms). Pour accélérer les
+calculs, Eigen utilise une vectorisation explicite. Il y a donc une implémentation par
 architecture. Elle est principalement développée au centre Inria de l'université de
 Bordeaux et est au cœur d'autres bibliothèques comme TensorFlow.
 
@@ -32,7 +32,7 @@ est également écrite en C++.
 \subsection{Les objectifs}
 
 Le premier objectif est donc d'ajouter une nouvelle implémentation vectorielle, en
-\emph{code MIPP}, des fonctions élémentaires de \Eigen. Ceci afin de permettre que le
+\emph{code MIPP}, des fonctions élémentaires de \emph{Eigen} Ceci afin de permettre que le
 support des différentes architectures soit automatique.
 
 Le second objectif est de faire une campagne d'évaluation des performances pour voir
@@ -50,5 +50,5 @@ Les intérêts de ce portage sont :
 \begin{itemize}
   \item la réduction du nombre de lignes de code et de la complexité du code.
   \item permettre le support de futures architectures sans avoir à refaire toute une
-  implémentation explicite, mais tous simplement en mettant à jour \MIPP.
+  implémentation explicite, mais tous simplement en mettant à jour \emph{MIPP}
 \end{itemize}
