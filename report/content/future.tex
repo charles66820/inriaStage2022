@@ -9,13 +9,13 @@ Il serait intéressant d'ajouter les évolutions suivantes à \MIPP :
   \item Ajouter le type boolean (\verb|bool|), le type half (\emph{HF} ou
   \verb|_m512h| en \emph{AVX512}) et les nombres complexes.
   \item Ajouter des types non signés (\verb|uint8_t|, \verb|uint16_t|\dots)
-  \item Faire en sorte que les \emph{Reg2} soit affichable.
+  \item Faire en sorte que les \emph{Reg2} soit affichable en implémentant l'opérateur \emph{to string}.
   \item Ajouter la correspondance int8_t et char pour permettre à l'utilisateur de faire
   des casts avec char.
   \item Faire en sorte que l'abstraction \verb|testz| fonctionne sur toutes les architectures.
   \item Peut-être ajouter les opérations pour le Reg2 mais ce n'est peut-être pas dans
   l'esprit de \MIPP.
-  \item Voir pour le temps de compatible. %FIXME: pas français, que veux-tu dire ????
+  \item Trouver ce qui cause un temps de compilation excessif et le réduire.
 \end{itemize}
 
 \begin{table}[H]
