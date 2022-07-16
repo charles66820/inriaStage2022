@@ -1,0 +1,241 @@
+\newpage
+
+\section{Annexes}
+
+\begin{longtable}[H]{|l|l|}
+  \caption{Légende des tableaux des opérations}\label{tbl:operationsTableLegend} \\\hline
+  \checkmark & opération implémentée en \emph{code MIPP}                         \\\hline
+  -          & opération qui fonctionne déjà                                     \\\hline
+  \texttimes & opération à implémenter en \emph{code MIPP}                       \\\hline
+  $\oslash$  & opération non implémentée.                                        \\\hline
+\end{longtable}
+
+
+\begin{longtable}[H]{|l|l|l|l|l|}
+  \caption{\emph{SSE} opérations}\label{tbl:sseOperations}                                \\
+  \hline
+  function \ type                    & Packet4f   & Packet2d   & Packet4i   & Packet16b   \\ \hline
+  pset1                              & \checkmark & \checkmark & \checkmark & \checkmark  \\ \hline
+  pset1frombits                      & \texttimes & \texttimes & $\oslash$  & $\oslash$   \\ \hline
+  pzero                              & \checkmark & \checkmark & \checkmark & $\oslash$   \\ \hline
+  peven_mask                         & \texttimes & \texttimes & \texttimes & $\oslash$   \\ \hline
+  pload1                             & \texttimes & $\oslash$  & $\oslash$  & $\oslash$   \\ \hline
+  padd                               & \checkmark & \checkmark & \checkmark & \checkmark  \\ \hline
+  padd + umask                       & $\oslash$  & $\oslash$  & $\oslash$  & $\oslash$   \\ \hline
+  plset                              & \texttimes & \texttimes & \texttimes & $\oslash$   \\ \hline
+  psub                               & \checkmark & \checkmark & \checkmark & \checkmark  \\ \hline
+  paddsub                            & \texttimes & \texttimes & $\oslash$  & $\oslash$   \\ \hline
+  pnegate                            & \checkmark & \checkmark & \checkmark & -           \\ \hline
+  pconj                              & -          & -          & -          & $\oslash$   \\ \hline
+  pmul                               & \checkmark & \checkmark & \checkmark & \checkmark  \\ \hline
+  pdiv                               & \checkmark & \checkmark & $\oslash$  & $\oslash$   \\ \hline
+  pmadd                              & \texttimes & \texttimes & -          & $\oslash$   \\ \hline
+  pmsub                              & \texttimes & \texttimes & -          & $\oslash$   \\ \hline
+  pnmadd                             & \texttimes & \texttimes & -          & $\oslash$   \\ \hline
+  pnmsub                             & \texttimes & \texttimes & -          & $\oslash$   \\ \hline
+  pselect                            & \texttimes & \texttimes & \texttimes & \texttimes  \\ \hline
+  ptrue                              & \texttimes & \texttimes & \texttimes & \texttimes  \\ \hline
+  pand                               & \texttimes & \texttimes & \texttimes & \texttimes  \\ \hline
+  por                                & \texttimes & \texttimes & \texttimes & \texttimes  \\ \hline
+  pxor                               & \texttimes & \texttimes & \texttimes & \texttimes  \\ \hline
+  pandnot                            & \texttimes & \texttimes & \texttimes & -           \\ \hline
+  pcmp_le                            & \texttimes & \texttimes & -          & $\oslash$   \\ \hline
+  pcmp_lt                            & \texttimes & \texttimes & \texttimes & $\oslash$   \\ \hline
+  pcmp_lt_or_nan                     & \texttimes & \texttimes & $\oslash$  & $\oslash$   \\ \hline
+  pcmp_eq                            & \texttimes & \texttimes & \texttimes & \texttimes  \\ \hline
+  pmin                               & \texttimes & \texttimes & \texttimes & $\oslash$   \\ \hline
+  pmax                               & \texttimes & \texttimes & \texttimes & $\oslash$   \\ \hline
+  parithmetic_shift_right            & $\oslash$  & $\oslash$  & \texttimes & $\oslash$   \\ \hline
+  plogical_shift_right               & $\oslash$  & $\oslash$  & \texttimes & $\oslash$   \\ \hline
+  plogical_shift_left                & $\oslash$  & $\oslash$  & \texttimes & $\oslash$   \\ \hline
+  pabs                               & \texttimes & \texttimes & \texttimes & -           \\ \hline
+  pround                             & \texttimes & \texttimes & $\oslash$  & $\oslash$   \\ \hline
+  print                              & \texttimes & \texttimes & $\oslash$  & $\oslash$   \\ \hline
+  pceil                              & \texttimes & \texttimes & $\oslash$  & $\oslash$   \\ \hline
+  pfloor                             & \texttimes & \texttimes & $\oslash$  & $\oslash$   \\ \hline
+  pload                              & \checkmark & \checkmark & \checkmark & \checkmark  \\ \hline
+  ploadu                             & \checkmark & \checkmark & \checkmark & \checkmark  \\ \hline
+  ploadu + umask                     & $\oslash$  & $\oslash$  & $\oslash$  & $\oslash$   \\ \hline
+  ploaddup                           & \texttimes & -          & \texttimes & \texttimes  \\ \hline
+  ploadquad                          & -          & -          & -          & \texttimes  \\ \hline
+  pstore                             & \texttimes & \texttimes & \texttimes & \texttimes  \\ \hline
+  pstoreu                            & \texttimes & \texttimes & \texttimes & \texttimes  \\ \hline
+  pstoreu + umask                    & $\oslash$  & $\oslash$  & $\oslash$  & $\oslash$   \\ \hline
+  pgather                            & \texttimes & \texttimes & \texttimes & \texttimes  \\ \hline
+  pscatter                           & \texttimes & \texttimes & \texttimes & \texttimes  \\ \hline
+  pstore1                            & \texttimes & \texttimes & -          & -           \\ \hline
+  pfirst                             & \texttimes & \texttimes & \texttimes & \texttimes  \\ \hline
+  preverse                           & \texttimes & \texttimes & \texttimes & \texttimes  \\ \hline
+  predux                             & \texttimes & \texttimes & \texttimes & \texttimes  \\ \hline
+  pfrexp_generic_get_biased_exponent & $\oslash$  & \texttimes & $\oslash$  & $\oslash$   \\ \hline
+  pfrexp                             & -          & -          & $\oslash$  & $\oslash$   \\ \hline
+  pldexp                             & -          & \texttimes & $\oslash$  & $\oslash$   \\ \hline
+  pbroadcast4                        & \texttimes & \texttimes & $\oslash$  & $\oslash$   \\ \hline
+  punpackp                           & \texttimes & $\oslash$  & $\oslash$  & $\oslash$   \\ \hline
+  predux_half_dowto4                 & $\oslash$  & $\oslash$  & $\oslash$  & $\oslash$   \\ \hline
+  predux_mul                         & \texttimes & \texttimes & -          & \texttimes  \\ \hline
+  predux_min                         & \texttimes & \texttimes & \texttimes & -           \\ \hline
+  predux_max                         & \texttimes & \texttimes & \texttimes & -           \\ \hline
+  predux_any                         & \texttimes & -          & -          & -           \\ \hline
+  ptranspose                         & \texttimes & \texttimes & \texttimes & \texttimes* \\ \hline
+  pblend                             & \texttimes & \texttimes & \texttimes & -           \\ \hline
+  extract256                         & $\oslash$  & $\oslash$  & $\oslash$  & $\oslash$   \\ \hline
+  extract128                         & $\oslash$  & $\oslash$  & $\oslash$  & $\oslash$   \\ \hline
+  cat256                             & $\oslash$  & $\oslash$  & $\oslash$  & $\oslash$   \\ \hline
+\end{longtable}
+
+\newpage
+
+\newgeometry{landscape,margin=2.5cm}
+\begin{landscape}
+
+  \begin{longtable}[H]{|l|l|l|l|l|l|l|}
+    \caption{\emph{AVX}/\emph{AVX2} opérations}\label{tbl:avxOperations}                                                 \\
+    \hline
+    function \ type                    & Packet8f    & Packet4d   & Packet8i    & Packet8h    & Packet8bf   & Packet4l   \\ \hline
+    pset1                              & \checkmark  & \checkmark & \checkmark  & \checkmark  & \checkmark  & \checkmark \\ \hline
+    pset1frombits                      & \texttimes  & \texttimes & $\oslash$   & $\oslash$   & $\oslash$   & $\oslash$  \\ \hline
+    pzero                              & \checkmark  & \checkmark & \checkmark  & $\oslash$   & $\oslash$   & \checkmark \\ \hline
+    peven_mask                         & \texttimes  & \texttimes & \texttimes  & $\oslash$   & $\oslash$   & \texttimes \\ \hline
+    pload1                             & \texttimes  & \texttimes & $\oslash$   & $\oslash$   & $\oslash$   & \texttimes \\ \hline
+    padd                               & \checkmark  & \checkmark & \checkmark  & -           & -           & \checkmark \\ \hline
+    padd + umask                       & \texttimes  & $\oslash$  & $\oslash$   & $\oslash$   & $\oslash$   & $\oslash$  \\ \hline
+    plset                              & \texttimes  & \texttimes & \texttimes  & -           & -           & \texttimes \\ \hline
+    psub                               & \checkmark  & \checkmark & \checkmark  & -           & -           & \checkmark \\ \hline
+    paddsub                            & $\oslash$   & $\oslash$  & $\oslash$   & $\oslash$   & $\oslash$   & $\oslash$  \\ \hline
+    pnegate                            & \checkmark  & \checkmark & -           & \checkmark  & \checkmark  & \checkmark \\ \hline
+    pconj                              & -           & -          & -           & -           & -           & -          \\ \hline
+    pmul                               & \checkmark  & \checkmark & \checkmark  & -           & -           & \texttimes \\ \hline
+    pdiv                               & \checkmark  & \checkmark & $\oslash$   & -           & -           & $\oslash$  \\ \hline
+    pmadd                              & \texttimes  & \texttimes & -           & -           & -           & -          \\ \hline
+    pmsub                              & \texttimes  & \texttimes & -           & -           & -           & -          \\ \hline
+    pnmadd                             & \texttimes  & \texttimes & -           & -           & -           & -          \\ \hline
+    pnmsub                             & \texttimes  & \texttimes & -           & -           & -           & -          \\ \hline
+    pselect                            & \texttimes  & \texttimes & -           & \texttimes  & \texttimes  & $\oslash$  \\ \hline
+    ptrue                              & \texttimes  & \texttimes & \texttimes  & \texttimes  & \texttimes  & \texttimes \\ \hline
+    pand                               & \texttimes  & \texttimes & \texttimes  & \texttimes  & \texttimes  & \texttimes \\ \hline
+    por                                & \texttimes  & \texttimes & \texttimes  & \texttimes  & \texttimes  & \texttimes \\ \hline
+    pxor                               & \texttimes  & \texttimes & \texttimes  & \texttimes  & \texttimes  & \texttimes \\ \hline
+    pandnot                            & \texttimes  & \texttimes & \texttimes  & \texttimes  & \texttimes  & \texttimes \\ \hline
+    pcmp_le                            & \texttimes  & \texttimes & \texttimes  & -           & -           & \texttimes \\ \hline
+    pcmp_lt                            & \texttimes  & \texttimes & \texttimes  & -           & -           & \texttimes \\ \hline
+    pcmp_lt_or_nan                     & \texttimes  & \texttimes & $\oslash$   & -           & -           & $\oslash$  \\ \hline
+    pcmp_eq                            & \texttimes  & \texttimes & \texttimes  & -           & -           & \texttimes \\ \hline
+    pmin                               & \texttimes  & \texttimes & \texttimes  & -           & -           & \texttimes \\ \hline
+    pmax                               & \texttimes  & \texttimes & \texttimes  & -           & -           & \texttimes \\ \hline
+    parithmetic_shift_right            & $\oslash$   & $\oslash$  & \texttimes  & $\oslash$   & $\oslash$   & $\oslash$  \\ \hline
+    plogical_shift_right               & $\oslash$   & $\oslash$  & \texttimes  & $\oslash$   & $\oslash$   & \texttimes \\ \hline
+    plogical_shift_left                & $\oslash$   & $\oslash$  & \texttimes  & $\oslash$   & $\oslash$   & \texttimes \\ \hline
+    pabs                               & \texttimes  & \texttimes & \texttimes  & \texttimes  & \texttimes  & \texttimes \\ \hline
+    pround                             & \texttimes  & \texttimes & $\oslash$   & -           & -           & $\oslash$  \\ \hline
+    print                              & \texttimes  & \texttimes & $\oslash$   & -           & -           & $\oslash$  \\ \hline
+    pceil                              & \texttimes  & \texttimes & $\oslash$   & -           & -           & $\oslash$  \\ \hline
+    pfloor                             & \texttimes  & \texttimes & $\oslash$   & -           & -           & $\oslash$  \\ \hline
+    pload                              & \checkmark  & \checkmark & \checkmark  & \checkmark  & \checkmark  & \checkmark \\ \hline
+    ploadu                             & \checkmark  & \checkmark & \checkmark  & \checkmark  & \checkmark  & \checkmark \\ \hline
+    ploadu + umask                     & \texttimes  & $\oslash$  & $\oslash$   & $\oslash$   & $\oslash$   & $\oslash$  \\ \hline
+    ploaddup                           & \texttimes  & \texttimes & \texttimes  & \texttimes  & \texttimes  & \texttimes \\ \hline
+    ploadquad                          & \texttimes  & -          & \texttimes  & \texttimes  & \texttimes  & -          \\ \hline
+    pstore                             & \texttimes  & \texttimes & \texttimes  & \texttimes  & \texttimes  & \texttimes \\ \hline
+    pstoreu                            & \texttimes  & \texttimes & \texttimes  & \texttimes  & \texttimes  & \texttimes \\ \hline
+    pstoreu + umask                    & \texttimes  & $\oslash$  & $\oslash$   & $\oslash$   & $\oslash$   & $\oslash$  \\ \hline
+    pgather                            & \texttimes  & \texttimes & \texttimes  & \texttimes  & \texttimes  & \texttimes \\ \hline
+    pscatter                           & \texttimes  & \texttimes & \texttimes  & -           & -           & \texttimes \\ \hline
+    pstore1                            & -           & -          & -           & -           & -           & -          \\ \hline
+    pfirst                             & \texttimes  & \texttimes & \texttimes  & \texttimes  & \texttimes  & \texttimes \\ \hline
+    preverse                           & \texttimes  & \texttimes & \texttimes  & \texttimes  & \texttimes  & \texttimes \\ \hline
+    predux                             & \texttimes  & \texttimes & \texttimes  & -           & -           & \texttimes \\ \hline
+    pfrexp_generic_get_biased_exponent & $\oslash$   & \texttimes & $\oslash$   & $\oslash$   & $\oslash$   & $\oslash$  \\ \hline
+    pfrexp                             & $\oslash$   & -          & -           & $\oslash$   & $\oslash$   & $\oslash$  \\ \hline
+    pldexp                             & -           & \texttimes & $\oslash$   & $\oslash$   & $\oslash$   & $\oslash$  \\ \hline
+    pbroadcast4                        & $\oslash$   & $\oslash$  & $\oslash$   & $\oslash$   & $\oslash$   & $\oslash$  \\ \hline
+    punpackp                           & $\oslash$   & $\oslash$  & $\oslash$   & $\oslash$   & $\oslash$   & $\oslash$  \\ \hline
+    predux_half_dowto4                 & \texttimes  & $\oslash$  & \texttimes  & $\oslash$   & $\oslash$   & $\oslash$  \\ \hline
+    predux_mul                         & \texttimes  & \texttimes & -           & -           & -           & -          \\ \hline
+    predux_min                         & \texttimes  & \texttimes & -           & -           & -           & -          \\ \hline
+    predux_max                         & \texttimes  & \texttimes & -           & -           & -           & -          \\ \hline
+    predux_any                         & \texttimes  & -          & -           & -           & -           & -          \\ \hline
+    ptranspose                         & \texttimes* & \texttimes & \texttimes* & \texttimes* & \texttimes* & \texttimes \\ \hline
+    pblend                             & \texttimes  & \texttimes & -           & -           & -           & -          \\ \hline
+    extract256                         & $\oslash$   & $\oslash$  & $\oslash$   & $\oslash$   & $\oslash$   & $\oslash$  \\ \hline
+    extract128                         & $\oslash$   & $\oslash$  & $\oslash$   & $\oslash$   & $\oslash$   & $\oslash$  \\ \hline
+    cat256                             & $\oslash$   & $\oslash$  & $\oslash$   & $\oslash$   & $\oslash$   & $\oslash$  \\ \hline
+  \end{longtable}
+
+  \newpage
+
+  \begin{longtable}[H]{|l|l|l|l|l|l|}
+    \caption{\emph{AVX512} opérations}\label{tbl:avx512Operations}                                           \\
+    \hline
+    function \ type                    & Packet16f   & Packet8d    & Packet16i   & Packet16h   & Packet16bf  \\ \hline
+    pset1                              & \texttimes  & \texttimes  & \texttimes  & \texttimes  & \texttimes  \\ \hline
+    pset1frombits                      & \texttimes  & \texttimes  & $\oslash$   & $\oslash$   & $\oslash$   \\ \hline
+    pzero                              & \texttimes  & \texttimes  & \texttimes  & $\oslash$   & $\oslash$   \\ \hline
+    peven_mask                         & \texttimes  & \texttimes  & \texttimes  & $\oslash$   & $\oslash$   \\ \hline
+    pload1                             & \texttimes  & \texttimes  & $\oslash$   & $\oslash$   & $\oslash$   \\ \hline
+    padd                               & \texttimes  & \texttimes  & \texttimes  & -           & -           \\ \hline
+    padd + umask                       & \texttimes  & \texttimes  & $\oslash$   & $\oslash$   & $\oslash$   \\ \hline
+    plset                              & \texttimes  & \texttimes  & \texttimes  & -           & -           \\ \hline
+    psub                               & \texttimes  & \texttimes  & \texttimes  & -           & -           \\ \hline
+    paddsub                            & $\oslash$   & $\oslash$   & $\oslash$   & $\oslash$   & $\oslash$   \\ \hline
+    pnegate                            & \texttimes  & \texttimes  & \texttimes  & \texttimes  & \texttimes  \\ \hline
+    pconj                              & -           & -           & -           & -           & -           \\ \hline
+    pmul                               & \texttimes  & \texttimes  & \texttimes  & -           & -           \\ \hline
+    pdiv                               & \texttimes  & \texttimes  & ~           & -           & -           \\ \hline
+    pmadd                              & \texttimes  & \texttimes  & $\oslash$   & $\oslash$   & $\oslash$   \\ \hline
+    pmsub                              & \texttimes  & \texttimes  & $\oslash$   & $\oslash$   & $\oslash$   \\ \hline
+    pnmadd                             & \texttimes  & \texttimes  & $\oslash$   & $\oslash$   & $\oslash$   \\ \hline
+    pnmsub                             & \texttimes  & \texttimes  & $\oslash$   & $\oslash$   & $\oslash$   \\ \hline
+    pselect                            & \texttimes  & \texttimes  & $\oslash$   & \texttimes  & \texttimes  \\ \hline
+    ptrue                              & \texttimes  & \texttimes  & \texttimes  & -           & -           \\ \hline
+    pand                               & \texttimes  & \texttimes  & \texttimes  & $\oslash$   & -           \\ \hline
+    por                                & \texttimes  & \texttimes  & \texttimes  & -           & -           \\ \hline
+    pxor                               & \texttimes  & \texttimes  & \texttimes  & -           & -           \\ \hline
+    pandnot                            & \texttimes  & \texttimes  & \texttimes  & -           & -           \\ \hline
+    pcmp_le                            & \texttimes  & \texttimes  & \texttimes  & -           & -           \\ \hline
+    pcmp_lt                            & \texttimes  & \texttimes  & \texttimes  & -           & -           \\ \hline
+    pcmp_lt_or_nan                     & \texttimes  & \texttimes  & $\oslash$   & -           & -           \\ \hline
+    pcmp_eq                            & \texttimes  & \texttimes  & \texttimes  & -           & -           \\ \hline
+    pmin                               & \texttimes  & \texttimes  & \texttimes  & -           & -           \\ \hline
+    pmax                               & \texttimes  & \texttimes  & \texttimes  & -           & -           \\ \hline
+    parithmetic_shift_right            & $\oslash$   & $\oslash$   & \texttimes  & $\oslash$   & $\oslash$   \\ \hline
+    plogical_shift_right               & $\oslash$   & $\oslash$   & \texttimes  & $\oslash$   & $\oslash$   \\ \hline
+    plogical_shift_left                & $\oslash$   & $\oslash$   & \texttimes  & $\oslash$   & $\oslash$   \\ \hline
+    pabs                               & \texttimes  & \texttimes  & \texttimes  & \texttimes  & \texttimes  \\ \hline
+    pround                             & \texttimes  & \texttimes  & $\oslash$   & -           & -           \\ \hline
+    print                              & \texttimes  & \texttimes  & $\oslash$   & -           & -           \\ \hline
+    pceil                              & \texttimes  & \texttimes  & $\oslash$   & -           & -           \\ \hline
+    pfloor                             & \texttimes  & \texttimes  & $\oslash$   & -           & -           \\ \hline
+    pload                              & \texttimes  & \texttimes  & \texttimes  & \texttimes  & \texttimes  \\ \hline
+    ploadu                             & \texttimes  & \texttimes  & \texttimes  & \texttimes  & \texttimes  \\ \hline
+    ploadu + umask                     & \texttimes  & \texttimes  & $\oslash$   & $\oslash$   & $\oslash$   \\ \hline
+    ploaddup                           & \texttimes  & \texttimes  & \texttimes  & \texttimes  & \texttimes  \\ \hline
+    ploadquad                          & \texttimes  & \texttimes  & \texttimes  & \texttimes  & \texttimes  \\ \hline
+    pstore                             & \texttimes  & \texttimes  & \texttimes  & \texttimes  & \texttimes  \\ \hline
+    pstoreu                            & \texttimes  & \texttimes  & \texttimes  & \texttimes  & \texttimes  \\ \hline
+    pstoreu + umask                    & \texttimes  & \texttimes  & $\oslash$   & $\oslash$   & $\oslash$   \\ \hline
+    pgather                            & \texttimes  & \texttimes  & \texttimes  & \texttimes  & \texttimes  \\ \hline
+    pscatter                           & \texttimes  & \texttimes  & \texttimes  & -           & -           \\ \hline
+    pstore1                            & -           & -           & -           & $\oslash$   & $\oslash$   \\ \hline
+    pfirst                             & \texttimes  & \texttimes  & \texttimes  & \texttimes  & \texttimes  \\ \hline
+    preverse                           & \texttimes  & \texttimes  & \texttimes  & \texttimes  & \texttimes  \\ \hline
+    predux                             & \texttimes  & \texttimes  & \texttimes  & -           & -           \\ \hline
+    pfrexp_generic_get_biased_exponent & $\oslash$   & \texttimes  & $\oslash$   & $\oslash$   & $\oslash$   \\ \hline
+    pfrexp                             & -           & \texttimes  & $\oslash$   & $\oslash$   & $\oslash$   \\ \hline
+    pldexp                             & \texttimes  & \texttimes  & $\oslash$   & $\oslash$   & $\oslash$   \\ \hline
+    pbroadcast4                        & $\oslash$   & $\oslash$   & $\oslash$   & $\oslash$   & $\oslash$   \\ \hline
+    punpackp                           & $\oslash$   & $\oslash$   & $\oslash$   & $\oslash$   & $\oslash$   \\ \hline
+    predux_half_dowto4                 & \texttimes  & \texttimes  & \texttimes  & \texttimes  & \texttimes  \\ \hline
+    predux_mul                         & \texttimes  & \texttimes  & $\oslash$   & -           & -           \\ \hline
+    predux_min                         & \texttimes  & \texttimes  & $\oslash$   & -           & -           \\ \hline
+    predux_max                         & \texttimes  & \texttimes  & $\oslash$   & -           & -           \\ \hline
+    predux_any                         & \texttimes  & $\oslash$   & $\oslash$   & $\oslash$   & $\oslash$   \\ \hline
+    ptranspose                         & \texttimes* & \texttimes* & \texttimes* & \texttimes* & \texttimes* \\ \hline
+    pblend                             & ?           & \texttimes  & $\oslash$   & $\oslash$   & $\oslash$   \\ \hline
+    extract256                         & \texttimes  & $\oslash$   & $\oslash$   & $\oslash$   & $\oslash$   \\ \hline
+    extract128                         & $\oslash$   & \texttimes  & $\oslash$   & $\oslash$   & $\oslash$   \\ \hline
+    cat256                             & \texttimes  & $\oslash$   & $\oslash$   & $\oslash$   & $\oslash$   \\ \hline
+  \end{longtable}
+
+\end{landscape}
+\restoregeometry
